@@ -225,22 +225,30 @@
   </div>
 
   <!-- Pills -->
-  <div class="mt-6 flex gap-2" role="tablist" aria-label="Work tabs">
+  <div class="mt-12 flex flex-col items-center" role="tablist" aria-label="Work tabs">
+  <!-- Tabs -->
+  <div class="flex gap-8 relative">
     <button id="tab-projects"
             role="tab"
             aria-selected="true"
             aria-controls="panel-projects"
-            class="px-4 py-2 rounded-full text-sm font-semibold shadow ring-1 ring-teal-600 bg-teal-600 text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500">
+            class="tab-btn px-6 py-3 text-lg font-bold text-center text-white bg-teal-600 rounded-full shadow ring-1 ring-teal-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500 transition">
       Projects
     </button>
     <button id="tab-casestudy"
             role="tab"
             aria-selected="false"
             aria-controls="panel-casestudies"
-            class="px-4 py-2 rounded-full text-sm font-semibold ring-2 ring-teal-300 bg-white text-teal-700 hover:bg-white/70 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500">
-      Case study
+            class="tab-btn px-6 py-3 text-lg font-bold text-center text-teal-700 bg-white rounded-full ring-2 ring-teal-300 hover:bg-white/70 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500 transition">
+      Case Study
     </button>
   </div>
+
+  <!-- Underline Indicator -->
+ <div id="tab-indicator"
+       class="mt-3 h-0.5 w-full max-w-5xl rounded-full bg-gradient-to-r from-sky-600 via-teal-600 to-emerald-600 transition-all duration-300"></div>
+</div>
+
 
   <!-- Panels -->
   <div class="mt-8">
