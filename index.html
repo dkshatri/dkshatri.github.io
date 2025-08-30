@@ -190,43 +190,75 @@
     </div>
   </section>
 
-  <!-- Work: Tabs for Projects and Case study -->
-  <section id="work" class="container mx-auto px-4 py-14">
-    <div class="flex items-end justify-between">
-      <h2 class="text-3xl font-extrabold">Experience</h2>
-    </div>
+ <!-- Work: Experience -->
+<section id="work" class="container mx-auto px-4 py-14">
+  <div class="flex items-end justify-between">
+    <h2 class="text-3xl font-extrabold">Experience</h2>
+  </div>
 
-    <!-- Pills -->
-    <div class="mt-6 flex gap-2" role="tablist" aria-label="Work tabs">
-      <button id="tab-projects"
-              role="tab"
-              aria-selected="true"
-              aria-controls="panel-projects"
-              class="px-4 py-2 rounded-full text-sm font-semibold shadow ring-1 ring-teal-600 bg-teal-600 text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500">
-        Projects
-      </button>
-      <button id="tab-casestudy"
-              role="tab"
-              aria-selected="false"
-              aria-controls="panel-casestudies"
-              class="px-4 py-2 rounded-full text-sm font-semibold ring-2 ring-teal-300 bg-white text-teal-700 hover:bg-white/70 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500">
-        Case study
-      </button>
+  <!-- Metric Header (Animated) -->
+  <div id="work-metrics" class="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
+    <div class="rounded-2xl p-4 ring-1 ring-gray-200 bg-white/90 text-center">
+      <div class="text-3xl md:text-4xl font-extrabold bg-gradient-to-r from-sky-600 to-emerald-600 bg-clip-text text-transparent">
+        <span class="countup" data-target="12">0</span>+
+      </div>
+      <p class="mt-1 text-xs text-gray-600">Major projects</p>
     </div>
+    <div class="rounded-2xl p-4 ring-1 ring-gray-200 bg-white/90 text-center">
+      <div class="text-3xl md:text-4xl font-extrabold bg-gradient-to-r from-sky-600 to-emerald-600 bg-clip-text text-transparent">
+        <span class="countup" data-target="8">0</span>
+      </div>
+      <p class="mt-1 text-xs text-gray-600">Mobile apps shipped</p>
+    </div>
+    <div class="rounded-2xl p-4 ring-1 ring-gray-200 bg-white/90 text-center">
+      <div class="text-3xl md:text-4xl font-extrabold bg-gradient-to-r from-sky-600 to-emerald-600 bg-clip-text text-transparent">
+        <span class="countup" data-target="70">0</span>%
+      </div>
+      <p class="mt-1 text-xs text-gray-600">Cost saved (program)</p>
+    </div>
+    <div class="rounded-2xl p-4 ring-1 ring-gray-200 bg-white/90 text-center">
+      <div class="text-3xl md:text-4xl font-extrabold bg-gradient-to-r from-sky-600 to-emerald-600 bg-clip-text text-transparent">
+        4.<span class="countup" data-target="7">0</span>★
+      </div>
+      <p class="mt-1 text-xs text-gray-600">Summit CSAT</p>
+    </div>
+  </div>
 
-    <!-- Panels -->
-    <div class="mt-8">
-    <!-- Projects -->
+  <!-- Pills -->
+  <div class="mt-6 flex gap-2" role="tablist" aria-label="Work tabs">
+    <button id="tab-projects"
+            role="tab"
+            aria-selected="true"
+            aria-controls="panel-projects"
+            class="px-4 py-2 rounded-full text-sm font-semibold shadow ring-1 ring-teal-600 bg-teal-600 text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500">
+      Projects
+    </button>
+    <button id="tab-casestudy"
+            role="tab"
+            aria-selected="false"
+            aria-controls="panel-casestudies"
+            class="px-4 py-2 rounded-full text-sm font-semibold ring-2 ring-teal-300 bg-white text-teal-700 hover:bg-white/70 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500">
+      Case study
+    </button>
+  </div>
+
+  <!-- Panels -->
+  <div class="mt-8">
+    <!-- Projects (Masonry) -->
+    <!-- Projects (Equal-height Grid) -->
 <div id="panel-projects" role="tabpanel" aria-labelledby="tab-projects">
-  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-    <!-- 1 -->
-    <article class="rounded-3xl bg-white/95 shadow-xl ring-1 ring-gray-200 overflow-hidden hover:-translate-y-0.5 transition">
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <!-- 1: Machine translation tool -->
+    <article class="flex flex-col min-h-[420px] rounded-3xl bg-white/95 shadow-xl ring-1 ring-gray-200 overflow-hidden hover:-translate-y-0.5 transition">
       <div class="gbar bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500"></div>
-      <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1600&auto=format&fit=crop" class="aspect-square w-full object-cover" alt="Machine translation tool" />
-      <div class="p-4">
+      <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1600&auto=format&fit=crop"
+           class="aspect-square w-full object-cover" alt="Machine translation tool" />
+      <div class="flex flex-col p-4 flex-grow">
         <h3 class="font-semibold text-md">Machine translation tool</h3>
-        <p class="mt-2 text-xs text-gray-700">Translation memory and terms with automation. Hundreds of PDFs in many languages with strong quality checks and lower cost.</p>
-        <div class="mt-3 flex flex-wrap gap-2">
+        <p class="mt-2 text-xs text-gray-700">
+          Translation memory and terms with automation. Hundreds of PDFs in many languages with strong quality checks and lower cost.
+        </p>
+        <div class="mt-auto pt-3 flex flex-wrap gap-2">
           <span class="chip bg-sky-500">AWS</span>
           <span class="chip bg-teal-500">automation</span>
           <span class="chip bg-emerald-500">translation</span>
@@ -234,143 +266,167 @@
       </div>
     </article>
 
-	   <!-- Chat bot -->
-    <article class="rounded-3xl bg-white/95 shadow-xl ring-1 ring-gray-200 overflow-hidden hover:-translate-y-0.5 transition">
-  <div class="gbar bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500"></div>
-  <img
-    src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=1600&auto=format&fit=crop"
-    class="aspect-square w-full object-cover"
-    alt="Mobile app screen with chat interface representing an AI assistant"
-    loading="lazy"
-    decoding="async"
-    fetchpriority="low"
-  />
-  <div class="p-4">
-    <h3 class="font-semibold text-md">Interactive AI Chatbot (Mobile)</h3>
-    <p class="mt-2 text-xs text-gray-700">
-      Conversational assistant built into the app that answers questions, recommends next actions, and surfaces insights in real time.
-      Shipped with on-device fallback and privacy-safe telemetry to improve reliability.
-    </p>
-    <div class="mt-3 flex flex-wrap gap-2">
-      <span class="chip bg-sky-500">AI</span>
-      <span class="chip bg-teal-500">Chatbot</span>
-      <span class="chip bg-emerald-500">Mobile</span>
-    </div>
-  </div>
-</article>
-	  
-    <!-- 2 -->
-    <article class="rounded-3xl bg-white/95 shadow-xl ring-1 ring-gray-200 overflow-hidden hover:-translate-y-0.5 transition">
+    <!-- 2: Interactive AI Chatbot (Mobile) -->
+    <article class="flex flex-col min-h-[420px] rounded-3xl bg-white/95 shadow-xl ring-1 ring-gray-200 overflow-hidden hover:-translate-y-0.5 transition">
       <div class="gbar bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500"></div>
-      <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1600&auto=format&fit=crop" class="aspect-square w-full object-cover" alt="MS Teams Access app" />
-      <div class="p-4">
+      <img
+        src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=1600&auto=format&fit=crop"
+        class="aspect-square w-full object-cover"
+        alt="Mobile app screen with chat interface representing an AI assistant"
+        loading="lazy" decoding="async" fetchpriority="low"
+      />
+      <div class="flex flex-col p-4 flex-grow">
+        <h3 class="font-semibold text-md">Interactive AI Chatbot (Mobile)</h3>
+        <p class="mt-2 text-xs text-gray-700">
+          Conversational assistant that answers questions, recommends next actions, and surfaces insights in real time.
+          Includes token limits, conversation history (rename/delete), and privacy-safe telemetry.
+        </p>
+        <div class="mt-auto pt-3 flex flex-wrap gap-2">
+          <span class="chip bg-sky-500">AI</span>
+          <span class="chip bg-teal-500">Chatbot</span>
+          <span class="chip bg-emerald-500">Mobile</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- 3: MS Teams Access app -->
+    <article class="flex flex-col min-h-[420px] rounded-3xl bg-white/95 shadow-xl ring-1 ring-gray-200 overflow-hidden hover:-translate-y-0.5 transition">
+      <div class="gbar bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500"></div>
+      <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1600&auto=format&fit=crop"
+           class="aspect-square w-full object-cover" alt="MS Teams Access app" />
+      <div class="flex flex-col p-4 flex-grow">
         <h3 class="font-semibold text-md">MS Teams Access app</h3>
-        <p class="mt-2 text-xs text-gray-700">Brought strengths and engagement tools into daily chat and meetings which lifted adoption in enterprise accounts.</p>
-        <div class="mt-3 flex flex-wrap gap-2">
+        <p class="mt-2 text-xs text-gray-700">
+          Brought strengths and engagement tools into daily chat and meetings which lifted adoption in enterprise accounts.
+        </p>
+        <div class="mt-auto pt-3 flex flex-wrap gap-2">
           <span class="chip bg-sky-500">Teams</span>
           <span class="chip bg-teal-500">Graph</span>
           <span class="chip bg-emerald-500">enterprise</span>
         </div>
       </div>
     </article>
-    <!-- 3 -->
-    <article class="rounded-3xl bg-white/95 shadow-xl ring-1 ring-gray-200 overflow-hidden hover:-translate-y-0.5 transition">
+
+    <!-- 4: Mobile Access app -->
+    <article class="flex flex-col min-h-[420px] rounded-3xl bg-white/95 shadow-xl ring-1 ring-gray-200 overflow-hidden hover:-translate-y-0.5 transition">
       <div class="gbar bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500"></div>
       <img src="inspire_enquire.jpeg" class="aspect-square w-full object-cover" alt="Mobile Access app" />
-      <div class="p-4">
+      <div class="flex flex-col p-4 flex-grow">
         <h3 class="font-semibold text-md">Mobile Access app</h3>
-        <p class="mt-2 text-xs text-gray-700">Swift and SwiftUI improvements for speed and stability. Better startup time and fewer crashes which increased weekly use.</p>
-        <div class="mt-3 flex flex-wrap gap-2">
+        <p class="mt-2 text-xs text-gray-700">
+          Swift and SwiftUI improvements for speed and stability. Better startup time and fewer crashes which increased weekly use.
+        </p>
+        <div class="mt-auto pt-3 flex flex-wrap gap-2">
           <span class="chip bg-sky-500">Swift</span>
           <span class="chip bg-teal-500">SwiftUI</span>
           <span class="chip bg-emerald-500">performance</span>
         </div>
       </div>
     </article>
-    <!-- 4 -->
-    <article class="rounded-3xl bg-white/95 shadow-xl ring-1 ring-gray-200 overflow-hidden hover:-translate-y-0.5 transition">
+
+    <!-- 5: Product support leader -->
+    <article class="flex flex-col min-h-[420px] rounded-3xl bg-white/95 shadow-xl ring-1 ring-gray-200 overflow-hidden hover:-translate-y-0.5 transition">
       <div class="gbar bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500"></div>
-      <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600&auto=format&fit=crop" class="aspect-square w-full object-cover" alt="Product support leader" />
-      <div class="p-4">
+      <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600&auto=format&fit=crop"
+           class="aspect-square w-full object-cover" alt="Product support leader" />
+      <div class="flex flex-col p-4 flex-grow">
         <h3 class="font-semibold text-md">Product support leader</h3>
-        <p class="mt-2 text-xs text-gray-700">Built a steady process across triage, dashboards, and release notes so teams resolve issues faster and protect trust.</p>
-        <div class="mt-3 flex flex-wrap gap-2">
+        <p class="mt-2 text-xs text-gray-700">
+          Built a steady process across triage, dashboards, and release notes so teams resolve issues faster and protect trust.
+        </p>
+        <div class="mt-auto pt-3 flex flex-wrap gap-2">
           <span class="chip bg-sky-500">process</span>
           <span class="chip bg-teal-500">dashboards</span>
           <span class="chip bg-emerald-500">quality</span>
         </div>
       </div>
     </article>
-    <!-- 5 -->
-    <article class="rounded-3xl bg-white/95 shadow-xl ring-1 ring-gray-200 overflow-hidden hover:-translate-y-0.5 transition">
+
+    <!-- 6: Engagement Everyday -->
+    <article class="flex flex-col min-h-[420px] rounded-3xl bg-white/95 shadow-xl ring-1 ring-gray-200 overflow-hidden hover:-translate-y-0.5 transition">
       <div class="gbar bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500"></div>
-      <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1600&auto=format&fit=crop" class="aspect-square w-full object-cover" alt="Engagement Everyday" />
-      <div class="p-4">
+      <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1600&auto=format&fit=crop"
+           class="aspect-square w-full object-cover" alt="Engagement Everyday" />
+      <div class="flex flex-col p-4 flex-grow">
         <h3 class="font-semibold text-md">Engagement Everyday</h3>
-        <p class="mt-2 text-xs text-gray-700">Simple rituals and mobile prompts that nudge teams to act which raised participation in key activities.</p>
-        <div class="mt-3 flex flex-wrap gap-2">
+        <p class="mt-2 text-xs text-gray-700">
+          Simple rituals and mobile prompts that nudge teams to act which raised participation in key activities.
+        </p>
+        <div class="mt-auto pt-3 flex flex-wrap gap-2">
           <span class="chip bg-sky-500">mobile</span>
           <span class="chip bg-teal-500">nudges</span>
           <span class="chip bg-emerald-500">activation</span>
         </div>
       </div>
     </article>
-    <!-- 6 -->
-    <article class="rounded-3xl bg-white/95 shadow-xl ring-1 ring-gray-200 overflow-hidden hover:-translate-y-0.5 transition">
+
+    <!-- 7: Panel -->
+    <article class="flex flex-col min-h-[420px] rounded-3xl bg-white/95 shadow-xl ring-1 ring-gray-200 overflow-hidden hover:-translate-y-0.5 transition">
       <div class="gbar bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500"></div>
-     <img
-  src="https://thumbs.dreamstime.com/b/business-people-talking-group-meeting-circle-126183479.jpg"
-  alt="Panel"
-  class="aspect-square w-full object-cover"
-  loading="lazy"
-  decoding="async"
-/>
-      <div class="p-4">
+      <img
+        src="https://thumbs.dreamstime.com/b/business-people-talking-group-meeting-circle-126183479.jpg"
+        alt="Panel"
+        class="aspect-square w-full object-cover"
+        loading="lazy" decoding="async"
+      />
+      <div class="flex flex-col p-4 flex-grow">
         <h3 class="font-semibold text-md">Panel</h3>
-        <p class="mt-2 text-xs text-gray-700">Panel management flow for insights and research with clear privacy and simple onboarding.</p>
-        <div class="mt-3 flex flex-wrap gap-2">
+        <p class="mt-2 text-xs text-gray-700">
+          Panel management flow for insights and research with clear privacy and simple onboarding.
+        </p>
+        <div class="mt-auto pt-3 flex flex-wrap gap-2">
           <span class="chip bg-sky-500">research</span>
           <span class="chip bg-teal-500">privacy</span>
           <span class="chip bg-emerald-500">onboarding</span>
         </div>
       </div>
     </article>
-    <!-- 7 -->
-    <article class="rounded-3xl bg-white/95 shadow-xl ring-1 ring-gray-200 overflow-hidden hover:-translate-y-0.5 transition">
+
+    <!-- 8: Baloot Club -->
+    <article class="flex flex-col min-h-[420px] rounded-3xl bg-white/95 shadow-xl ring-1 ring-gray-200 overflow-hidden hover:-translate-y-0.5 transition">
       <div class="gbar bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500"></div>
       <img src="baloot_club.jpeg" class="aspect-square w-full object-cover" alt="Baloot Club" />
-      <div class="p-4">
+      <div class="flex flex-col p-4 flex-grow">
         <h3 class="font-semibold text-md">Baloot Club</h3>
-        <p class="mt-2 text-xs text-gray-700">Classic card game app with smooth play and clean UI built at Mobiware.</p>
-        <div class="mt-3 flex flex-wrap gap-2">
+        <p class="mt-2 text-xs text-gray-700">
+          Classic card game app with smooth play and clean UI built at Mobiware.
+        </p>
+        <div class="mt-auto pt-3 flex flex-wrap gap-2">
           <span class="chip bg-sky-500">iOS</span>
           <span class="chip bg-teal-500">games</span>
           <span class="chip bg-emerald-500">Objective C</span>
         </div>
       </div>
     </article>
-    <!-- 8 -->
-    <article class="rounded-3xl bg-white/95 shadow-xl ring-1 ring-gray-200 overflow-hidden hover:-translate-y-0.5 transition">
+
+    <!-- 9: XR app -->
+    <article class="flex flex-col min-h-[420px] rounded-3xl bg-white/95 shadow-xl ring-1 ring-gray-200 overflow-hidden hover:-translate-y-0.5 transition">
       <div class="gbar bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500"></div>
       <img src="xr_scanner.jpeg" class="aspect-square w-full object-cover" alt="XR app" />
-      <div class="p-4">
+      <div class="flex flex-col p-4 flex-grow">
         <h3 class="font-semibold text-md">XR app</h3>
-        <p class="mt-2 text-xs text-gray-700">Early exploration of extended reality on mobile with simple scenes and interaction for learning.</p>
-        <div class="mt-3 flex flex-wrap gap-2">
+        <p class="mt-2 text-xs text-gray-700">
+          Early exploration of extended reality on mobile with simple scenes and interaction for learning.
+        </p>
+        <div class="mt-auto pt-3 flex flex-wrap gap-2">
           <span class="chip bg-sky-500">XR</span>
           <span class="chip bg-teal-500">Swift</span>
           <span class="chip bg-emerald-500">prototype</span>
         </div>
       </div>
     </article>
-    <!-- 9 -->
-    <article class="rounded-3xl bg-white/95 shadow-xl ring-1 ring-gray-200 overflow-hidden hover:-translate-y-0.5 transition">
+
+    <!-- 10: Daleelo -->
+    <article class="flex flex-col min-h-[420px] rounded-3xl bg-white/95 shadow-xl ring-1 ring-gray-200 overflow-hidden hover:-translate-y-0.5 transition">
       <div class="gbar bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500"></div>
-      <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1600&auto=format&fit=crop" class="aspect-square w-full object-cover" alt="Daleelo" />
-      <div class="p-4">
+      <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1600&auto=format&fit=crop"
+           class="aspect-square w-full object-cover" alt="Daleelo" />
+      <div class="flex flex-col p-4 flex-grow">
         <h3 class="font-semibold text-md">Daleelo</h3>
-        <p class="mt-2 text-xs text-gray-700">Local search and discovery app with maps, places, and deals built at Mobiware.</p>
-        <div class="mt-3 flex flex-wrap gap-2">
+        <p class="mt-2 text-xs text-gray-700">
+          Local search and discovery app with maps, places, and deals built at Mobiware.
+        </p>
+        <div class="mt-auto pt-3 flex flex-wrap gap-2">
           <span class="chip bg-sky-500">maps</span>
           <span class="chip bg-teal-500">local</span>
           <span class="chip bg-emerald-500">mobile</span>
@@ -380,11 +436,10 @@
   </div>
 </div>
 
-
-      <!-- Case studies -->
-      <div id="panel-casestudies" role="tabpanel" aria-labelledby="tab-casestudy" class="hidden">
-        <div class="space-y-4">
-          <!-- Machine Translations -->
+    <!-- Case studies -->
+    <div id="panel-casestudies" role="tabpanel" aria-labelledby="tab-casestudy" class="hidden">
+      <div class="space-y-4">
+      <!-- Machine Translations -->
           <details id="cs-mt" class="group rounded-3xl bg-white/95 shadow-xl ring-1 ring-gray-200 overflow-hidden">
             <summary class="cursor-pointer select-none">
               <div class="flex gap-4 p-5 md:p-6">
@@ -1214,9 +1269,9 @@
             </div>
           </details>
         </div>
-      </div>
     </div>
-  </section>
+  </div>
+</section>
 
 <!-- Certifications -->
 <section id="certifications" class="container mx-auto px-4 py-14">
@@ -1436,5 +1491,102 @@
 
   // Initialize
   updateSlide(0);
-</script>
+  // --- CountUp on View (metrics) ---
+  (function () {
+    const els = document.querySelectorAll('#work .countup');
+    let hasAnimated = false;
 
+    function animate(el) {
+      const target = parseFloat(el.dataset.target || '0');
+      const isInt = Number.isInteger(target);
+      const duration = 1200; // ms
+      const start = performance.now();
+
+      function tick(now) {
+        const t = Math.min(1, (now - start) / duration);
+        const eased = 1 - Math.pow(1 - t, 3); // easeOutCubic
+        const val = target * eased;
+        el.textContent = isInt ? Math.round(val) : val.toFixed(1);
+        if (t < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    }
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting && !hasAnimated) {
+          hasAnimated = true;
+          els.forEach(animate);
+          io.disconnect();
+        }
+      });
+    }, { threshold: 0.3 });
+
+    const header = document.getElementById('work-metrics');
+    if (header) io.observe(header);
+  })();
+
+  // --- Tabs (Projects / Case study) ---
+  (function () {
+    const tabProjects = document.getElementById('tab-projects');
+    const tabCase = document.getElementById('tab-casestudy');
+    const panelProjects = document.getElementById('panel-projects');
+    const panelCase = document.getElementById('panel-casestudies');
+
+    function setProjectsSelected(isProjects, {updateHash = true} = {}) {
+      tabProjects.setAttribute('aria-selected', String(isProjects));
+      tabCase.setAttribute('aria-selected', String(!isProjects));
+
+      tabProjects.classList.toggle('bg-teal-600', isProjects);
+      tabProjects.classList.toggle('text-white', isProjects);
+      tabProjects.classList.toggle('ring-teal-600', isProjects);
+      tabProjects.classList.toggle('ring-2', !isProjects);
+      tabProjects.classList.toggle('bg-white', !isProjects);
+      tabProjects.classList.toggle('text-teal-700', !isProjects);
+
+      tabCase.classList.toggle('bg-teal-600', !isProjects);
+      tabCase.classList.toggle('text-white', !isProjects);
+      tabCase.classList.toggle('ring-teal-600', !isProjects);
+      tabCase.classList.toggle('ring-2', isProjects);
+      tabCase.classList.toggle('bg-white', isProjects);
+      tabCase.classList.toggle('text-teal-700', isProjects);
+
+      panelProjects.classList.toggle('hidden', !isProjects);
+      panelCase.classList.toggle('hidden', isProjects);
+
+      if (updateHash) {
+        const base = '#work/';
+        const next = isProjects ? 'projects' : 'case';
+        if (location.hash !== base + next) history.pushState(null, '', base + next);
+      }
+    }
+
+    tabProjects?.addEventListener('click', () => { setProjectsSelected(true); tabProjects.focus(); });
+    tabCase?.addEventListener('click', () => { setProjectsSelected(false); tabCase.focus(); });
+
+    function handleKey(e){
+      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+        const goCase = (e.key === 'ArrowRight' && document.activeElement === tabProjects) ||
+                       (e.key === 'ArrowLeft' && document.activeElement === tabCase);
+        if (goCase) { tabCase.focus(); setProjectsSelected(false); }
+        else { tabProjects.focus(); setProjectsSelected(true); }
+      }
+    }
+    tabProjects?.addEventListener('keydown', handleKey);
+    tabCase?.addEventListener('keydown', handleKey);
+
+    // Initialize from hash
+    (function initFromHash() {
+      const h = (location.hash || '').toLowerCase();
+      if (h.includes('#work/case')) setProjectsSelected(false, {updateHash:false});
+      else setProjectsSelected(true, {updateHash:false});
+    })();
+
+    // Back/Forward support
+    window.addEventListener('hashchange', () => {
+      const h = (location.hash || '').toLowerCase();
+      if (h.includes('#work/case')) setProjectsSelected(false, {updateHash:false});
+      else if (h.includes('#work/projects')) setProjectsSelected(true, {updateHash:false});
+    });
+  })();
+</script>
