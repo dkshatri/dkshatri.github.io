@@ -1537,20 +1537,76 @@ const ROLES = [
   // Footer year
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // --- Tabs (Projects / Case study) with hash navigation ---
+  // ---- SAFE view counter (only runs if #total-views exists) ----
+  (function () {
+    const target = document.getElementById('total-views');
+    if (!target) return; // skip if element is not on the page
+    const NS  = 'divya-portfolio';
+    const KEY = 'home';
+    fetch(`https://api.countapi.xyz/create?namespace=${NS}&key=${KEY}&value=0&update_lowerbound=0`, { method: 'GET' })
+      .finally(() => {
+        fetch(`https://api.countapi.xyz/hit/${NS}/${KEY}`)
+          .then(r => r.json())
+          .then(d => { target.textContent = d.value.toLocaleString(); })
+          .catch(() => { target.textContent = '—'; });
+      });
+  })();
+
+  // ---- Responsibilities Slider ----
+  (function () {
+    const slider = document.getElementById('slider');
+    if (!slider) return;
+    const slides = slider.children;
+    const totalSlides = slides.length;
+    const dotsContainer = document.getElementById('dots');
+    let currentIndex = 0, autoScroll;
+
+    for (let i = 0; i < totalSlides; i++) {
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'w-3 h-3 rounded-full bg-gray-300 inline-block transition';
+      dot.setAttribute('aria-label', `Go to slide ${i+1}`);
+      dot.addEventListener('click', () => { currentIndex = i; updateSlide(i); });
+      dotsContainer.appendChild(dot);
+    }
+    const dots = dotsContainer.children;
+
+    function updateSlide(index) {
+      slider.style.transform = `translateX(-${index * 100}%)`;
+      for (let i = 0; i < dots.length; i++) {
+        dots[i].className = i === index
+          ? 'w-3 h-3 rounded-full bg-gradient-to-r from-sky-600 to-emerald-600 inline-block transition'
+          : 'w-3 h-3 rounded-full bg-gray-300 inline-block transition';
+      }
+    }
+    function startAutoScroll() {
+      stopAutoScroll();
+      autoScroll = setInterval(() => {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        updateSlide(currentIndex);
+      }, 4000);
+    }
+    function stopAutoScroll() { if (autoScroll) clearInterval(autoScroll); }
+
+    slider.parentElement.addEventListener('mouseenter', stopAutoScroll);
+    slider.parentElement.addEventListener('mouseleave', startAutoScroll);
+
+    updateSlide(0);
+    startAutoScroll();
+  })();
+
+  // ---- Tabs (Projects / Case study) ----
   (function () {
     const tabProjects = document.getElementById('tab-projects');
-    const tabCase = document.getElementById('tab-casestudy');
+    const tabCase     = document.getElementById('tab-casestudy');
     const panelProjects = document.getElementById('panel-projects');
-    const panelCase = document.getElementById('panel-casestudies');
+    const panelCase     = document.getElementById('panel-casestudies');
+    if (!tabProjects || !tabCase || !panelProjects || !panelCase) return;
 
-    // Apply selected state: true => Projects, false => Case study
     function setProjectsSelected(isProjects, {updateHash = true} = {}) {
-      // aria
       tabProjects.setAttribute('aria-selected', String(isProjects));
       tabCase.setAttribute('aria-selected', String(!isProjects));
 
-      // pill visuals for Projects
       tabProjects.classList.toggle('bg-teal-600', isProjects);
       tabProjects.classList.toggle('text-white', isProjects);
       tabProjects.classList.toggle('ring-teal-600', isProjects);
@@ -1558,7 +1614,6 @@ const ROLES = [
       tabProjects.classList.toggle('bg-white', !isProjects);
       tabProjects.classList.toggle('text-teal-700', !isProjects);
 
-      // pill visuals for Case study
       tabCase.classList.toggle('bg-teal-600', !isProjects);
       tabCase.classList.toggle('text-white', !isProjects);
       tabCase.classList.toggle('ring-teal-600', !isProjects);
@@ -1566,267 +1621,87 @@ const ROLES = [
       tabCase.classList.toggle('bg-white', isProjects);
       tabCase.classList.toggle('text-teal-700', isProjects);
 
-      // panels
       panelProjects.classList.toggle('hidden', !isProjects);
       panelCase.classList.toggle('hidden', isProjects);
 
-      // update URL hash for deep-linking
       if (updateHash) {
-        const base = '#work/';
-        const next = isProjects ? 'projects' : 'case';
-        if (location.hash !== base + next) {
-          history.pushState(null, '', base + next);
-        }
+        const next = isProjects ? '#work/projects' : '#work/case';
+        if (location.hash !== next) history.pushState(null, '', next);
       }
     }
 
-    // Click handlers
-    tabProjects.addEventListener('click', () => {
-      setProjectsSelected(true);
-      tabProjects.focus();
-    });
-    tabCase.addEventListener('click', () => {
-      setProjectsSelected(false);
-      tabCase.focus();
-    });
+    tabProjects.addEventListener('click', () => { setProjectsSelected(true);  tabProjects.focus(); });
+    tabCase.addEventListener('click',     () => { setProjectsSelected(false); tabCase.focus(); });
 
-    // Keyboard left/right
     function handleKey(e){
       if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
         const goCase = (e.key === 'ArrowRight' && document.activeElement === tabProjects) ||
-                       (e.key === 'ArrowLeft' && document.activeElement === tabCase);
+                       (e.key === 'ArrowLeft'  && document.activeElement === tabCase);
         if (goCase) { tabCase.focus(); setProjectsSelected(false); }
-        else { tabProjects.focus(); setProjectsSelected(true); }
+        else        { tabProjects.focus(); setProjectsSelected(true);  }
       }
     }
     tabProjects.addEventListener('keydown', handleKey);
     tabCase.addEventListener('keydown', handleKey);
 
-    // On load: respect hash (#work/projects or #work/case). Default: projects.
-    function initFromHash() {
-      const h = (location.hash || '').toLowerCase();
-      if (h.includes('#work/case')) setProjectsSelected(false, {updateHash:false});
-      else setProjectsSelected(true, {updateHash:false});
-    }
-    initFromHash();
+    // Init from hash
+    const h = (location.hash || '').toLowerCase();
+    if (h.includes('#work/case')) setProjectsSelected(false, {updateHash:false});
+    else                          setProjectsSelected(true,  {updateHash:false});
 
-    // Back/Forward support
+    // Back/Forward
     window.addEventListener('hashchange', () => {
-      const h = (location.hash || '').toLowerCase();
-      if (h.includes('#work/case')) setProjectsSelected(false, {updateHash:false});
-      else if (h.includes('#work/projects')) setProjectsSelected(true, {updateHash:false});
-    });
-  })();
- 
-  // Change these to your own namespace/key (one per page)
-  const NS  = 'divya-portfolio';
-  const KEY = 'home';
-
-  // Create key if missing, then increment and display
-  fetch(`https://api.countapi.xyz/create?namespace=${NS}&key=${KEY}&value=0&update_lowerbound=0`, { method: 'GET' })
-    .finally(() => {
-      fetch(`https://api.countapi.xyz/hit/${NS}/${KEY}`)
-        .then(r => r.json())
-        .then(d => { document.getElementById('total-views').textContent = d.value.toLocaleString(); })
-        .catch(() => { document.getElementById('total-views').textContent = '—'; });
-    });
-   
-    <!-- Slider Script -->
-  const slider = document.getElementById('slider');
-  const slides = slider.children;
-  const totalSlides = slides.length;
-  const dotsContainer = document.getElementById('dots');
-  let currentIndex = 0;
-  let autoScroll;
-
-  // Create navigation dots
-  for (let i = 0; i < totalSlides; i++) {
-    const dot = document.createElement('span');
-    dot.className = 'w-3 h-3 rounded-full bg-gray-300 inline-block transition';
-    dotsContainer.appendChild(dot);
-  }
-
-  const dots = dotsContainer.children;
-
-  function updateSlide(index) {
-    slider.style.transform = `translateX(-${index * 100}%)`;
-    for (let i = 0; i < dots.length; i++) {
-      dots[i].className =
-        i === index
-          ? 'w-3 h-3 rounded-full bg-gradient-to-r from-sky-600 to-emerald-600 inline-block transition'
-          : 'w-3 h-3 rounded-full bg-gray-300 inline-block transition';
-    }
-  }
-
-  function startAutoScroll() {
-    autoScroll = setInterval(() => {
-      currentIndex = (currentIndex + 1) % totalSlides;
-      updateSlide(currentIndex);
-    }, 4000);
-  }
-
-  function stopAutoScroll() {
-    clearInterval(autoScroll);
-  }
-
-  // Start auto scroll on load
-  startAutoScroll();
-
-  // Pause on hover
-  slider.parentElement.addEventListener('mouseenter', stopAutoScroll);
-  slider.parentElement.addEventListener('mouseleave', startAutoScroll);
-
-  // Initialize
-  updateSlide(0);
-  // --- CountUp on View (metrics) ---
-  (function () {
-    const els = document.querySelectorAll('#work .countup');
-    let hasAnimated = false;
-
-    function animate(el) {
-      const target = parseFloat(el.dataset.target || '0');
-      const isInt = Number.isInteger(target);
-      const duration = 1200; // ms
-      const start = performance.now();
-
-      function tick(now) {
-        const t = Math.min(1, (now - start) / duration);
-        const eased = 1 - Math.pow(1 - t, 3); // easeOutCubic
-        const val = target * eased;
-        el.textContent = isInt ? Math.round(val) : val.toFixed(1);
-        if (t < 1) requestAnimationFrame(tick);
-      }
-      requestAnimationFrame(tick);
-    }
-
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting && !hasAnimated) {
-          hasAnimated = true;
-          els.forEach(animate);
-          io.disconnect();
-        }
-      });
-    }, { threshold: 0.3 });
-
-    const header = document.getElementById('work-metrics');
-    if (header) io.observe(header);
-  })();
-
-  // --- Tabs (Projects / Case study) ---
-  (function () {
-    const tabProjects = document.getElementById('tab-projects');
-    const tabCase = document.getElementById('tab-casestudy');
-    const panelProjects = document.getElementById('panel-projects');
-    const panelCase = document.getElementById('panel-casestudies');
-
-    function setProjectsSelected(isProjects, {updateHash = true} = {}) {
-      tabProjects.setAttribute('aria-selected', String(isProjects));
-      tabCase.setAttribute('aria-selected', String(!isProjects));
-
-      tabProjects.classList.toggle('bg-teal-600', isProjects);
-      tabProjects.classList.toggle('text-white', isProjects);
-      tabProjects.classList.toggle('ring-teal-600', isProjects);
-      tabProjects.classList.toggle('ring-2', !isProjects);
-      tabProjects.classList.toggle('bg-white', !isProjects);
-      tabProjects.classList.toggle('text-teal-700', !isProjects);
-
-      tabCase.classList.toggle('bg-teal-600', !isProjects);
-      tabCase.classList.toggle('text-white', !isProjects);
-      tabCase.classList.toggle('ring-teal-600', !isProjects);
-      tabCase.classList.toggle('ring-2', isProjects);
-      tabCase.classList.toggle('bg-white', isProjects);
-      tabCase.classList.toggle('text-teal-700', isProjects);
-
-      panelProjects.classList.toggle('hidden', !isProjects);
-      panelCase.classList.toggle('hidden', isProjects);
-
-      if (updateHash) {
-        const base = '#work/';
-        const next = isProjects ? 'projects' : 'case';
-        if (location.hash !== base + next) history.pushState(null, '', base + next);
-      }
-    }
-
-    tabProjects?.addEventListener('click', () => { setProjectsSelected(true); tabProjects.focus(); });
-    tabCase?.addEventListener('click', () => { setProjectsSelected(false); tabCase.focus(); });
-
-    function handleKey(e){
-      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
-        const goCase = (e.key === 'ArrowRight' && document.activeElement === tabProjects) ||
-                       (e.key === 'ArrowLeft' && document.activeElement === tabCase);
-        if (goCase) { tabCase.focus(); setProjectsSelected(false); }
-        else { tabProjects.focus(); setProjectsSelected(true); }
-      }
-    }
-    tabProjects?.addEventListener('keydown', handleKey);
-    tabCase?.addEventListener('keydown', handleKey);
-
-    // Initialize from hash
-    (function initFromHash() {
-      const h = (location.hash || '').toLowerCase();
-      if (h.includes('#work/case')) setProjectsSelected(false, {updateHash:false});
-      else setProjectsSelected(true, {updateHash:false});
-    })();
-
-    // Back/Forward support
-    window.addEventListener('hashchange', () => {
-      const h = (location.hash || '').toLowerCase();
-      if (h.includes('#work/case')) setProjectsSelected(false, {updateHash:false});
-      else if (h.includes('#work/projects')) setProjectsSelected(true, {updateHash:false});
+      const hh = (location.hash || '').toLowerCase();
+      if (hh.includes('#work/case'))      setProjectsSelected(false, {updateHash:false});
+      else if (hh.includes('#work/projects')) setProjectsSelected(true,  {updateHash:false});
     });
   })();
 
-	/* ==== DATA (same as yours) ==== */
-const ROLES = [
-  { title:"iOS Developer", years:"2011–2013",
-    desc:"Dealt Swift/Obj-C features with an ace-level UX finish." },
-  { title:"Software Developer", years:"2013–2016",
-    desc:"Built reliable combos—APIs, CI/CD, testing—a steady hand every round." },
-  { title:"Senior Software Developer", years:"2016–2022",
-    desc:"Played power cards: scalable services, mobile polish, and reviews that keep the house edge low." },
-  { title:"TPM", years:"2019–2025",
-    desc:"Shuffled squads, counted cards on capacity, and kept releases on the table—no busts." },
-  { title:"Product Manager", years:"2020–2025",
-    desc:"Stacked the deck with crisp roadmaps, dealt AI features, and banked measurable wins." }
-];
+  // ---- Roles "hand of cards" (renamed data to avoid const collisions) ----
+  const HAND_ROLES = [
+    { title:"iOS Developer", years:"2011–2013",
+      desc:"Dealt Swift/Obj-C features with an ace-level UX finish." },
+    { title:"Software Developer", years:"2013–2016",
+      desc:"Built reliable combos—APIs, CI/CD, testing—a steady hand every round." },
+    { title:"Senior Software Developer", years:"2016–2022",
+      desc:"Played power cards: scalable services, mobile polish, and reviews that keep the house edge low." },
+    { title:"TPM", years:"2019–2025",
+      desc:"Shuffled squads, counted cards on capacity, and kept releases on the table—no busts." },
+    { title:"Product Manager", years:"2020–2025",
+      desc:"Stacked the deck with crisp roadmaps, dealt AI features, and banked measurable wins." }
+  ];
 
-/* ==== RENDER + FAN (angles only; size is uniform from CSS) ==== */
-(function mountHand(){
-  const root = document.getElementById('hand-cards');
-  const n = ROLES.length;
-  const maxAngle = 22;      // total fan angle
-  const spreadX  = 56;      // horizontal offset amount
-  const lift     = 8;       // raise the center card slightly
-  const baseZ    = 10;
+  (function mountHand(){
+    const root = document.getElementById('hand-cards');
+    if (!root) return;
+    const n = HAND_ROLES.length;
+    const maxAngle = 22, spreadX = 56, lift = 8, baseZ = 10;
 
-  ROLES.forEach((r, i) => {
-    const t = (i - (n - 1)/2) / ((n - 1)/2 || 1);  // -1..1 across the fan
-    const angle = (t * maxAngle).toFixed(2) + 'deg';
-    const dx    = (t * spreadX).toFixed(1) + 'px';
-    const y     = Math.abs(t) * lift;
+    HAND_ROLES.forEach((r, i) => {
+      const t = (i - (n - 1)/2) / ((n - 1)/2 || 1);  // -1..1
+      const angle = (t * maxAngle).toFixed(2) + 'deg';
+      const dx    = (t * spreadX).toFixed(1) + 'px';
+      const y     = Math.abs(t) * lift;
 
-    const card = document.createElement('article');
-    card.className = 'role-card';
-    card.style.setProperty('--angle', angle);
-    card.style.setProperty('--dx', dx);
-    card.style.top = `calc(18% + ${y}px)`;
-    card.style.zIndex = String(baseZ + i);
-
-    card.innerHTML = `
-      <div class="card-body">
-        <span class="year-chip">${r.years}</span>
-        <h3 class="role-title">${r.title}</h3>
-        <p class="role-desc">${r.desc}</p>
-      </div>
-    `;
-
-    card.addEventListener('mouseenter', () => card.style.zIndex = 999);
-    card.addEventListener('mouseleave', () => card.style.zIndex = String(baseZ + i));
-    root.appendChild(card);
-  });
-})();
+      const card = document.createElement('article');
+      card.className = 'role-card';
+      card.style.setProperty('--angle', angle);
+      card.style.setProperty('--dx', dx);
+      card.style.top = `calc(18% + ${y}px)`;
+      card.style.zIndex = String(baseZ + i);
+      card.innerHTML = `
+        <div class="card-body">
+          <span class="year-chip">${r.years}</span>
+          <h3 class="role-title">${r.title}</h3>
+          <p class="role-desc">${r.desc}</p>
+        </div>`;
+      card.addEventListener('mouseenter', () => card.style.zIndex = 999);
+      card.addEventListener('mouseleave', () => card.style.zIndex = String(baseZ + i));
+      root.appendChild(card);
+    });
+  })();
 </script>
+
 
 
 
