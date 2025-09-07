@@ -26,11 +26,16 @@
     <div class="container mx-auto px-4 py-4 flex items-center justify-between">
       <a href="#home" class="text-2xl font-extrabold tracking-tight bg-gradient-to-r from-sky-600 via-teal-600 to-emerald-600 bg-clip-text text-transparent">Divya Kshatri</a>
       <nav class="hidden md:flex gap-6 text-sm font-medium">
-        <a href="#home" class="hover:text-sky-600">Intro</a>
-        <a href="#nutshell" class="hover:text-teal-600">Nutshell</a>
-        <a href="#work" class="hover:text-teal-600">Work</a>
-        <a href="#contact" class="hover:text-emerald-600">Contact</a>
-      </nav>
+  <a href="#home" class="hover:text-sky-600">Intro</a>
+  <a href="#nutshell" class="hover:text-teal-600">Nutshell</a>
+  <a href="#work/projects" class="hover:text-teal-600">Projects</a>
+  <!-- NEW: Case Studies switches to the Case tab -->
+  <a href="#work/case" id="nav-casestudies" class="hover:text-teal-600">Case Studies</a>
+  <!-- NEW: Coaching Corner opens a separate page -->
+  <a href="/coaching.html" target="_blank" rel="noopener" class="hover:text-emerald-600">Coaching Corner</a>
+  <a href="#contact" class="hover:text-emerald-600">Contact</a>
+</nav>
+
       <a href="#contact" class="hidden md:inline-block text-sm font-semibold px-4 py-2 rounded-xl text-white bg-gradient-to-r from-sky-600 to-emerald-600 shadow hover:opacity-90">Say hello</a>
     </div>
   </header>
@@ -1405,6 +1410,8 @@
     flex:0 0 auto; scroll-snap-align:start;
   }
 }
+html { scroll-behavior: smooth; }
+
 </style>
 
 <script>
@@ -1533,17 +1540,22 @@ const ROLES = [
       <a href="#home" class="px-3 py-1.5 rounded-lg bg-white/80 ring-1 ring-gray-200 hover:ring-teal-300">Top</a>
     </div>
   </footer>
+  
+  
+  
 <script>
-  // Footer year
-  document.getElementById('year').textContent = new Date().getFullYear();
+document.addEventListener('DOMContentLoaded', () => {
+  /* ===== Footer year ===== */
+  const yearEl = document.getElementById('year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // ---- SAFE view counter (only runs if #total-views exists) ----
+  /* ===== SAFE view counter (only runs if #total-views exists) ===== */
   (function () {
     const target = document.getElementById('total-views');
-    if (!target) return; // skip if element is not on the page
+    if (!target) return;
     const NS  = 'divya-portfolio';
     const KEY = 'home';
-    fetch(`https://api.countapi.xyz/create?namespace=${NS}&key=${KEY}&value=0&update_lowerbound=0`, { method: 'GET' })
+    fetch(`https://api.countapi.xyz/create?namespace=${NS}&key=${KEY}&value=0&update_lowerbound=0`)
       .finally(() => {
         fetch(`https://api.countapi.xyz/hit/${NS}/${KEY}`)
           .then(r => r.json())
@@ -1552,7 +1564,7 @@ const ROLES = [
       });
   })();
 
-  // ---- Responsibilities Slider ----
+  /* ===== Responsibilities Slider ===== */
   (function () {
     const slider = document.getElementById('slider');
     if (!slider) return;
@@ -1595,12 +1607,14 @@ const ROLES = [
     startAutoScroll();
   })();
 
-  // ---- Tabs (Projects / Case study) ----
+  /* ===== Work Tabs (Projects / Case Studies) with hash routing ===== */
   (function () {
-    const tabProjects = document.getElementById('tab-projects');
-    const tabCase     = document.getElementById('tab-casestudy');
-    const panelProjects = document.getElementById('panel-projects');
-    const panelCase     = document.getElementById('panel-casestudies');
+    const tabProjects    = document.getElementById('tab-projects');
+    const tabCase        = document.getElementById('tab-casestudy');
+    const panelProjects  = document.getElementById('panel-projects');
+    const panelCase      = document.getElementById('panel-casestudies');
+    const workSection    = document.getElementById('work');
+
     if (!tabProjects || !tabCase || !panelProjects || !panelCase) return;
 
     function setProjectsSelected(isProjects, {updateHash = true} = {}) {
@@ -1652,28 +1666,79 @@ const ROLES = [
     // Back/Forward
     window.addEventListener('hashchange', () => {
       const hh = (location.hash || '').toLowerCase();
-      if (hh.includes('#work/case'))      setProjectsSelected(false, {updateHash:false});
-      else if (hh.includes('#work/projects')) setProjectsSelected(true,  {updateHash:false});
+      if (hh.includes('#work/case'))            setProjectsSelected(false, {updateHash:false});
+      else if (hh.includes('#work/projects'))   setProjectsSelected(true,  {updateHash:false});
+    });
+
+    // Ensure "See projects" links switch the tab
+    document.querySelectorAll('a[href="#work"]').forEach(a => a.setAttribute('href', '#work/projects'));
+
+    // Hook the top nav Case Studies item to always open the Case tab and scroll
+    const navCase = document.getElementById('nav-casestudies');
+    function goToWorkAndSetTab(isCase){
+      location.hash = isCase ? '#work/case' : '#work/projects';
+      if (workSection) workSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    navCase?.addEventListener('click', (e) => {
+      e.preventDefault();
+      goToWorkAndSetTab(true);
+    });
+  })();
+  
+  (function () {
+    const workSection = document.getElementById('work');
+    function goToWorkAndSetTab(isCase){
+      // flip the hash to trigger your tab code
+      location.hash = isCase ? '#work/case' : '#work/projects';
+      // ensure scroll into view (some browsers won’t auto-jump if hash was same)
+      if (workSection) workSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // Hook the top nav item (works even without this, but guarantees scroll)
+    const navCase = document.getElementById('nav-casestudies');
+    navCase?.addEventListener('click', (e) => {
+      e.preventDefault();
+      goToWorkAndSetTab(true);
     });
   })();
 
-  // ---- Roles "hand of cards" (renamed data to avoid const collisions) ----
-  const HAND_ROLES = [
-    { title:"iOS Developer", years:"2011–2013",
-      desc:"Dealt Swift/Obj-C features with an ace-level UX finish." },
-    { title:"Software Developer", years:"2013–2016",
-      desc:"Built reliable combos—APIs, CI/CD, testing—a steady hand every round." },
-    { title:"Senior Software Developer", years:"2016–2022",
-      desc:"Played power cards: scalable services, mobile polish, and reviews that keep the house edge low." },
-    { title:"TPM", years:"2019–2025",
-      desc:"Shuffled squads, counted cards on capacity, and kept releases on the table—no busts." },
-    { title:"Product Manager", years:"2020–2025",
-      desc:"Stacked the deck with crisp roadmaps, dealt AI features, and banked measurable wins." }
-  ];
+  /* ===== Ensure unique #solution / #outcomes anchors inside each case study ===== */
+  (function () {
+    // For each <details id="...">, rename any descendant section IDs 'solution'/'outcomes'
+    // to '<details-id>-solution' / '<details-id>-outcomes', and fix local links.
+    document.querySelectorAll('details[id]').forEach(d => {
+      const did = d.id;
 
-  (function mountHand(){
+      // fix section IDs
+      const sol = d.querySelector('section#solution');
+      const out = d.querySelector('section#outcomes');
+      if (sol) sol.id = `${did}-solution`;
+      if (out) out.id = `${did}-outcomes`;
+
+      // fix links within this details to those anchors
+      d.querySelectorAll('a[href="#solution"]').forEach(a => a.setAttribute('href', `#${did}-solution`));
+      d.querySelectorAll('a[href="#outcomes"]').forEach(a => a.setAttribute('href', `#${did}-outcomes`));
+    });
+  })();
+
+  /* ===== Roles: hand of cards (single mount) ===== */
+  (function () {
+    const HAND_ROLES = [
+      { title:"iOS Developer", years:"2011–2013",
+        desc:"Dealt Swift/Obj-C features with an ace-level UX finish." },
+      { title:"Software Developer", years:"2013–2016",
+        desc:"Built reliable combos—APIs, CI/CD, testing—a steady hand every round." },
+      { title:"Senior Software Developer", years:"2016–2022",
+        desc:"Played power cards: scalable services, mobile polish, and reviews that keep the house edge low." },
+      { title:"TPM", years:"2019–2025",
+        desc:"Shuffled squads, counted cards on capacity, and kept releases on the table—no busts." },
+      { title:"Product Manager", years:"2020–2025",
+        desc:"Stacked the deck with crisp roadmaps, dealt AI features, and banked measurable wins." }
+    ];
+
     const root = document.getElementById('hand-cards');
     if (!root) return;
+
     const n = HAND_ROLES.length;
     const maxAngle = 22, spreadX = 56, lift = 8, baseZ = 10;
 
@@ -1700,11 +1765,5 @@ const ROLES = [
       root.appendChild(card);
     });
   })();
+});
 </script>
-
-
-
-
-
-
-
