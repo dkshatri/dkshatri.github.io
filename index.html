@@ -18,523 +18,8 @@
     summary::marker { content: ""; }
     section[id] { scroll-margin-top: 6rem; }
     .aspect-square1{ aspect-ratio:1/1.25}
-  </style>
-</head>
-<body class="bg-gradient-to-br from-sky-50 via-teal-50 to-emerald-50 text-gray-900">
-  <!-- Header -->
-  <header class="sticky top-0 z-50 backdrop-blur bg-white/80 shadow-sm ring-1 ring-white/60">
-    <div class="container mx-auto px-4 py-4 flex items-center justify-between">
-      <a href="#home" class="text-2xl font-extrabold tracking-tight bg-gradient-to-r from-sky-600 via-teal-600 to-emerald-600 bg-clip-text text-transparent">Divya Kshatri</a>
-      <nav class="hidden md:flex gap-6 text-sm font-medium">
-        <a href="#home" class="hover:text-sky-600">Intro</a>
-        <a href="#nutshell" class="hover:text-teal-600">Nutshell</a>
-        <a href="#work/projects" class="hover:text-teal-600">Projects</a>
-        <!-- NEW: Case Studies switches to the Case tab -->
-        <a href="#work/case" id="nav-casestudies" class="hover:text-teal-600">Case Studies</a>
-        <!-- NEW: Coaching Corner opens a separate page -->
-        <a href="/coaching.html" target="_blank" rel="noopener" class="hover:text-emerald-600">Coaching Corner</a>
-        <a href="#contact" class="hover:text-emerald-600">Contact</a>
-      </nav>
-
-      <a href="#contact" class="hidden md:inline-block text-sm font-semibold px-4 py-2 rounded-xl text-white bg-gradient-to-r from-sky-600 to-emerald-600 shadow hover:opacity-90">Say hello</a>
-    </div>
-  </header>
-
-  <!-- Intro -->
-  <section id="home" class="container mx-auto px-4 pt-12 md:pt-16">
-    <!-- 2-col grid where the 2nd col shrinks to its content -->
-    <div class="grid gap-8 md:[grid-template-columns:minmax(0,1fr)_auto] items-center">
-      <!-- Left: Text fills all remaining width -->
-      <div>
-        <p class="uppercase tracking-widest text-xs text-gray-500">
-          Product leadership • Mobile • AI • Web • MS Teams
-        </p>
-        <h1 class="mt-2 text-4xl md:text-6xl font-extrabold leading-tight
-                   bg-gradient-to-r from-sky-700 via-teal-700 to-emerald-700
-                   bg-clip-text text-transparent">
-          I design intuitive, engaging product journeys that delight users and drive measurable impact.
-        </h1>
-        <p class="mt-4 text-lg text-gray-700">
-          I build mobile and AI powered products with simple UX, fast performance, and results that show up on a dashboard.
-        </p>
-        <div class="mt-6 flex flex-wrap gap-3">
-          <a href="#work" class="px-5 py-2 rounded-xl text-white font-semibold bg-gradient-to-r from-sky-600 to-emerald-600 shadow hover:opacity-90">
-            See projects
-          </a>
-          <a href="#contact" class="px-5 py-2 rounded-xl font-semibold ring-2 ring-teal-300 bg-white/70 hover:bg-white">
-            Contact
-          </a>
-        </div>
-      </div>
-
-      <!-- Right: Image column is only as wide as the image -->
-      <div class="flex justify-center md:justify-end">
-        <div class="aspect-square1 w-[320px] md:w-[340px] rounded-3xl overflow-hidden shadow-2xl ring-4 ring-white/60">
-          <img
-            src="profile_pic.jpeg"
-            alt="Divya Kshatri"
-            class="w-full h-full object-cover"
-          />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PM Responsibilities Slideshow -->
-  <section id="responsibilities" class="container mx-auto px-4 py-12">
-    <h2 class="text-2xl md:text-3xl font-bold text-center bg-gradient-to-r from-sky-700 via-teal-700 to-emerald-700 bg-clip-text text-transparent mb-6">
-      Snapshot of My Expertise
-    </h2>
-    <div class="relative overflow-hidden rounded-3xl shadow-xl ring-1 ring-gray-200 group">
-      <!-- Slider Container -->
-      <div id="slider" class="flex transition-transform duration-700 ease-in-out">
-        <!-- Slides -->
-        <div class="flex-none w-full flex items-center justify-center p-6 bg-gradient-to-r from-sky-50 to-teal-50 text-center">
-          <p class="text-lg md:text-xl font-semibold text-gray-800">Turned data into action, driving smarter AI and product strategies.</p>
-        </div>
-        <div class="flex-none w-full flex items-center justify-center p-6 bg-gradient-to-r from-teal-50 to-emerald-50 text-center">
-          <p class="text-lg md:text-xl font-semibold text-gray-800">Decoded cohorts and funnels to refine engagement and retention.</p>
-        </div>
-        <div class="flex-none w-full flex items-center justify-center p-6 bg-gradient-to-r from-emerald-50 to-sky-50 text-center">
-          <p class="text-lg md:text-xl font-semibold text-gray-800">Tracked the right KPIs, from model accuracy to user growth.</p>
-        </div>
-        <div class="flex-none w-full flex items-center justify-center p-6 bg-gradient-to-r from-emerald-50 to-sky-50 text-center">
-          <p class="text-lg md:text-xl font-semibold text-gray-800">Listened to users, gathering insights for AI-driven features.</p>
-        </div>
-        <div class="flex-none w-full flex items-center justify-center p-6 bg-gradient-to-r from-sky-50 to-emerald-50 text-center">
-          <p class="text-lg md:text-xl font-semibold text-gray-800">Kept the roadmap alive, aligning AI, mobile, and platform teams.</p>
-        </div>
-        <div class="flex-none w-full flex items-center justify-center p-6 bg-gradient-to-r from-teal-50 to-sky-50 text-center">
-          <p class="text-lg md:text-xl font-semibold text-gray-800">Prioritized features with RICE, balancing ROI and innovation.</p>
-        </div>
-        <div class="flex-none w-full flex items-center justify-center p-6 bg-gradient-to-r from-sky-50 to-teal-50 text-center">
-          <p class="text-lg md:text-xl font-semibold text-gray-800">Mentored and coached PMs, building strong AI and mobile product talent.</p>
-        </div>
-        <div class="flex-none w-full flex items-center justify-center p-6 bg-gradient-to-r from-emerald-50 to-sky-50 text-center">
-          <p class="text-lg md:text-xl font-semibold text-gray-800">Powered decisions with analytics, leveraging Amplitude, Mixpanel, and Firebase.</p>
-        </div>
-        <div class="flex-none w-full flex items-center justify-center p-6 bg-gradient-to-r from-sky-50 to-emerald-50 text-center">
-          <p class="text-lg md:text-xl font-semibold text-gray-800">Aligned leadership and engineers to deliver scalable AI solutions.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Progress Dots -->
-    <div class="flex justify-center mt-4 space-x-2" id="dots"></div>
-  </section>
-
-
-  <!-- Section 2: Me in a nutshell -->
-  <section id="nutshell" class="container mx-auto px-4 py-14">
-    <div class="flex items-end justify-between">
-      <h2 class="text-3xl font-extrabold">Me in a nutshell</h2>
-      <span class="text-sm text-gray-500">Skills</span>
-    </div>
-
-    <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-      <article class="rounded-2xl bg-white/95 shadow ring-1 ring-gray-200 overflow-hidden">
-        <div class="gbar bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500"></div>
-        <div class="p-5">
-          <h3 class="font-semibold">Product Management</h3>
-          <p class="mt-2 text-sm text-gray-700">User stories, Roadmap, Backlog order, Stakeholder care, Market review, End-to-end Product delivery, GTM</p>
-        </div>
-      </article>
-
-      <article class="rounded-2xl bg-white/95 shadow ring-1 ring-gray-200 overflow-hidden">
-        <div class="gbar bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500"></div>
-        <div class="p-5">
-          <h3 class="font-semibold">Technical Proficiency</h3>
-          <p class="mt-2 text-sm text-gray-700">AWS, Power Bi, SQL, , Machine Translation</p>
-        </div>
-      </article>
-
-      <article class="rounded-2xl bg-white/95 shadow ring-1 ring-gray-200 overflow-hidden">
-        <div class="gbar bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500"></div>
-        <div class="p-5">
-          <h3 class="font-semibold">Project Management</h3>
-          <p class="mt-2 text-sm text-gray-700">Agile practice, Jira and Confluence, Sprint planning, Team coordination</p>
-        </div>
-      </article>
-
-      <article class="rounded-2xl bg-white/95 shadow ring-1 ring-gray-200 overflow-hidden">
-        <div class="gbar bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500"></div>
-        <div class="p-5">
-          <h3 class="font-semibold">UX</h3>
-          <p class="mt-2 text-sm text-gray-700">Research, Usability tests, Personas, Journey maps</p>
-        </div>
-      </article>
-
-      <article class="rounded-2xl bg-white/95 shadow ring-1 ring-gray-200 overflow-hidden">
-        <div class="gbar bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500"></div>
-        <div class="p-5">
-          <h3 class="font-semibold">Pricing</h3>
-          <p class="mt-2 text-sm text-gray-700">Cost study, Value based price, Dynamic price, elasticity</p>
-        </div>
-      </article>
-
-      <article class="rounded-2xl bg-white/95 shadow ring-1 ring-gray-200 overflow-hidden">
-        <div class="gbar bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500"></div>
-        <div class="p-5">
-          <h3 class="font-semibold">Communication</h3>
-          <p class="mt-2 text-sm text-gray-700">Workshops, Clear decks, Crisp notes for leaders</p>
-        </div>
-      </article>
-
-      <article class="rounded-2xl bg-white/95 shadow ring-1 ring-gray-200 overflow-hidden">
-        <div class="gbar bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500"></div>
-        <div class="p-5">
-          <h3 class="font-semibold">Mobile development</h3>
-          <p class="mt-2 text-sm text-gray-700">Swift, SwiftUI, UIKit, Combine, Concurrency, Core Data, Instruments</p>
-        </div>
-      </article>
-
-      <article class="rounded-2xl bg-white/95 shadow ring-1 ring-gray-200 overflow-hidden">
-        <div class="gbar bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500"></div>
-        <div class="p-5">
-          <h3 class="font-semibold">Languages</h3>
-          <p class="mt-2 text-sm text-gray-700">English, Telugu, Hindi</p>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <!-- Work: Experience -->
-  <section id="work" class="container mx-auto px-4 py-14">
-    <div class="flex items-end justify-between">
-      <h2 class="text-3xl font-extrabold">Experience</h2>
-    </div>
-
-    <!-- Metric Header (Animated, Reduced Size) -->
-    <div id="work-metrics" class="mt-6 grid grid-cols-2 sm:grid-cols-5 gap-2">
-      <div class="rounded-xl p-3 ring-1 ring-gray-200 bg-white/90 text-center">
-        <div class="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-sky-600 to-emerald-600 bg-clip-text text-transparent">
-          <span class="countup" data-target="12">0</span>+
-        </div>
-        <p class="mt-1 text-[10px] md:text-xs text-gray-600">Major projects</p>
-      </div>
-
-      <div class="rounded-xl p-3 ring-1 ring-gray-200 bg-white/90 text-center">
-        <div class="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-sky-600 to-emerald-600 bg-clip-text text-transparent">
-          <span class="countup" data-target="8">0</span>
-        </div>
-        <p class="mt-1 text-[10px] md:text-xs text-gray-600">Mobile apps shipped</p>
-      </div>
-
-      <div class="rounded-xl p-3 ring-1 ring-gray-200 bg-white/90 text-center">
-        <div class="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-sky-600 to-emerald-600 bg-clip-text text-transparent">
-          <span class="countup" data-target="70">0</span>%
-        </div>
-        <p class="mt-1 text-[10px] md:text-xs text-gray-600">Cost saved (program)</p>
-      </div>
-
-      <div class="rounded-xl p-3 ring-1 ring-gray-200 bg-white/90 text-center">
-        <div class="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-sky-600 to-emerald-600 bg-clip-text text-transparent">
-          4.<span class="countup" data-target="7">0</span>★
-        </div>
-        <p class="mt-1 text-[10px] md:text-xs text-gray-600">Summit CSAT</p>
-      </div>
-
-      <!-- Engagement Metric with Arrow -->
-      <div class="rounded-xl p-3 ring-1 ring-gray-200 bg-white/90 text-center">
-        <div class="flex items-center justify-center text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-sky-600 to-emerald-600 bg-clip-text text-transparent">
-          ▲<span class="countup ml-1" data-target="37">0</span>%
-        </div>
-        <p class="mt-1 text-[10px] md:text-xs text-gray-600">Increase in engagement</p>
-      </div>
-    </div>
-
-    <!-- Pills -->
-    <div class="mt-12 flex flex-col items-center" role="tablist" aria-label="Work tabs">
-      <!-- Tabs -->
-      <div class="flex gap-8 relative">
-        <button id="tab-projects"
-                role="tab"
-                aria-selected="true"
-                aria-controls="panel-projects"
-                class="tab-btn px-6 py-3 text-lg font-bold text-center text-white bg-teal-600 rounded-full shadow ring-1 ring-teal-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500 transition">
-          Projects
-        </button>
-        <button id="tab-casestudy"
-                role="tab"
-                aria-selected="false"
-                aria-controls="panel-casestudies"
-                class="tab-btn px-6 py-3 text-lg font-bold text-center text-teal-700 bg-white rounded-full ring-2 ring-teal-300 hover:bg-white/70 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500 transition">
-          Case Study
-        </button>
-      </div>
-
-      <!-- Underline Indicator -->
-      <div id="tab-indicator"
-                  class="mt-2 h-1 w-full max-w-5xl rounded-full bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500 shadow-md transition-all duration-300"></div>
-    </div>
-
-    <!-- Panels -->
-    <div class="mt-8">
-      <!-- Projects -->
-      <div id="panel-projects" role="tabpanel" aria-labelledby="tab-projects">
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <!-- Project cards (unchanged) -->
-          <!-- 1: Machine translation tool -->
-          <article class="flex flex-col min-h-[420px] rounded-3xl bg-white/95 shadow-xl ring-1 ring-gray-200 overflow-hidden hover:-translate-y-0.5 transition">
-            <div class="gbar bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500"></div>
-            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1600&auto=format&fit=crop"
-                 class="aspect-square w-full object-cover" alt="Machine translation tool" />
-            <div class="flex flex-col p-4 flex-grow">
-              <h3 class="font-semibold text-md">Machine translation tool</h3>
-              <p class="mt-2 text-xs text-gray-700">
-                Translation memory and terms with automation. Hundreds of PDFs in many languages with strong quality checks and lower cost.
-              </p>
-              <div class="mt-auto pt-3 flex flex-wrap gap-2">
-                <span class="chip bg-sky-500">AWS</span>
-                <span class="chip bg-teal-500">automation</span>
-                <span class="chip bg-emerald-500">translation</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- 2 -->
-          <article class="flex flex-col min-h-[420px] rounded-3xl bg-white/95 shadow-xl ring-1 ring-gray-200 overflow-hidden hover:-translate-y-0.5 transition">
-            <div class="gbar bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500"></div>
-            <img
-              src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=1600&auto=format&fit=crop"
-              class="aspect-square w-full object-cover"
-              alt="Mobile app screen with chat interface representing an AI assistant"
-              loading="lazy" decoding="async" fetchpriority="low"
-            />
-            <div class="flex flex-col p-4 flex-grow">
-              <h3 class="font-semibold text-md">Interactive AI Chatbot (Mobile)</h3>
-              <p class="mt-2 text-xs text-gray-700">
-                Conversational assistant that answers questions, recommends next actions, and surfaces insights in real time.
-                Includes token limits, conversation history (rename/delete), and privacy-safe telemetry.
-              </p>
-              <div class="mt-auto pt-3 flex flex-wrap gap-2">
-                <span class="chip bg-sky-500">AI</span>
-                <span class="chip bg-teal-500">Chatbot</span>
-                <span class="chip bg-emerald-500">Mobile</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- 3 -->
-          <article class="flex flex-col min-h-[420px] rounded-3xl bg-white/95 shadow-xl ring-1 ring-gray-200 overflow-hidden hover:-translate-y-0.5 transition">
-            <div class="gbar bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500"></div>
-            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1600&auto=format&fit=crop"
-                 class="aspect-square w-full object-cover" alt="MS Teams Access app" />
-            <div class="flex flex-col p-4 flex-grow">
-              <h3 class="font-semibold text-md">MS Teams Access app</h3>
-              <p class="mt-2 text-xs text-gray-700">
-                Brought strengths and engagement tools into daily chat and meetings which lifted adoption in enterprise accounts.
-              </p>
-              <div class="mt-auto pt-3 flex flex-wrap gap-2">
-                <span class="chip bg-sky-500">Teams</span>
-                <span class="chip bg-teal-500">Graph</span>
-                <span class="chip bg-emerald-500">enterprise</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- 4 -->
-          <article class="flex flex-col min-h-[420px] rounded-3xl bg-white/95 shadow-xl ring-1 ring-gray-200 overflow-hidden hover:-translate-y-0.5 transition">
-            <div class="gbar bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500"></div>
-            <img src="inspire_enquire.jpeg" class="aspect-square w-full object-cover" alt="Mobile Access app" />
-            <div class="flex flex-col p-4 flex-grow">
-              <h3 class="font-semibold text-md">Mobile Access app</h3>
-              <p class="mt-2 text-xs text-gray-700">
-                Swift and SwiftUI improvements for speed and stability. Better startup time and fewer crashes which increased weekly use.
-              </p>
-              <div class="mt-auto pt-3 flex flex-wrap gap-2">
-                <span class="chip bg-sky-500">Swift</span>
-                <span class="chip bg-teal-500">SwiftUI</span>
-                <span class="chip bg-emerald-500">performance</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- 5 -->
-          <article class="flex flex-col min-h-[420px] rounded-3xl bg-white/95 shadow-xl ring-1 ring-gray-200 overflow-hidden hover:-translate-y-0.5 transition">
-            <div class="gbar bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500"></div>
-            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600&auto=format&fit=crop"
-                 class="aspect-square w-full object-cover" alt="Product support leader" />
-            <div class="flex flex-col p-4 flex-grow">
-              <h3 class="font-semibold text-md">Product support leader</h3>
-              <p class="mt-2 text-xs text-gray-700">
-                Built a steady process across triage, dashboards, and release notes so teams resolve issues faster and protect trust.
-              </p>
-              <div class="mt-auto pt-3 flex flex-wrap gap-2">
-                <span class="chip bg-sky-500">process</span>
-                <span class="chip bg-teal-500">dashboards</span>
-                <span class="chip bg-emerald-500">quality</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- 6 -->
-          <article class="flex flex-col min-h-[420px] rounded-3xl bg-white/95 shadow-xl ring-1 ring-gray-200 overflow-hidden hover:-translate-y-0.5 transition">
-            <div class="gbar bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500"></div>
-            <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1600&auto=format&fit=crop"
-                 class="aspect-square w-full object-cover" alt="Engagement Everyday" />
-            <div class="flex flex-col p-4 flex-grow">
-              <h3 class="font-semibold text-md">Engagement Everyday</h3>
-              <p class="mt-2 text-xs text-gray-700">
-                Simple rituals and mobile prompts that nudge teams to act which raised participation in key activities.
-              </p>
-              <div class="mt-auto pt-3 flex flex-wrap gap-2">
-                <span class="chip bg-sky-500">mobile</span>
-                <span class="chip bg-teal-500">nudges</span>
-                <span class="chip bg-emerald-500">activation</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- 7 -->
-          <article class="flex flex-col min-h-[420px] rounded-3xl bg-white/95 shadow-xl ring-1 ring-gray-200 overflow-hidden hover:-translate-y-0.5 transition">
-            <div class="gbar bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500"></div>
-            <img
-              src="https://thumbs.dreamstime.com/b/business-people-talking-group-meeting-circle-126183479.jpg"
-              alt="Panel"
-              class="aspect-square w-full object-cover"
-              loading="lazy" decoding="async"
-            />
-            <div class="flex flex-col p-4 flex-grow">
-              <h3 class="font-semibold text-md">Panel</h3>
-              <p class="mt-2 text-xs text-gray-700">
-                Panel management flow for insights and research with clear privacy and simple onboarding.
-              </p>
-              <div class="mt-auto pt-3 flex flex-wrap gap-2">
-                <span class="chip bg-sky-500">research</span>
-                <span class="chip bg-teal-500">privacy</span>
-                <span class="chip bg-emerald-500">onboarding</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- 8 -->
-          <article class="flex flex-col min-h-[420px] rounded-3xl bg-white/95 shadow-xl ring-1 ring-gray-200 overflow-hidden hover:-translate-y-0.5 transition">
-            <div class="gbar bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500"></div>
-            <img src="baloot_club.jpeg" class="aspect-square w-full object-cover" alt="Baloot Club" />
-            <div class="flex flex-col p-4 flex-grow">
-              <h3 class="font-semibold text-md">Baloot Club</h3>
-              <p class="mt-2 text-xs text-gray-700">
-                Classic card game app with smooth play and clean UI built at Mobiware.
-              </p>
-              <div class="mt-auto pt-3 flex flex-wrap gap-2">
-                <span class="chip bg-sky-500">iOS</span>
-                <span class="chip bg-teal-500">games</span>
-                <span class="chip bg-emerald-500">Objective C</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- 9 -->
-          <article class="flex flex-col min-h-[420px] rounded-3xl bg-white/95 shadow-xl ring-1 ring-gray-200 overflow-hidden hover:-translate-y-0.5 transition">
-            <div class="gbar bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500"></div>
-            <img src="xr_scanner.jpeg" class="aspect-square w-full object-cover" alt="XR app" />
-            <div class="flex flex-col p-4 flex-grow">
-              <h3 class="font-semibold text-md">XR app</h3>
-              <p class="mt-2 text-xs text-gray-700">
-                Early exploration of extended reality on mobile with simple scenes and interaction for learning.
-              </p>
-              <div class="mt-auto pt-3 flex flex-wrap gap-2">
-                <span class="chip bg-sky-500">XR</span>
-                <span class="chip bg-teal-500">Swift</span>
-                <span class="chip bg-emerald-500">prototype</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- 10 -->
-          <article class="flex flex-col min-h-[420px] rounded-3xl bg-white/95 shadow-xl ring-1 ring-gray-200 overflow-hidden hover:-translate-y-0.5 transition">
-            <div class="gbar bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500"></div>
-            <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1600&auto=format&fit=crop"
-                 class="aspect-square w-full object-cover" alt="Daleelo" />
-            <div class="flex flex-col p-4 flex-grow">
-              <h3 class="font-semibold text-md">Daleelo</h3>
-              <p class="mt-2 text-xs text-gray-700">
-                Local search and discovery app with maps, places, and deals built at Mobiware.
-              </p>
-              <div class="mt-auto pt-3 flex flex-wrap gap-2">
-                <span class="chip bg-sky-500">maps</span>
-                <span class="chip bg-teal-500">local</span>
-                <span class="chip bg-emerald-500">mobile</span>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-
-      <!-- Case studies (unchanged content) -->
-      <div id="panel-casestudies" role="tabpanel" aria-labelledby="tab-casestudy" class="hidden">
-        <div class="space-y-4">
-          <!-- Case studies details ... (kept as you provided) -->
-          <!-- Machine Translations -->
-          <!-- ...[existing case study HTML unchanged to save space]... -->
-          <!-- I kept all sections exactly as in your message -->
-          <!-- (Machine Translations, Access Redesign, MT Mobile Integration, MS Teams) -->
-          <!-- BEGIN pasted case studies content -->
-          <!-- Machine Translations -->
-          <details id="cs-mt" class="group rounded-3xl bg-white/95 shadow-xl ring-1 ring-gray-200 overflow-hidden">
-            <!-- ... full content unchanged ... -->
-          </details>
-
-          <!-- Gallup Access Mobile App Revamp -->
-          <details id="cs-access-redesign" class="group rounded-3xl bg-white/95 shadow-xl ring-1 ring-gray-200 overflow-hidden">
-            <!-- ... full content unchanged ... -->
-          </details>
-
-          <!-- Machine Translations Mobile Integration -->
-          <details id="cs-mt-mobile" class="group rounded-3xl bg-white/95 shadow-xl ring-1 ring-gray-200 overflow-hidden">
-            <!-- ... full content unchanged ... -->
-          </details>
-
-          <!-- MS Teams Access App -->
-          <details id="cs-teams" class="group rounded-3xl bg-white/95 shadow-xl ring-1 ring-gray-200 overflow-hidden">
-            <!-- ... full content unchanged ... -->
-          </details>
-          <!-- END pasted case studies content -->
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ====== Roles: Fan + Next Card (gradient front, role-card style back) ====== -->
-  <section id="roles-hand" class="mx-auto max-w-6xl px-4 py-10">
-    <h2
-      class="text-2xl md:text-3xl font-bold text-center bg-gradient-to-r from-sky-700 via-teal-700 to-emerald-700 bg-clip-text text-transparent mb-4">
-      My Winning Hand
-    </h2>
-    <div
-      class="h-1 w-40 mx-auto rounded-full bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500 mb-6"></div>
-
-    <div class="hand-stage relative">
-      <!-- Fanned hand -->
-      <div id="hand-cards" class="hand shift-right-more"></div>
-
-      <!-- Floating NEXT CARD -->
-      <div class="next-card-float">
-        <button class="next-card" type="button" aria-label="Next role: Director of Product">
-          <div class="next-inner">
-            <!-- FRONT (gradient with NEXT CARD text) -->
-            <div class="next-face next-front">
-              <div class="nc-badge">NEXT CARD</div>
-            </div>
-
-            <!-- BACK (role-card style) -->
-            <div class="next-face next-back next-back--role">
-              <div class="card-body">
-                <span class="year-chip">Future</span>
-                <h4 class="role-title">Director of Product</h4>
-                <p class="role-desc">
-                  My next growth step, building on PM + TPM experience.
-                </p>
-              </div>
-            </div>
-          </div>
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <style>
+    html { scroll-behavior:smooth; }
+    /* ===== Roles hand theme ===== */
     :root {
       --sky:#0ea5e9; --teal:#14b8a6; --emerald:#10b981; --ink:#0f172a;
       --stageGlow:0 32px 90px rgba(14,165,233,.14) inset, 0 20px 50px rgba(16,185,129,.14);
@@ -547,12 +32,10 @@
       box-shadow:var(--stageGlow); overflow:hidden;
     }
     .hand { position:relative; height:380px; max-width:1120px; margin:0 auto; }
-
-    /* Role cards */
     .role-card {
       --cardH:320px;
       height:var(--cardH); width:calc(var(--cardH)*0.72);
-      position:absolute; top:18%; left:50%; translate:-50% 0;
+      position:absolute; top:18%; left:37%; translate:-50% 0; /* shifted left ~20% from center */
       border-radius:20px; background:#fff;
       box-shadow:0 10px 26px rgba(14,165,233,.16),
                  0 6px 18px rgba(16,185,129,.14),
@@ -571,130 +54,243 @@
                  0 0 0 1px rgba(255,255,255,.95) inset;
       filter:saturate(1.05);
     }
-    .card-body {
-      height:100%; display:flex; flex-direction:column; gap:10px;
-      padding:18px 18px 20px; color:var(--ink);
-    }
-    .year-chip {
-      align-self:flex-start; color:#fff; font:800 13px/1 ui-sans-serif,system-ui,Inter;
-      padding:.45rem .75rem; border-radius:9999px;
-      background:linear-gradient(90deg,var(--sky),var(--emerald));
-      box-shadow:0 6px 16px rgba(14,165,233,.22);
-    }
+    .card-body { height:100%; display:flex; flex-direction:column; gap:10px; padding:18px 18px 20px; color:var(--ink); }
+    .year-chip { align-self:flex-start; color:#fff; font:800 13px/1 ui-sans-serif,system-ui,Inter; padding:.45rem .75rem; border-radius:9999px; background:linear-gradient(90deg,var(--sky),var(--emerald)); box-shadow:0 6px 16px rgba(14,165,233,.22); }
     .role-title { font:800 clamp(18px,2.2vw,24px)/1.15 ui-sans-serif,system-ui,Inter; margin-top:2px; }
-    .role-desc { font:500 15px/1.45 ui-sans-serif,system-ui,Inter; color:#334155;
-      display:-webkit-box; -webkit-line-clamp:4; -webkit-box-orient:vertical; overflow:hidden; }
-
-    /* shift fan */
-    .hand.shift-right-more .role-card { left:37%; }
-
-    /* Next card */
+    .role-desc { font:500 15px/1.45 ui-sans-serif,system-ui,Inter; color:#334155; display:-webkit-box; -webkit-line-clamp:4; -webkit-box-orient:vertical; overflow:hidden; }
     .next-card-float { position:absolute; top:100px; right:24px; }
-    .next-card {
-      --w:200px; --h:280px; --r:18px;
-      width:var(--w); height:var(--h); border-radius:var(--r);
-      perspective:1200px; cursor:pointer; border:0; padding:0; background:transparent;
-      filter:drop-shadow(0 14px 24px rgba(14,165,233,.15));
-    }
-    .next-inner {
-      position:relative; width:100%; height:100%; transform-style:preserve-3d;
-      transition:transform .6s cubic-bezier(.2,.8,.2,1), filter .3s ease;
-      border-radius:inherit;
-    }
-    .next-card:hover .next-inner, .next-card.is-flipped .next-inner {
-      transform:rotateY(180deg) scale(1.04);
-    }
-    .next-face {
-      position:absolute; inset:0; border-radius:var(--r);
-      backface-visibility:hidden; -webkit-backface-visibility:hidden;
-      box-shadow:0 2px 0 rgba(255,255,255,.9) inset,
-                 0 10px 30px rgba(2,132,199,.10);
-    }
-    /* FRONT: gradient with NEXT CARD */
-    .next-front {
-      display:flex; align-items:center; justify-content:center;
-      background:linear-gradient(135deg,var(--sky) 0%, var(--teal) 50%, var(--emerald) 100%);
-    }
-    .nc-badge {
-      font:900 14px/1 ui-sans-serif,system-ui,Inter; color:#fff;
-      padding:.65rem 1rem; border-radius:9999px; border:2px solid rgba(255,255,255,.35);
-    }
-    /* BACK: role-card style */
+    .next-card { --w:200px; --h:280px; --r:18px; width:var(--w); height:var(--h); border-radius:var(--r); perspective:1200px; cursor:pointer; border:0; padding:0; background:transparent; filter:drop-shadow(0 14px 24px rgba(14,165,233,.15)); }
+    .next-inner { position:relative; width:100%; height:100%; transform-style:preserve-3d; transition:transform .6s cubic-bezier(.2,.8,.2,1), filter .3s ease; border-radius:inherit; }
+    .next-card:hover .next-inner, .next-card.is-flipped .next-inner { transform:rotateY(180deg) scale(1.04); }
+    .next-face { position:absolute; inset:0; border-radius:var(--r); backface-visibility:hidden; -webkit-backface-visibility:hidden; box-shadow:0 2px 0 rgba(255,255,255,.9) inset, 0 10px 30px rgba(2,132,199,.10); }
+    .next-front { display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg,var(--sky) 0%, var(--teal) 50%, var(--emerald) 100%); }
+    .nc-badge { font:900 14px/1 ui-sans-serif,system-ui,Inter; color:#fff; padding:.65rem 1rem; border-radius:9999px; border:2px solid rgba(255,255,255,.35); }
     .next-back { transform:rotateY(180deg); }
-    .next-back--role {
-      display:flex; align-items:stretch; justify-content:center;
-      background:#fff;
-      box-shadow:0 10px 26px rgba(14,165,233,.16),
-                 0 6px 18px rgba(16,185,129,.14),
-                 0 0 0 1px rgba(255,255,255,.95) inset;
-    }
-    .next-back--role .card-body { padding:18px 18px 20px; color:var(--ink); }
-    .next-back--role .year-chip {
-      background:linear-gradient(90deg,var(--sky),var(--emerald)); color:#fff;
-    }
+    .next-back--role { display:flex; align-items:stretch; justify-content:center; background:#fff;
+      box-shadow:0 10px 26px rgba(14,165,233,.16), 0 6px 18px rgba(16,185,129,.14), 0 0 0 1px rgba(255,255,255,.95) inset; }
     .next-back--role .role-title { font:800 20px/1.2 ui-sans-serif,system-ui,Inter; }
     .next-back--role .role-desc { font:500 14px/1.45 ui-sans-serif,system-ui,Inter; color:#334155; }
-
-    /* Responsive */
     @media (max-width:1180px){ .next-card{ --w:188px; --h:264px; } }
     @media (max-width:1024px){
       .hand{ height:360px; }
-      .role-card{ --cardH:300px; }
-      .hand.shift-right-more .role-card{ left:34%; }
+      .role-card{ --cardH:300px; left:34%; }
     }
     @media (max-width:900px){ .hand{ height:340px; } .role-card{ --cardH:280px; } }
     @media (max-width:720px){
       .hand{ height:auto; display:flex; gap:14px; overflow-x:auto; padding:6px 8px 12px; scroll-snap-type:x mandatory; }
-      .role-card{ position:relative; left:auto; top:auto; translate:0; transform:none !important;
-        --cardH:260px; flex:0 0 auto; scroll-snap-align:start; }
+      .role-card{ position:relative; left:auto; top:auto; translate:0; transform:none !important; --cardH:260px; flex:0 0 auto; scroll-snap-align:start; }
       .next-card-float{ position:static; margin:16px auto 0; }
     }
   </style>
+</head>
+<body class="bg-gradient-to-br from-sky-50 via-teal-50 to-emerald-50 text-gray-900">
+  <!-- Header -->
+  <header class="sticky top-0 z-50 backdrop-blur bg-white/80 shadow-sm ring-1 ring-white/60">
+    <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+      <a href="#home" class="text-2xl font-extrabold tracking-tight bg-gradient-to-r from-sky-600 via-teal-600 to-emerald-600 bg-clip-text text-transparent">Divya Kshatri</a>
+      <nav class="hidden md:flex gap-6 text-sm font-medium">
+        <a href="#home" class="hover:text-sky-600">Intro</a>
+        <a href="#nutshell" class="hover:text-teal-600">Nutshell</a>
+        <a href="#work/projects" class="hover:text-teal-600">Projects</a>
+        <a href="#work/case" id="nav-casestudies" class="hover:text-teal-600">Case Studies</a>
+        <a href="/coaching.html" target="_blank" rel="noopener" class="hover:text-emerald-600">Coaching Corner</a>
+        <a href="#contact" class="hover:text-emerald-600">Contact</a>
+      </nav>
+      <a href="#contact" class="hidden md:inline-block text-sm font-semibold px-4 py-2 rounded-xl text-white bg-gradient-to-r from-sky-600 to-emerald-600 shadow hover:opacity-90">Say hello</a>
+    </div>
+  </header>
 
-  <script>
-    /* ===== Roles data + mount (SINGLE source of truth) ===== */
-    const HAND_ROLES = [
-      { title:"iOS Developer", years:"2011–2013", desc:"Dealt Swift/Obj-C features with an ace-level UX finish." },
-      { title:"Software Developer", years:"2013–2016", desc:"Built reliable combos—APIs, CI/CD, testing—a steady hand every round." },
-      { title:"Senior Software Developer", years:"2016–2022", desc:"Played power cards: scalable services, mobile polish, and reviews that keep the house edge low." },
-      { title:"TPM", years:"2019–2025", desc:"Shuffled squads, counted cards on capacity, and kept releases on the table—no busts." },
-      { title:"Product Manager", years:"2020–2025", desc:"Stacked the deck with crisp roadmaps, dealt AI features, and banked measurable wins." }
-    ];
+  <!-- Intro -->
+  <section id="home" class="container mx-auto px-4 pt-12 md:pt-16">
+    <div class="grid gap-8 md:[grid-template-columns:minmax(0,1fr)_auto] items-center">
+      <div>
+        <p class="uppercase tracking-widest text-xs text-gray-500">Product leadership • Mobile • AI • Web • MS Teams</p>
+        <h1 class="mt-2 text-4xl md:text-6xl font-extrabold leading-tight bg-gradient-to-r from-sky-700 via-teal-700 to-emerald-700 bg-clip-text text-transparent">
+          I design intuitive, engaging product journeys that delight users and drive measurable impact.
+        </h1>
+        <p class="mt-4 text-lg text-gray-700">I build mobile and AI powered products with simple UX, fast performance, and results that show up on a dashboard.</p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="#work/projects" class="px-5 py-2 rounded-xl text-white font-semibold bg-gradient-to-r from-sky-600 to-emerald-600 shadow hover:opacity-90">See projects</a>
+          <a href="#contact" class="px-5 py-2 rounded-xl font-semibold ring-2 ring-teal-300 bg-white/70 hover:bg-white">Contact</a>
+        </div>
+      </div>
+      <div class="flex justify-center md:justify-end">
+        <div class="aspect-square1 w-[320px] md:w-[340px] rounded-3xl overflow-hidden shadow-2xl ring-4 ring-white/60">
+          <img src="profile_pic.jpeg" alt="Divya Kshatri" class="w-full h-full object-cover" />
+        </div>
+      </div>
+    </div>
+  </section>
 
-    (function mountHand(){
-      const root = document.getElementById('hand-cards');
-      if (!root || root.dataset.mounted === "1") return;
-      root.dataset.mounted = "1";
+  <!-- PM Responsibilities Slideshow -->
+  <section id="responsibilities" class="container mx-auto px-4 py-12">
+    <h2 class="text-2xl md:text-3xl font-bold text-center bg-gradient-to-r from-sky-700 via-teal-700 to-emerald-700 bg-clip-text text-transparent mb-6">
+      Snapshot of My Expertise
+    </h2>
+    <div class="relative overflow-hidden rounded-3xl shadow-xl ring-1 ring-gray-200 group">
+      <div id="slider" class="flex transition-transform duration-700 ease-in-out">
+        <div class="flex-none w-full flex items-center justify-center p-6 bg-gradient-to-r from-sky-50 to-teal-50 text-center"><p class="text-lg md:text-xl font-semibold text-gray-800">Turned data into action, driving smarter AI and product strategies.</p></div>
+        <div class="flex-none w-full flex items-center justify-center p-6 bg-gradient-to-r from-teal-50 to-emerald-50 text-center"><p class="text-lg md:text-xl font-semibold text-gray-800">Decoded cohorts and funnels to refine engagement and retention.</p></div>
+        <div class="flex-none w-full flex items-center justify-center p-6 bg-gradient-to-r from-emerald-50 to-sky-50 text-center"><p class="text-lg md:text-xl font-semibold text-gray-800">Tracked the right KPIs, from model accuracy to user growth.</p></div>
+        <div class="flex-none w-full flex items-center justify-center p-6 bg-gradient-to-r from-emerald-50 to-sky-50 text-center"><p class="text-lg md:text-xl font-semibold text-gray-800">Listened to users, gathering insights for AI-driven features.</p></div>
+        <div class="flex-none w-full flex items-center justify-center p-6 bg-gradient-to-r from-sky-50 to-emerald-50 text-center"><p class="text-lg md:text-xl font-semibold text-gray-800">Kept the roadmap alive, aligning AI, mobile, and platform teams.</p></div>
+        <div class="flex-none w-full flex items-center justify-center p-6 bg-gradient-to-r from-teal-50 to-sky-50 text-center"><p class="text-lg md:text-xl font-semibold text-gray-800">Prioritized features with RICE, balancing ROI and innovation.</p></div>
+        <div class="flex-none w-full flex items-center justify-center p-6 bg-gradient-to-r from-sky-50 to-teal-50 text-center"><p class="text-lg md:text-xl font-semibold text-gray-800">Mentored and coached PMs, building strong AI and mobile product talent.</p></div>
+        <div class="flex-none w-full flex items-center justify-center p-6 bg-gradient-to-r from-emerald-50 to-sky-50 text-center"><p class="text-lg md:text-xl font-semibold text-gray-800">Powered decisions with analytics, leveraging Amplitude, Mixpanel, and Firebase.</p></div>
+        <div class="flex-none w-full flex items-center justify-center p-6 bg-gradient-to-r from-sky-50 to-emerald-50 text-center"><p class="text-lg md:text-xl font-semibold text-gray-800">Aligned leadership and engineers to deliver scalable AI solutions.</p></div>
+      </div>
+    </div>
+    <div class="flex justify-center mt-4 space-x-2" id="dots"></div>
+  </section>
 
-      const n = HAND_ROLES.length;
-      const maxAngle = 24, spreadX = 64, lift = 10, baseZ = 10;
+  <!-- Nutshell -->
+  <section id="nutshell" class="container mx-auto px-4 py-14">
+    <div class="flex items-end justify-between">
+      <h2 class="text-3xl font-extrabold">Me in a nutshell</h2>
+      <span class="text-sm text-gray-500">Skills</span>
+    </div>
+    <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <article class="rounded-2xl bg-white/95 shadow ring-1 ring-gray-200 overflow-hidden"><div class="gbar bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500"></div><div class="p-5"><h3 class="font-semibold">Product Management</h3><p class="mt-2 text-sm text-gray-700">User stories, Roadmap, Backlog order, Stakeholder care, Market review, End-to-end Product delivery, GTM</p></div></article>
+      <article class="rounded-2xl bg-white/95 shadow ring-1 ring-gray-200 overflow-hidden"><div class="gbar bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500"></div><div class="p-5"><h3 class="font-semibold">Technical Proficiency</h3><p class="mt-2 text-sm text-gray-700">AWS, Power Bi, SQL, , Machine Translation</p></div></article>
+      <article class="rounded-2xl bg-white/95 shadow ring-1 ring-gray-200 overflow-hidden"><div class="gbar bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500"></div><div class="p-5"><h3 class="font-semibold">Project Management</h3><p class="mt-2 text-sm text-gray-700">Agile practice, Jira and Confluence, Sprint planning, Team coordination</p></div></article>
+      <article class="rounded-2xl bg-white/95 shadow ring-1 ring-gray-200 overflow-hidden"><div class="gbar bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500"></div><div class="p-5"><h3 class="font-semibold">UX</h3><p class="mt-2 text-sm text-gray-700">Research, Usability tests, Personas, Journey maps</p></div></article>
+      <article class="rounded-2xl bg-white/95 shadow ring-1 ring-gray-200 overflow-hidden"><div class="gbar bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500"></div><div class="p-5"><h3 class="font-semibold">Pricing</h3><p class="mt-2 text-sm text-gray-700">Cost study, Value based price, Dynamic price, elasticity</p></div></article>
+      <article class="rounded-2xl bg-white/95 shadow ring-1 ring-gray-200 overflow-hidden"><div class="gbar bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500"></div><div class="p-5"><h3 class="font-semibold">Communication</h3><p class="mt-2 text-sm text-gray-700">Workshops, Clear decks, Crisp notes for leaders</p></div></article>
+      <article class="rounded-2xl bg-white/95 shadow ring-1 ring-gray-200 overflow-hidden"><div class="gbar bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500"></div><div class="p-5"><h3 class="font-semibold">Mobile development</h3><p class="mt-2 text-sm text-gray-700">Swift, SwiftUI, UIKit, Combine, Concurrency, Core Data, Instruments</p></div></article>
+      <article class="rounded-2xl bg-white/95 shadow ring-1 ring-gray-200 overflow-hidden"><div class="gbar bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500"></div><div class="p-5"><h3 class="font-semibold">Languages</h3><p class="mt-2 text-sm text-gray-700">English, Telugu, Hindi</p></div></article>
+    </div>
+  </section>
 
-      HAND_ROLES.forEach((r,i)=>{
-        const t = (i-(n-1)/2) / ((n-1)/2||1);
-        const card = document.createElement('article');
-        card.className='role-card';
-        card.style.setProperty('--angle',(t*maxAngle).toFixed(2)+'deg');
-        card.style.setProperty('--dx',(t*spreadX).toFixed(1)+'px');
-        card.style.top=`calc(18% + ${Math.abs(t)*lift}px)`;
-        card.style.zIndex=String(baseZ+i);
-        card.innerHTML=`
-          <div class="card-body">
-            <span class="year-chip">${r.years}</span>
-            <h3 class="role-title">${r.title}</h3>
-            <p class="role-desc">${r.desc}</p>
-          </div>`;
-        card.addEventListener('mouseenter',()=>card.style.zIndex=999);
-        card.addEventListener('mouseleave',()=>card.style.zIndex=String(baseZ+i));
-        root.appendChild(card);
-      });
-    })();
+  <!-- Work: Experience -->
+  <section id="work" class="container mx-auto px-4 py-14">
+    <div class="flex items-end justify-between">
+      <h2 class="text-3xl font-extrabold">Experience</h2>
+    </div>
 
-    /* Next card: click-to-flip */
-    (function(){
-      const btn=document.querySelector('.next-card');
-      btn?.addEventListener('click',()=>btn.classList.toggle('is-flipped'));
-    })();
-  </script>
+    <!-- Metric Header (Animated) -->
+    <div id="work-metrics" class="mt-6 grid grid-cols-2 sm:grid-cols-5 gap-2">
+      <div class="rounded-xl p-3 ring-1 ring-gray-200 bg-white/90 text-center">
+        <div class="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-sky-600 to-emerald-600 bg-clip-text text-transparent">
+          <span class="countup" data-target="12">0</span>+
+        </div>
+        <p class="mt-1 text-[10px] md:text-xs text-gray-600">Major projects</p>
+      </div>
+      <div class="rounded-xl p-3 ring-1 ring-gray-200 bg-white/90 text-center">
+        <div class="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-sky-600 to-emerald-600 bg-clip-text text-transparent">
+          <span class="countup" data-target="8">0</span>
+        </div>
+        <p class="mt-1 text-[10px] md:text-xs text-gray-600">Mobile apps shipped</p>
+      </div>
+      <div class="rounded-xl p-3 ring-1 ring-gray-200 bg-white/90 text-center">
+        <div class="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-sky-600 to-emerald-600 bg-clip-text text-transparent">
+          <span class="countup" data-target="70">0</span>%
+        </div>
+        <p class="mt-1 text-[10px] md:text-xs text-gray-600">Cost saved (program)</p>
+      </div>
+      <div class="rounded-xl p-3 ring-1 ring-gray-200 bg-white/90 text-center">
+        <div class="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-sky-600 to-emerald-600 bg-clip-text text-transparent">
+          4.<span class="countup" data-target="7">0</span>★
+        </div>
+        <p class="mt-1 text-[10px] md:text-xs text-gray-600">Summit CSAT</p>
+      </div>
+      <div class="rounded-xl p-3 ring-1 ring-gray-200 bg-white/90 text-center">
+        <div class="flex items-center justify-center text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-sky-600 to-emerald-600 bg-clip-text text-transparent">
+          ▲<span class="countup ml-1" data-target="37">0</span>%
+        </div>
+        <p class="mt-1 text-[10px] md:text-xs text-gray-600">Increase in engagement</p>
+      </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="mt-12 flex flex-col items-center" role="tablist" aria-label="Work tabs">
+      <div class="flex gap-8 relative">
+        <button id="tab-projects" role="tab" aria-selected="true" aria-controls="panel-projects"
+          class="tab-btn px-6 py-3 text-lg font-bold text-center text-white bg-teal-600 rounded-full shadow ring-1 ring-teal-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500 transition">Projects</button>
+        <button id="tab-casestudy" role="tab" aria-selected="false" aria-controls="panel-casestudies"
+          class="tab-btn px-6 py-3 text-lg font-bold text-center text-teal-700 bg-white rounded-full ring-2 ring-teal-300 hover:bg-white/70 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500 transition">Case Study</button>
+      </div>
+      <div id="tab-indicator" class="mt-2 h-1 w-full max-w-5xl rounded-full bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500 shadow-md transition-all duration-300"></div>
+    </div>
+
+    <!-- Panels -->
+    <div class="mt-8">
+      <!-- Projects -->
+      <div id="panel-projects" role="tabpanel" aria-labelledby="tab-projects">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- (10) Project cards — unchanged content -->
+          <article class="flex flex-col min-h-[420px] rounded-3xl bg-white/95 shadow-xl ring-1 ring-gray-200 overflow-hidden hover:-translate-y-0.5 transition"><div class="gbar bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500"></div><img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1600&auto=format&fit=crop" class="aspect-square w-full object-cover" alt="Machine translation tool" /><div class="flex flex-col p-4 flex-grow"><h3 class="font-semibold text-md">Machine translation tool</h3><p class="mt-2 text-xs text-gray-700">Translation memory and terms with automation. Hundreds of PDFs in many languages with strong quality checks and lower cost.</p><div class="mt-auto pt-3 flex flex-wrap gap-2"><span class="chip bg-sky-500">AWS</span><span class="chip bg-teal-500">automation</span><span class="chip bg-emerald-500">translation</span></div></div></article>
+          <article class="flex flex-col min-h-[420px] rounded-3xl bg-white/95 shadow-xl ring-1 ring-gray-200 overflow-hidden hover:-translate-y-0.5 transition"><div class="gbar bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500"></div><img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=1600&auto=format&fit=crop" class="aspect-square w-full object-cover" alt="Mobile AI Chatbot" /><div class="flex flex-col p-4 flex-grow"><h3 class="font-semibold text-md">Interactive AI Chatbot (Mobile)</h3><p class="mt-2 text-xs text-gray-700">Conversational assistant that answers questions, recommends next actions, and surfaces insights in real time.</p><div class="mt-auto pt-3 flex flex-wrap gap-2"><span class="chip bg-sky-500">AI</span><span class="chip bg-teal-500">Chatbot</span><span class="chip bg-emerald-500">Mobile</span></div></div></article>
+          <article class="flex flex-col min-h-[420px] rounded-3xl bg-white/95 shadow-xl ring-1 ring-gray-200 overflow-hidden hover:-translate-y-0.5 transition"><div class="gbar bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500"></div><img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1600&auto=format&fit=crop" class="aspect-square w-full object-cover" alt="MS Teams Access app" /><div class="flex flex-col p-4 flex-grow"><h3 class="font-semibold text-md">MS Teams Access app</h3><p class="mt-2 text-xs text-gray-700">Brought strengths and engagement tools into daily chat and meetings which lifted adoption in enterprise accounts.</p><div class="mt-auto pt-3 flex flex-wrap gap-2"><span class="chip bg-sky-500">Teams</span><span class="chip bg-teal-500">Graph</span><span class="chip bg-emerald-500">enterprise</span></div></div></article>
+          <article class="flex flex-col min-h-[420px] rounded-3xl bg-white/95 shadow-xl ring-1 ring-gray-200 overflow-hidden hover:-translate-y-0.5 transition"><div class="gbar bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500"></div><img src="inspire_enquire.jpeg" class="aspect-square w-full object-cover" alt="Mobile Access app" /><div class="flex flex-col p-4 flex-grow"><h3 class="font-semibold text-md">Mobile Access app</h3><p class="mt-2 text-xs text-gray-700">Swift and SwiftUI improvements for speed and stability. Better startup time and fewer crashes which increased weekly use.</p><div class="mt-auto pt-3 flex flex-wrap gap-2"><span class="chip bg-sky-500">Swift</span><span class="chip bg-teal-500">SwiftUI</span><span class="chip bg-emerald-500">performance</span></div></div></article>
+          <article class="flex flex-col min-h-[420px] rounded-3xl bg-white/95 shadow-xl ring-1 ring-gray-200 overflow-hidden hover:-translate-y-0.5 transition"><div class="gbar bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500"></div><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600&auto=format&fit=crop" class="aspect-square w-full object-cover" alt="Product support leader" /><div class="flex flex-col p-4 flex-grow"><h3 class="font-semibold text-md">Product support leader</h3><p class="mt-2 text-xs text-gray-700">Built a steady process across triage, dashboards, and release notes so teams resolve issues faster and protect trust.</p><div class="mt-auto pt-3 flex flex-wrap gap-2"><span class="chip bg-sky-500">process</span><span class="chip bg-teal-500">dashboards</span><span class="chip bg-emerald-500">quality</span></div></div></article>
+          <article class="flex flex-col min-h-[420px] rounded-3xl bg-white/95 shadow-xl ring-1 ring-gray-200 overflow-hidden hover:-translate-y-0.5 transition"><div class="gbar bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500"></div><img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1600&auto=format&fit=crop" class="aspect-square w-full object-cover" alt="Engagement Everyday" /><div class="flex flex-col p-4 flex-grow"><h3 class="font-semibold text-md">Engagement Everyday</h3><p class="mt-2 text-xs text-gray-700">Simple rituals and mobile prompts that nudge teams to act which raised participation in key activities.</p><div class="mt-auto pt-3 flex flex-wrap gap-2"><span class="chip bg-sky-500">mobile</span><span class="chip bg-teal-500">nudges</span><span class="chip bg-emerald-500">activation</span></div></div></article>
+          <article class="flex flex-col min-h-[420px] rounded-3xl bg-white/95 shadow-xl ring-1 ring-gray-200 overflow-hidden hover:-translate-y-0.5 transition"><div class="gbar bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500"></div><img src="https://thumbs.dreamstime.com/b/business-people-talking-group-meeting-circle-126183479.jpg" alt="Panel" class="aspect-square w-full object-cover" loading="lazy" decoding="async"/><div class="flex flex-col p-4 flex-grow"><h3 class="font-semibold text-md">Panel</h3><p class="mt-2 text-xs text-gray-700">Panel management flow for insights and research with clear privacy and simple onboarding.</p><div class="mt-auto pt-3 flex flex-wrap gap-2"><span class="chip bg-sky-500">research</span><span class="chip bg-teal-500">privacy</span><span class="chip bg-emerald-500">onboarding</span></div></div></article>
+          <article class="flex flex-col min-h-[420px] rounded-3xl bg-white/95 shadow-xl ring-1 ring-gray-200 overflow-hidden hover:-translate-y-0.5 transition"><div class="gbar bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500"></div><img src="baloot_club.jpeg" class="aspect-square w-full object-cover" alt="Baloot Club" /><div class="flex flex-col p-4 flex-grow"><h3 class="font-semibold text-md">Baloot Club</h3><p class="mt-2 text-xs text-gray-700">Classic card game app with smooth play and clean UI built at Mobiware.</p><div class="mt-auto pt-3 flex flex-wrap gap-2"><span class="chip bg-sky-500">iOS</span><span class="chip bg-teal-500">games</span><span class="chip bg-emerald-500">Objective C</span></div></div></article>
+          <article class="flex flex-col min-h-[420px] rounded-3xl bg-white/95 shadow-xl ring-1 ring-gray-200 overflow-hidden hover:-translate-y-0.5 transition"><div class="gbar bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500"></div><img src="xr_scanner.jpeg" class="aspect-square w-full object-cover" alt="XR app" /><div class="flex flex-col p-4 flex-grow"><h3 class="font-semibold text-md">XR app</h3><p class="mt-2 text-xs text-gray-700">Early exploration of extended reality on mobile with simple scenes and interaction for learning.</p><div class="mt-auto pt-3 flex flex-wrap gap-2"><span class="chip bg-sky-500">XR</span><span class="chip bg-teal-500">Swift</span><span class="chip bg-emerald-500">prototype</span></div></div></article>
+          <article class="flex flex-col min-h-[420px] rounded-3xl bg-white/95 shadow-xl ring-1 ring-gray-200 overflow-hidden hover:-translate-y-0.5 transition"><div class="gbar bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500"></div><img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1600&auto=format&fit=crop" class="aspect-square w-full object-cover" alt="Daleelo" /><div class="flex flex-col p-4 flex-grow"><h3 class="font-semibold text-md">Daleelo</h3><p class="mt-2 text-xs text-gray-700">Local search and discovery app with maps, places, and deals built at Mobiware.</p><div class="mt-auto pt-3 flex flex-wrap gap-2"><span class="chip bg-sky-500">maps</span><span class="chip bg-teal-500">local</span><span class="chip bg-emerald-500">mobile</span></div></div></article>
+        </div>
+      </div>
+
+      <!-- Case studies (keep your full content here as needed) -->
+      <div id="panel-casestudies" role="tabpanel" aria-labelledby="tab-casestudy" class="hidden">
+        <div class="space-y-4">
+          <details class="group rounded-3xl bg-white/95 shadow-xl ring-1 ring-gray-200 overflow-hidden">
+            <summary class="cursor-pointer select-none">
+              <div class="flex gap-4 p-5 md:p-6">
+                <div class="min-w-0 flex-1">
+                  <h3 class="text-xl md:text-2xl font-bold truncate">Machine Translations</h3>
+                  <div class="mt-1 flex flex-wrap items-center gap-3">
+                    <p class="text-xs md:text-sm text-gray-600">Role: <span class="font-semibold text-emerald-700">Product Manager</span></p>
+                    <span class="chip bg-sky-500">Timeline: 12 months</span>
+                  </div>
+                </div>
+                <div class="ml-2 self-stretch flex items-center">
+                  <span class="accordion-plus inline-flex items-center justify-center w-9 h-9 rounded-full ring-1 ring-gray-200 bg-white text-gray-600">+</span>
+                </div>
+              </div>
+            </summary>
+            <div class="gbar bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500"></div>
+            <div class="p-6 md:p-8">
+              <p class="text-slate-700">As PM & strategy lead, delivered a unified portal + translation pipeline with translation memory, cutting cost and speeding delivery.</p>
+            </div>
+          </details>
+
+          <!-- Add your other detailed case studies back here if desired -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Roles: Fan + Next Card -->
+  <section id="roles-hand" class="mx-auto max-w-6xl px-4 py-10">
+    <h2 class="text-2xl md:text-3xl font-bold text-center bg-gradient-to-r from-sky-700 via-teal-700 to-emerald-700 bg-clip-text text-transparent mb-4">
+      My Winning Hand
+    </h2>
+    <div class="h-1 w-40 mx-auto rounded-full bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500 mb-6"></div>
+
+    <div class="hand-stage relative">
+      <div id="hand-cards" class="hand"></div>
+
+      <div class="next-card-float">
+        <button class="next-card" type="button" aria-label="Next role: Director of Product">
+          <div class="next-inner">
+            <!-- FRONT -->
+            <div class="next-face next-front">
+              <div class="nc-badge">NEXT CARD</div>
+            </div>
+            <!-- BACK (matches role-card UI) -->
+            <div class="next-face next-back next-back--role">
+              <div class="card-body">
+                <span class="year-chip">Future</span>
+                <h4 class="role-title">Director of Product</h4>
+                <p class="role-desc">My next growth step, building on PM + TPM experience.</p>
+              </div>
+            </div>
+          </div>
+        </button>
+      </div>
+    </div>
+  </section>
 
   <!-- Certifications -->
   <section id="certifications" class="container mx-auto px-4 py-14">
@@ -702,40 +298,10 @@
       <h2 class="text-3xl font-extrabold">Certifications</h2>
       <span class="text-sm text-gray-500">Always leveling up</span>
     </div>
-
     <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <!-- CSM -->
-      <article class="rounded-2xl bg-white/95 shadow-lg ring-1 ring-sky-200 p-6 hover:-translate-y-0.5 transition">
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 flex items-center justify-center rounded-xl bg-gradient-to-r from-sky-500 to-sky-700 text-white text-xl shadow">✓</div>
-          <div>
-            <h3 class="font-semibold text-lg">Certified ScrumMaster (CSM)</h3>
-            <p class="text-sm text-gray-600">Scrum Alliance</p>
-          </div>
-        </div>
-      </article>
-
-      <!-- CSPO -->
-      <article class="rounded-2xl bg-white/95 shadow-lg ring-1 ring-teal-200 p-6 hover:-translate-y-0.5 transition">
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 flex items-center justify-center rounded-xl bg-gradient-to-r from-teal-500 to-teal-700 text-white text-xl shadow">✓</div>
-          <div>
-            <h3 class="font-semibold text-lg">Certified Scrum Product Owner (CSPO)</h3>
-            <p class="text-sm text-gray-600">Scrum Alliance</p>
-          </div>
-        </div>
-      </article>
-
-      <!-- AI for PM -->
-      <article class="rounded-2xl bg-white/95 shadow-lg ring-1 ring-emerald-200 p-6 hover:-translate-y-0.5 transition">
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 flex items-center justify-center rounded-xl bg-gradient-to-r from-emerald-500 to-emerald-700 text-white text-xl shadow">🤖</div>
-          <div>
-            <h3 class="font-semibold text-lg">Certified AI for Product Management</h3>
-            <p class="text-sm text-gray-600">Pendo</p>
-          </div>
-        </div>
-      </article>
+      <article class="rounded-2xl bg-white/95 shadow-lg ring-1 ring-sky-200 p-6 hover:-translate-y-0.5 transition"><div class="flex items-center gap-3"><div class="w-10 h-10 flex items-center justify-center rounded-xl bg-gradient-to-r from-sky-500 to-sky-700 text-white text-xl shadow">✓</div><div><h3 class="font-semibold text-lg">Certified ScrumMaster (CSM)</h3><p class="text-sm text-gray-600">Scrum Alliance</p></div></div></article>
+      <article class="rounded-2xl bg-white/95 shadow-lg ring-1 ring-teal-200 p-6 hover:-translate-y-0.5 transition"><div class="flex items-center gap-3"><div class="w-10 h-10 flex items-center justify-center rounded-xl bg-gradient-to-r from-teal-500 to-teal-700 text-white text-xl shadow">✓</div><div><h3 class="font-semibold text-lg">Certified Scrum Product Owner (CSPO)</h3><p class="text-sm text-gray-600">Scrum Alliance</p></div></div></article>
+      <article class="rounded-2xl bg-white/95 shadow-lg ring-1 ring-emerald-200 p-6 hover:-translate-y-0.5 transition"><div class="flex items-center gap-3"><div class="w-10 h-10 flex items-center justify-center rounded-xl bg-gradient-to-r from-emerald-500 to-emerald-700 text-white text-xl shadow">🤖</div><div><h3 class="font-semibold text-lg">Certified AI for Product Management</h3><p class="text-sm text-gray-600">Pendo</p></div></div></article>
     </div>
   </section>
 
@@ -745,18 +311,9 @@
       <div class="rounded-3xl bg-white/95 p-8">
         <h2 class="text-3xl font-extrabold">Let us get in touch</h2>
         <div class="mt-6 grid md:grid-cols-3 gap-6">
-          <article class="p-5 rounded-2xl bg-gradient-to-br from-sky-50 to-teal-50 ring-1 ring-sky-200">
-            <h3 class="font-semibold">Email</h3>
-            <p class="mt-2 text-sm"><a class="underline decoration-sky-500 decoration-2 underline-offset-4" href="mailto:divya.kshatri@gmail.com">divya.kshatri@gmail.com</a></p>
-          </article>
-          <article class="p-5 rounded-2xl bg-gradient-to-br from-teal-50 to-emerald-50 ring-1 ring-teal-200">
-            <h3 class="font-semibold">LinkedIn</h3>
-            <p class="mt-2 text-sm"><a class="underline decoration-teal-600 decoration-2 underline-offset-4" target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/divya-kshatri/">linkedin.com/in/divya-kshatri</a></p>
-          </article>
-          <article class="p-5 rounded-2xl bg-gradient-to-br from-emerald-50 to-sky-50 ring-1 ring-emerald-200">
-            <h3 class="font-semibold">Phone</h3>
-            <p class="mt-2 text-sm">+1 402 800 8691</p>
-          </article>
+          <article class="p-5 rounded-2xl bg-gradient-to-br from-sky-50 to-teal-50 ring-1 ring-sky-200"><h3 class="font-semibold">Email</h3><p class="mt-2 text-sm"><a class="underline decoration-sky-500 decoration-2 underline-offset-4" href="mailto:divya.kshatri@gmail.com">divya.kshatri@gmail.com</a></p></article>
+          <article class="p-5 rounded-2xl bg-gradient-to-br from-teal-50 to-emerald-50 ring-1 ring-teal-200"><h3 class="font-semibold">LinkedIn</h3><p class="mt-2 text-sm"><a class="underline decoration-teal-600 decoration-2 underline-offset-4" target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/divya-kshatri/">linkedin.com/in/divya-kshatri</a></p></article>
+          <article class="p-5 rounded-2xl bg-gradient-to-br from-emerald-50 to-sky-50 ring-1 ring-emerald-200"><h3 class="font-semibold">Phone</h3><p class="mt-2 text-sm">+1 402 800 8691</p></article>
         </div>
       </div>
     </div>
@@ -771,62 +328,12 @@
   </footer>
 
   <script>
-document.addEventListener('DOMContentLoaded', () => {
-  // === Metrics CountUp (runs once when the tiles enter view) ===
-  (function () {
-    const els = Array.from(document.querySelectorAll('.countup'));
-    if (!els.length) return;
+  document.addEventListener('DOMContentLoaded', () => {
+    /* ===== Footer year ===== */
+    const yearEl = document.getElementById('year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-    // Respect reduced motion
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const DURATION = reduce ? 0 : 1200; // ms
-
-    const animate = (el) => {
-      const targetAttr = el.getAttribute('data-target');
-      if (!targetAttr) return;
-      const decimals = +(el.getAttribute('data-decimals') || 0);
-
-      const target = parseFloat(targetAttr);
-      const start = performance.now();
-      const from = 0;
-
-      const tick = (now) => {
-        const p = Math.min(1, (now - start) / DURATION);
-        const value = from + (target - from) * p;
-
-        // If you ever need thousands separators, use toLocaleString.
-        // Keep decimals support for flexible use.
-        el.textContent = decimals
-          ? value.toFixed(decimals)
-          : Math.round(value).toString();
-
-        if (p < 1) requestAnimationFrame(tick);
-      };
-
-      if (DURATION === 0) {
-        el.textContent = decimals ? target.toFixed(decimals) : Math.round(target).toString();
-      } else {
-        requestAnimationFrame(tick);
-      }
-    };
-
-    const seen = new WeakSet();
-
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting && !seen.has(entry.target)) {
-          seen.add(entry.target);
-          animate(entry.target);
-        }
-      });
-    }, { threshold: 0.35, rootMargin: '0px 0px -10% 0px' });
-
-    els.forEach((el) => io.observe(el));
-  })();
-});
-
-
-    /* ===== Responsibilities Slider ===== */
+    /* ===== Responsibilities Slider (auto + dots) ===== */
     (function () {
       const slider = document.getElementById('slider');
       if (!slider) return;
@@ -869,7 +376,48 @@ document.addEventListener('DOMContentLoaded', () => {
       startAutoScroll();
     })();
 
-    /* ===== Work Tabs (Projects / Case Studies) with hash routing ===== */
+    /* ===== Metrics CountUp (on first view) ===== */
+    (function () {
+      const els = Array.from(document.querySelectorAll('.countup'));
+      if (!els.length) return;
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const DURATION = reduce ? 0 : 1200;
+
+      const animate = (el) => {
+        const targetAttr = el.getAttribute('data-target');
+        if (!targetAttr) return;
+        const decimals = +(el.getAttribute('data-decimals') || 0);
+        const target = parseFloat(targetAttr);
+        const start = performance.now();
+        const from = 0;
+
+        const tick = (now) => {
+          const p = Math.min(1, (now - start) / DURATION);
+          const value = from + (target - from) * p;
+          el.textContent = decimals ? value.toFixed(decimals) : Math.round(value).toString();
+          if (p < 1) requestAnimationFrame(tick);
+        };
+        if (DURATION === 0) {
+          el.textContent = decimals ? target.toFixed(decimals) : Math.round(target).toString();
+        } else {
+          requestAnimationFrame(tick);
+        }
+      };
+
+      const seen = new WeakSet();
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !seen.has(entry.target)) {
+            seen.add(entry.target);
+            animate(entry.target);
+          }
+        });
+      }, { threshold: 0.35, rootMargin: '0px 0px -10% 0px' });
+
+      els.forEach((el) => io.observe(el));
+    })();
+
+    /* ===== Work Tabs (Projects / Case Studies) with simple routing ===== */
     (function () {
       const tabProjects    = document.getElementById('tab-projects');
       const tabCase        = document.getElementById('tab-casestudy');
@@ -909,17 +457,6 @@ document.addEventListener('DOMContentLoaded', () => {
       tabProjects.addEventListener('click', () => { setProjectsSelected(true);  tabProjects.focus(); });
       tabCase.addEventListener('click',     () => { setProjectsSelected(false); tabCase.focus(); });
 
-      function handleKey(e){
-        if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
-          const goCase = (e.key === 'ArrowRight' && document.activeElement === tabProjects) ||
-                         (e.key === 'ArrowLeft'  && document.activeElement === tabCase);
-          if (goCase) { tabCase.focus(); setProjectsSelected(false); }
-          else        { tabProjects.focus(); setProjectsSelected(true);  }
-        }
-      }
-      tabProjects.addEventListener('keydown', handleKey);
-      tabCase.addEventListener('keydown', handleKey);
-
       // Init from hash
       const h = (location.hash || '').toLowerCase();
       if (h.includes('#work/case')) setProjectsSelected(false, {updateHash:false});
@@ -935,47 +472,58 @@ document.addEventListener('DOMContentLoaded', () => {
       // Ensure "See projects" links switch the tab
       document.querySelectorAll('a[href="#work"]').forEach(a => a.setAttribute('href', '#work/projects'));
 
-      // Hook the top nav Case Studies item to always open the Case tab and scroll
+      // Top nav Case Studies opens the Case tab & scrolls
       const navCase = document.getElementById('nav-casestudies');
       function goToWorkAndSetTab(isCase){
         location.hash = isCase ? '#work/case' : '#work/projects';
         if (workSection) workSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
-      navCase?.addEventListener('click', (e) => {
-        e.preventDefault();
-        goToWorkAndSetTab(true);
-      });
+      navCase?.addEventListener('click', (e) => { e.preventDefault(); goToWorkAndSetTab(true); });
     })();
 
+    /* ===== Roles hand (single mount, no duplicates) ===== */
     (function () {
-      const workSection = document.getElementById('work');
-      function goToWorkAndSetTab(isCase){
-        location.hash = isCase ? '#work/case' : '#work/projects';
-        if (workSection) workSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-      const navCase = document.getElementById('nav-casestudies');
-      navCase?.addEventListener('click', (e) => {
-        e.preventDefault();
-        goToWorkAndSetTab(true);
+      const HAND_ROLES = [
+        { title:"iOS Developer", years:"2011–2013", desc:"Dealt Swift/Obj-C features with an ace-level UX finish." },
+        { title:"Software Developer", years:"2013–2016", desc:"Built reliable combos—APIs, CI/CD, testing—a steady hand every round." },
+        { title:"Senior Software Developer", years:"2016–2022", desc:"Played power cards: scalable services, mobile polish, and reviews that keep the house edge low." },
+        { title:"TPM", years:"2019–2025", desc:"Shuffled squads, counted cards on capacity, and kept releases on the table—no busts." },
+        { title:"Product Manager", years:"2020–2025", desc:"Stacked the deck with crisp roadmaps, dealt AI features, and banked measurable wins." }
+      ];
+
+      const root = document.getElementById('hand-cards');
+      if (!root || root.dataset.mounted === "1") return;
+      root.dataset.mounted = "1";
+
+      const n = HAND_ROLES.length;
+      const maxAngle = 24, spreadX = 64, lift = 10, baseZ = 10;
+
+      HAND_ROLES.forEach((r,i)=>{
+        const t = (i-(n-1)/2) / ((n-1)/2||1);
+        const card = document.createElement('article');
+        card.className='role-card';
+        card.style.setProperty('--angle',(t*maxAngle).toFixed(2)+'deg');
+        card.style.setProperty('--dx',(t*spreadX).toFixed(1)+'px');
+        card.style.top=`calc(18% + ${Math.abs(t)*lift}px)`;
+        card.style.zIndex=String(baseZ+i);
+        card.innerHTML=`
+          <div class="card-body">
+            <span class="year-chip">${r.years}</span>
+            <h3 class="role-title">${r.title}</h3>
+            <p class="role-desc">${r.desc}</p>
+          </div>`;
+        card.addEventListener('mouseenter',()=>card.style.zIndex=999);
+        card.addEventListener('mouseleave',()=>card.style.zIndex=String(baseZ+i));
+        root.appendChild(card);
       });
     })();
 
-    /* ===== Ensure unique #solution / #outcomes anchors inside each case study ===== */
-    (function () {
-      document.querySelectorAll('details[id]').forEach(d => {
-        const did = d.id;
-        const sol = d.querySelector('section#solution');
-        const out = d.querySelector('section#outcomes');
-        if (sol) sol.id = `${did}-solution`;
-        if (out) out.id = `${did}-outcomes`;
-        d.querySelectorAll('a[href="#solution"]').forEach(a => a.setAttribute('href', `#${did}-solution`));
-        d.querySelectorAll('a[href="#outcomes"]').forEach(a => a.setAttribute('href', `#${did}-outcomes`));
-      });
+    /* ===== Next card: click-to-flip ===== */
+    (function(){
+      const btn=document.querySelector('.next-card');
+      btn?.addEventListener('click',()=>btn.classList.toggle('is-flipped'));
     })();
-
-    /* IMPORTANT: removed the duplicate roles-hand renderer here to prevent double-mount */
   });
   </script>
 </body>
 </html>
-
