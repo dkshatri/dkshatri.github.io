@@ -1299,172 +1299,207 @@
         </div>
     </div>
   </div>
-</section>
-<!-- ====== Roles: Fan of Cards (uniform, portrait cards) ====== -->
+</section><!-- ====== Roles: Fan + Next Card (gradient front, role-card style back) ====== -->
 <section id="roles-hand" class="mx-auto max-w-6xl px-4 py-10">
-  <h2 class="text-2xl md:text-3xl font-bold text-center
-             bg-gradient-to-r from-sky-700 via-teal-700 to-emerald-700
-             bg-clip-text text-transparent mb-4">
+  <h2
+    class="text-2xl md:text-3xl font-bold text-center bg-gradient-to-r from-sky-700 via-teal-700 to-emerald-700 bg-clip-text text-transparent mb-4">
     My Winning Hand
   </h2>
-  <div class="h-1 w-40 mx-auto rounded-full
-              bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500 mb-6"></div>
+  <div
+    class="h-1 w-40 mx-auto rounded-full bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500 mb-6"></div>
 
-  <!-- Stage -->
-  <div class="hand-stage">
-    <div id="hand-cards" class="hand"></div>
+  <div class="hand-stage relative">
+    <!-- Fanned hand -->
+    <div id="hand-cards" class="hand shift-right-more"></div>
+
+    <!-- Floating NEXT CARD -->
+    <div class="next-card-float">
+      <button class="next-card" type="button" aria-label="Next role: Director of Product">
+        <div class="next-inner">
+          <!-- FRONT (gradient with NEXT CARD text) -->
+          <div class="next-face next-front">
+            <div class="nc-badge">NEXT CARD</div>
+          </div>
+
+          <!-- BACK (role-card style) -->
+          <div class="next-face next-back next-back--role">
+            <div class="card-body">
+              <span class="year-chip">Future</span>
+              <h4 class="role-title">Director of Product</h4>
+              <p class="role-desc">
+                My next growth step, building on PM + TPM experience.
+              </p>
+            </div>
+          </div>
+        </div>
+      </button>
+    </div>
   </div>
 </section>
 
 <style>
-/* ===== THEME ===== */
-:root{
-  --sky:#0ea5e9; --emerald:#10b981; --ink:#0f172a;
-  --stageGlow: 0 32px 90px rgba(14,165,233,.14) inset, 0 20px 50px rgba(16,185,129,.14);
+:root {
+  --sky:#0ea5e9; --teal:#14b8a6; --emerald:#10b981; --ink:#0f172a;
+  --stageGlow:0 32px 90px rgba(14,165,233,.14) inset, 0 20px 50px rgba(16,185,129,.14);
 }
-
-/* ===== STAGE ===== */
-.hand-stage{
+.hand-stage {
   position:relative; perspective:1100px;
-  padding: 28px 0 56px; border-radius: 22px;
-  background:
-    radial-gradient(1100px 180px at 50% 100%, rgba(16,185,129,.08), transparent 60%),
-    linear-gradient(180deg, rgba(2,132,199,.04), rgba(16,185,129,.04));
-  box-shadow: var(--stageGlow);
+  padding:28px 0 56px; border-radius:22px;
+  background: radial-gradient(1100px 180px at 50% 100%, rgba(16,185,129,.08), transparent 60%),
+             linear-gradient(180deg, rgba(2,132,199,.04), rgba(16,185,129,.04));
+  box-shadow:var(--stageGlow); overflow:hidden;
 }
-.hand{ position:relative; height: 380px; max-width: 1120px; margin:0 auto; }
+.hand { position:relative; height:380px; max-width:1120px; margin:0 auto; }
 
-/* ===== CARD (uniform portrait) ===== */
-.role-card{
-  /* set ONE height, compute portrait width from it */
-  --cardH: 320px;                  /* desktop card height */
-  height: var(--cardH);
-  width: calc(var(--cardH) * 0.72);/* width < height (portrait) */
-
-  position:absolute; top: 18%; left:50%; translate:-50% 0;
-  border-radius: 20px; background:#fff;
-  box-shadow:
-    0 10px 26px rgba(14,165,233,.16),
-    0 6px 18px rgba(16,185,129,.14),
-    0 0 0 1px rgba(255,255,255,.95) inset;
-  transform-origin: 50% 120%;
-  transition: transform .35s cubic-bezier(.25,.8,.3,1),
-              box-shadow .25s ease, z-index .1s linear, filter .25s ease;
-  outline: none; will-change: transform;
-  /* rotation + offset applied via CSS vars from JS */
-  --angle: 0deg; --dx: 0px;
-  transform: rotate(var(--angle)) translateX(var(--dx));
+/* Role cards */
+.role-card {
+  --cardH:320px;
+  height:var(--cardH); width:calc(var(--cardH)*0.72);
+  position:absolute; top:18%; left:50%; translate:-50% 0;
+  border-radius:20px; background:#fff;
+  box-shadow:0 10px 26px rgba(14,165,233,.16),
+             0 6px 18px rgba(16,185,129,.14),
+             0 0 0 1px rgba(255,255,255,.95) inset;
+  transform-origin:50% 120%;
+  transition:transform .35s cubic-bezier(.25,.8,.3,1),
+             box-shadow .25s ease, z-index .1s linear, filter .25s ease;
+  --angle:0deg; --dx:0px;
+  transform:rotate(var(--angle)) translateX(var(--dx));
 }
-
-/* Hover bring-to-front + slight enlarge */
-.role-card:hover, .role-card:focus-visible{
-  z-index: 40 !important;
-  transform: translateY(-10px) scale(1.04) rotate(var(--angle)) translateX(var(--dx));
-  box-shadow:
-    0 16px 34px rgba(14,165,233,.20),
-    0 10px 24px rgba(16,185,129,.18),
-    0 0 0 1px rgba(255,255,255,.95) inset;
-  filter: saturate(1.05);
+.role-card:hover, .role-card:focus-visible {
+  z-index:40 !important;
+  transform:translateY(-10px) scale(1.04) rotate(var(--angle)) translateX(var(--dx));
+  box-shadow:0 16px 34px rgba(14,165,233,.20),
+             0 10px 24px rgba(16,185,129,.18),
+             0 0 0 1px rgba(255,255,255,.95) inset;
+  filter:saturate(1.05);
 }
-
-/* ===== CONTENT (keeps all cards visually equal) ===== */
-.card-body{
+.card-body {
   height:100%; display:flex; flex-direction:column; gap:10px;
-  padding: 18px 18px 20px; color: var(--ink);
+  padding:18px 18px 20px; color:var(--ink);
 }
-.year-chip{
+.year-chip {
   align-self:flex-start; color:#fff; font:800 13px/1 ui-sans-serif,system-ui,Inter;
   padding:.45rem .75rem; border-radius:9999px;
-  background: linear-gradient(90deg,var(--sky),var(--emerald));
-  box-shadow: 0 6px 16px rgba(14,165,233,.22);
+  background:linear-gradient(90deg,var(--sky),var(--emerald));
+  box-shadow:0 6px 16px rgba(14,165,233,.22);
 }
-.role-title{
-  font:800 clamp(18px,2.2vw,24px)/1.15 ui-sans-serif,system-ui,Inter;
-  margin-top:2px;
-}
-/* Clamp description so tall text doesn't change card height */
-.role-desc{
-  font:500 15px/1.45 ui-sans-serif,system-ui,Inter; color:#334155;
-  display:-webkit-box; -webkit-line-clamp: 4; line-clamp: 4; -webkit-box-orient: vertical; overflow:hidden;
-}
+.role-title { font:800 clamp(18px,2.2vw,24px)/1.15 ui-sans-serif,system-ui,Inter; margin-top:2px; }
+.role-desc { font:500 15px/1.45 ui-sans-serif,system-ui,Inter; color:#334155;
+  display:-webkit-box; -webkit-line-clamp:4; -webkit-box-orient:vertical; overflow:hidden; }
 
-/* ===== RESPONSIVE ===== */
-@media (max-width: 1024px){
-  .hand{ height: 360px; }
-  .role-card{ --cardH: 300px; }
-}
-@media (max-width: 900px){
-  .hand{ height: 340px; }
-  .role-card{ --cardH: 280px; }
-}
-@media (max-width: 720px){
-  /* turn into a horizontal scroll list on phones */
-  .hand{
-    height:auto; display:flex; gap:14px; overflow-x:auto;
-    padding: 6px 8px 12px; scroll-snap-type:x mandatory;
-  }
-  .role-card{
-    position:relative; left:auto; top:auto; translate:0;
-    transform:none !important; rotate:0deg !important;
-    --cardH: 260px;
-    flex:0 0 auto; scroll-snap-align:start;
-  }
-}
-html { scroll-behavior: smooth; }
+/* shift fan */
+.hand.shift-right-more .role-card { left:37%; }
 
+/* Next card */
+.next-card-float { position:absolute; top:100px; right:24px; }
+.next-card {
+  --w:200px; --h:280px; --r:18px;
+  width:var(--w); height:var(--h); border-radius:var(--r);
+  perspective:1200px; cursor:pointer; border:0; padding:0; background:transparent;
+  filter:drop-shadow(0 14px 24px rgba(14,165,233,.15));
+}
+.next-inner {
+  position:relative; width:100%; height:100%; transform-style:preserve-3d;
+  transition:transform .6s cubic-bezier(.2,.8,.2,1), filter .3s ease;
+  border-radius:inherit;
+}
+.next-card:hover .next-inner, .next-card.is-flipped .next-inner {
+  transform:rotateY(180deg) scale(1.04);
+}
+.next-face {
+  position:absolute; inset:0; border-radius:var(--r);
+  backface-visibility:hidden; -webkit-backface-visibility:hidden;
+  box-shadow:0 2px 0 rgba(255,255,255,.9) inset,
+             0 10px 30px rgba(2,132,199,.10);
+}
+/* FRONT: gradient with NEXT CARD */
+.next-front {
+  display:flex; align-items:center; justify-content:center;
+  background:linear-gradient(135deg,var(--sky) 0%, var(--teal) 50%, var(--emerald) 100%);
+}
+.nc-badge {
+  font:900 14px/1 ui-sans-serif,system-ui,Inter; color:#fff;
+  padding:.65rem 1rem; border-radius:9999px; border:2px solid rgba(255,255,255,.35);
+}
+/* BACK: role-card style */
+.next-back { transform:rotateY(180deg); }
+.next-back--role {
+  display:flex; align-items:stretch; justify-content:center;
+  background:#fff;
+  box-shadow:0 10px 26px rgba(14,165,233,.16),
+             0 6px 18px rgba(16,185,129,.14),
+             0 0 0 1px rgba(255,255,255,.95) inset;
+}
+.next-back--role .card-body { padding:18px 18px 20px; color:var(--ink); }
+.next-back--role .year-chip {
+  background:linear-gradient(90deg,var(--sky),var(--emerald)); color:#fff;
+}
+.next-back--role .role-title { font:800 20px/1.2 ui-sans-serif,system-ui,Inter; }
+.next-back--role .role-desc { font:500 14px/1.45 ui-sans-serif,system-ui,Inter; color:#334155; }
+
+/* Responsive */
+@media (max-width:1180px){ .next-card{ --w:188px; --h:264px; } }
+@media (max-width:1024px){
+  .hand{ height:360px; }
+  .role-card{ --cardH:300px; }
+  .hand.shift-right-more .role-card{ left:34%; }
+}
+@media (max-width:900px){ .hand{ height:340px; } .role-card{ --cardH:280px; } }
+@media (max-width:720px){
+  .hand{ height:auto; display:flex; gap:14px; overflow-x:auto; padding:6px 8px 12px; scroll-snap-type:x mandatory; }
+  .role-card{ position:relative; left:auto; top:auto; translate:0; transform:none !important;
+    --cardH:260px; flex:0 0 auto; scroll-snap-align:start; }
+  .next-card-float{ position:static; margin:16px auto 0; }
+}
 </style>
 
 <script>
-/* ==== DATA (same as yours) ==== */
-const ROLES = [
-  { title:"iOS Developer", years:"2011–2013",
-    desc:"Dealt Swift/Obj-C features with an ace-level UX finish." },
-  { title:"Software Developer", years:"2013–2016",
-    desc:"Built reliable combos—APIs, CI/CD, testing—a steady hand every round." },
-  { title:"Senior Software Developer", years:"2016–2022",
-    desc:"Played power cards: scalable services, mobile polish, and reviews that keep the house edge low." },
-  { title:"TPM", years:"2019–2025",
-    desc:"Shuffled squads, counted cards on capacity, and kept releases on the table—no busts." },
-  { title:"Product Manager", years:"2020–2025",
-    desc:"Stacked the deck with crisp roadmaps, dealt AI features, and banked measurable wins." }
+/* Roles data */
+const HAND_ROLES = [
+  { title:"iOS Developer", years:"2011–2013", desc:"Dealt Swift/Obj-C features with an ace-level UX finish." },
+  { title:"Software Developer", years:"2013–2016", desc:"Built reliable combos—APIs, CI/CD, testing—a steady hand every round." },
+  { title:"Senior Software Developer", years:"2016–2022", desc:"Played power cards: scalable services, mobile polish, and reviews that keep the house edge low." },
+  { title:"TPM", years:"2019–2025", desc:"Shuffled squads, counted cards on capacity, and kept releases on the table—no busts." },
+  { title:"Product Manager", years:"2020–2025", desc:"Stacked the deck with crisp roadmaps, dealt AI features, and banked measurable wins." }
 ];
 
-/* ==== RENDER + FAN (angles only; size is uniform from CSS) ==== */
+/* Render fan */
 (function mountHand(){
   const root = document.getElementById('hand-cards');
-  const n = ROLES.length;
-  const maxAngle = 22;      // total fan angle
-  const spreadX  = 56;      // horizontal offset amount
-  const lift     = 8;       // raise the center card slightly
-  const baseZ    = 10;
+  if (!root || root.dataset.mounted === "1") return;
+  root.dataset.mounted = "1";
 
-  ROLES.forEach((r, i) => {
-    const t = (i - (n - 1)/2) / ((n - 1)/2 || 1);  // -1..1 across the fan
-    const angle = (t * maxAngle).toFixed(2) + 'deg';
-    const dx    = (t * spreadX).toFixed(1) + 'px';
-    const y     = Math.abs(t) * lift;
+  const n = HAND_ROLES.length;
+  const maxAngle = 24, spreadX = 64, lift = 10, baseZ = 10;
 
+  HAND_ROLES.forEach((r,i)=>{
+    const t = (i-(n-1)/2) / ((n-1)/2||1);
     const card = document.createElement('article');
-    card.className = 'role-card';
-    card.style.setProperty('--angle', angle);
-    card.style.setProperty('--dx', dx);
-    card.style.top = `calc(18% + ${y}px)`;
-    card.style.zIndex = String(baseZ + i);
-
-    card.innerHTML = `
+    card.className='role-card';
+    card.style.setProperty('--angle',(t*maxAngle).toFixed(2)+'deg');
+    card.style.setProperty('--dx',(t*spreadX).toFixed(1)+'px');
+    card.style.top=`calc(18% + ${Math.abs(t)*lift}px)`;
+    card.style.zIndex=String(baseZ+i);
+    card.innerHTML=`
       <div class="card-body">
         <span class="year-chip">${r.years}</span>
         <h3 class="role-title">${r.title}</h3>
         <p class="role-desc">${r.desc}</p>
-      </div>
-    `;
-
-    card.addEventListener('mouseenter', () => card.style.zIndex = 999);
-    card.addEventListener('mouseleave', () => card.style.zIndex = String(baseZ + i));
+      </div>`;
+    card.addEventListener('mouseenter',()=>card.style.zIndex=999);
+    card.addEventListener('mouseleave',()=>card.style.zIndex=String(baseZ+i));
     root.appendChild(card);
   });
 })();
+
+/* Next card: click-to-flip */
+(function(){
+  const btn=document.querySelector('.next-card');
+  btn?.addEventListener('click',()=>btn.classList.toggle('is-flipped'));
+})();
 </script>
+
 
 	
 <!-- Certifications -->
@@ -1767,3 +1802,4 @@ document.addEventListener('DOMContentLoaded', () => {
   })();
 });
 </script>
+
