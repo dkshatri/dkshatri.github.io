@@ -771,25 +771,60 @@
   </footer>
 
   <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    /* ===== Footer year ===== */
-    const yearEl = document.getElementById('year');
-    if (yearEl) yearEl.textContent = new Date().getFullYear();
+document.addEventListener('DOMContentLoaded', () => {
+  // === Metrics CountUp (runs once when the tiles enter view) ===
+  (function () {
+    const els = Array.from(document.querySelectorAll('.countup'));
+    if (!els.length) return;
 
-    /* ===== SAFE view counter (only runs if #total-views exists) ===== */
-    (function () {
-      const target = document.getElementById('total-views');
-      if (!target) return;
-      const NS  = 'divya-portfolio';
-      const KEY = 'home';
-      fetch(`https://api.countapi.xyz/create?namespace=${NS}&key=${KEY}&value=0&update_lowerbound=0`)
-        .finally(() => {
-          fetch(`https://api.countapi.xyz/hit/${NS}/${KEY}`)
-            .then(r => r.json())
-            .then(d => { target.textContent = d.value.toLocaleString(); })
-            .catch(() => { target.textContent = '—'; });
-        });
-    })();
+    // Respect reduced motion
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const DURATION = reduce ? 0 : 1200; // ms
+
+    const animate = (el) => {
+      const targetAttr = el.getAttribute('data-target');
+      if (!targetAttr) return;
+      const decimals = +(el.getAttribute('data-decimals') || 0);
+
+      const target = parseFloat(targetAttr);
+      const start = performance.now();
+      const from = 0;
+
+      const tick = (now) => {
+        const p = Math.min(1, (now - start) / DURATION);
+        const value = from + (target - from) * p;
+
+        // If you ever need thousands separators, use toLocaleString.
+        // Keep decimals support for flexible use.
+        el.textContent = decimals
+          ? value.toFixed(decimals)
+          : Math.round(value).toString();
+
+        if (p < 1) requestAnimationFrame(tick);
+      };
+
+      if (DURATION === 0) {
+        el.textContent = decimals ? target.toFixed(decimals) : Math.round(target).toString();
+      } else {
+        requestAnimationFrame(tick);
+      }
+    };
+
+    const seen = new WeakSet();
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !seen.has(entry.target)) {
+          seen.add(entry.target);
+          animate(entry.target);
+        }
+      });
+    }, { threshold: 0.35, rootMargin: '0px 0px -10% 0px' });
+
+    els.forEach((el) => io.observe(el));
+  })();
+});
+
 
     /* ===== Responsibilities Slider ===== */
     (function () {
@@ -943,3 +978,4 @@
   </script>
 </body>
 </html>
+
