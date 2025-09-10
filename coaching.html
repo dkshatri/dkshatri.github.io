@@ -173,7 +173,7 @@
 
     // Load JSON from external file (place content.json in same folder or in /public)
     async function loadContent() {
-      const res = await fetch('content.json', { cache: 'no-store' });
+      const res = await fetch('Content.json', { cache: 'no-store' });
       if (!res.ok) throw new Error('Failed to load content.json');
       return await res.json();
     }
