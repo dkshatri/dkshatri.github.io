@@ -3,332 +3,93 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Coaching • Blogs & Videos</title>
-
-  <!-- Tailwind CDN -->
+  <title>Blog • Detail</title>
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Inter font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-
   <style>
     body { font-family: Inter, ui-sans-serif, system-ui, -apple-system; }
-    html { scroll-behavior:smooth; }
-    .card-hover { transition: transform .15s ease, box-shadow .15s ease; }
-    .card-hover:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(2,132,199,.08); }
+    .prose p { margin-top: 1rem; line-height: 1.75; }
   </style>
 </head>
 <body class="bg-gradient-to-br from-sky-50 via-teal-50 to-emerald-50 text-slate-900">
 
-  <!-- Header -->
-  <header class="sticky top-0 z-40 bg-white/80 backdrop-blur shadow-sm">
-    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-      <a href="/" class="text-xl font-extrabold bg-gradient-to-r from-sky-600 via-teal-600 to-emerald-600 bg-clip-text text-transparent">
-        Coaching by Divya
-      </a>
-      <nav class="hidden md:flex items-center gap-6 text-sm font-semibold">
-        <a href="#blogs"  class="hover:text-sky-600">Blogs</a>
-        <a href="#videos" class="hover:text-emerald-600">Videos</a>
-        <a href="#cta"    class="hover:text-teal-600">Work with me</a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- Hero -->
-  <section class="max-w-6xl mx-auto px-4 pt-10 pb-8">
-    <div class="grid md:grid-cols-[1.2fr_.8fr] gap-10 items-center">
-      <div>
-        <h1 class="text-4xl md:text-5xl font-extrabold leading-tight bg-gradient-to-r from-sky-700 via-teal-700 to-emerald-700 bg-clip-text text-transparent">
-          Practical coaching for product leaders and teams
-        </h1>
-        <p class="mt-4 text-lg text-slate-700">
-          No fluff. Actionable frameworks, real world examples, and short videos to help you move faster with confidence.
-        </p>
-        <div class="mt-6 flex flex-wrap gap-3">
-          <a href="#blogs" class="px-5 py-2 rounded-xl text-white font-semibold bg-gradient-to-r from-sky-600 to-emerald-600 shadow hover:opacity-90">
-            Read blogs
-          </a>
-          <a href="#videos" class="px-5 py-2 rounded-xl font-semibold ring-2 ring-teal-300 bg-white hover:bg-white/80">
-            Watch videos
-          </a>
-        </div>
-      </div>
-      <div></div>
-    </div>
-  </section>
-
-  <!-- Blogs -->
-  <section id="blogs" class="max-w-6xl mx-auto px-4 py-10 scroll-mt-20">
-    <div class="flex items-end justify-between gap-4">
-      <div>
-        <h2 class="text-3xl font-extrabold">Blogs</h2>
-        <p class="text-sm text-slate-600 mt-1">Deep dives, playbooks, and quick frameworks from the field.</p>
-      </div>
-      <div class="flex items-center gap-3">
-        <select id="blog-category" class="px-3 py-2 rounded-xl ring-1 ring-slate-300 bg-white/90 focus:outline-none">
-          <option value="">All categories</option>
-          <option value="Product Strategy">Product Strategy</option>
-          <option value="AI & Data">AI & Data</option>
-          <option value="Mobile">Mobile</option>
-          <option value="Leadership">Leadership</option>
-        </select>
-        <select id="blog-sort" class="px-3 py-2 rounded-xl ring-1 ring-slate-300 bg-white/90 focus:outline-none">
-          <option value="newest">Newest first</option>
-          <option value="oldest">Oldest first</option>
-        </select>
-      </div>
+  <main class="max-w-3xl mx-auto px-4 py-10">
+    <!-- Hero -->
+    <div class="rounded-3xl overflow-hidden ring-1 ring-slate-200 shadow">
+      <img id="hero-img" class="w-full h-64 object-cover" alt="Hero image">
     </div>
 
-    <!-- Featured + Secondary (JS injects) -->
-    <div id="blog-featured-row" class="mt-8 grid md:grid-cols-[1.2fr_.8fr] gap-6"></div>
+    <!-- Title -->
+    <h1 id="post-title" class="mt-6 text-4xl font-extrabold bg-gradient-to-r from-sky-700 via-teal-700 to-emerald-700 bg-clip-text text-transparent">
+      Loading…
+    </h1>
 
-    <!-- Remaining posts grid (JS injects) -->
-    <div id="blog-grid" class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
-
-    <!-- Simple pagination placeholders -->
-    <div class="mt-8 flex items-center justify-center gap-2">
-      <a href="#" class="px-3 py-1.5 rounded-lg bg-white ring-1 ring-slate-200 hover:bg-slate-50">Previous</a>
-      <button class="px-3 py-1.5 rounded-lg bg-teal-600 text-white">1</button>
-      <button class="px-3 py-1.5 rounded-lg bg-white ring-1 ring-slate-200 hover:bg-slate-50">2</button>
-      <button class="px-3 py-1.5 rounded-lg bg-white ring-1 ring-slate-200 hover:bg-slate-50">3</button>
-      <a href="#" class="px-3 py-1.5 rounded-lg bg-white ring-1 ring-slate-200 hover:bg-slate-50">Next</a>
-    </div>
-  </section>
-
-  <!-- Videos -->
-  <section id="videos" class="max-w-6xl mx-auto px-4 py-12 scroll-mt-20">
-    <div class="flex items-end justify-between gap-4">
-      <div>
-        <h2 class="text-3xl font-extrabold">Videos</h2>
-        <p class="text-sm text-slate-600 mt-1">Short, tactical walkthroughs. Most videos are under 6 minutes.</p>
-      </div>
-      <div class="flex items-center gap-2" id="video-filter-pills">
-        <button data-filter="" class="px-3 py-1.5 rounded-full bg-white ring-1 ring-slate-200 text-sm hover:bg-slate-50">All</button>
-        <button data-filter="PM Skills" class="px-3 py-1.5 rounded-full bg-white ring-1 ring-slate-200 text-sm hover:bg-slate-50">PM Skills</button>
-        <button data-filter="AI" class="px-3 py-1.5 rounded-full bg-white ring-1 ring-slate-200 text-sm hover:bg-slate-50">AI</button>
-        <button data-filter="Leadership" class="px-3 py-1.5 rounded-full bg-white ring-1 ring-slate-200 text-sm hover:bg-slate-50">Leadership</button>
-      </div>
+    <!-- Meta -->
+    <div class="mt-3 flex items-center justify-between">
+      <div id="pill-wrap" class="flex flex-wrap gap-2"></div>
+      <time id="post-date" class="text-sm text-slate-500"></time>
     </div>
 
-    <div id="video-grid" class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+    <!-- Body -->
+    <article id="post-body" class="prose prose-slate mt-6"></article>
 
-    <div class="mt-8 flex justify-center">
-      <a href="#" class="px-4 py-2 rounded-xl bg-white ring-1 ring-slate-200 hover:bg-slate-50 font-semibold">Browse all videos</a>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section id="cta" class="max-w-6xl mx-auto px-4 py-14">
-    <div class="rounded-3xl p-[2px] bg-gradient-to-r from-sky-600 via-teal-600 to-emerald-600 shadow-xl">
-      <div class="rounded-3xl bg-white/95 p-8">
-        <div class="grid md:grid-cols-[1.3fr_.7fr] gap-8 items-center">
-          <div>
-            <h2 class="text-2xl md:text-3xl font-extrabold">Ready to level up your team?</h2>
-            <p class="mt-2 text-slate-700">Pick what works for you — quick call, async note, or DM.</p>
-            <div class="mt-5 flex flex-wrap gap-3">
-              <a href="https://calendly.com/" target="_blank" rel="noreferrer"
-                 class="px-5 py-2 rounded-xl text-white font-semibold bg-gradient-to-r from-sky-600 to-emerald-600 shadow hover:opacity-90">
-                 Book 30 min call
-              </a>
-              <a href="https://www.linkedin.com/in/divya-kshatri/" target="_blank" rel="noreferrer"
-                 class="px-5 py-2 rounded-xl font-semibold ring-2 ring-teal-300 bg-white hover:bg-white/80">
-                 DM on LinkedIn
-              </a>
-              <a href="https://wa.me/14028008691" target="_blank" rel="noreferrer"
-                 class="px-5 py-2 rounded-xl font-semibold ring-2 ring-sky-300 bg-white hover:bg-white/80">
-                 WhatsApp
-              </a>
-            </div>
-          </div>
-          <div class="grid sm:grid-cols-2 gap-4">
-            <div class="p-5 rounded-2xl bg-gradient-to-br from-sky-50 to-teal-50 ring-1 ring-sky-200">
-              <h3 class="font-semibold">LinkedIn</h3>
-              <p class="mt-1 text-sm">
-                <a class="underline decoration-teal-600 underline-offset-4" target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/divya-kshatri/">
-                  linkedin.com/in/divya-kshatri
-                </a>
-              </p>
-            </div>
-            <div class="p-5 rounded-2xl bg-gradient-to-br from-emerald-50 to-sky-50 ring-1 ring-emerald-200">
-              <h3 class="font-semibold">Phone</h3>
-              <p class="mt-1 text-sm">+1 402 800 8691</p>
-            </div>
+    <!-- CTA -->
+    <section class="mt-10">
+      <div class="rounded-3xl p-[2px] bg-gradient-to-r from-sky-600 via-teal-600 to-emerald-600 shadow-xl">
+        <div class="rounded-3xl bg-white p-6">
+          <h4 class="text-xl font-extrabold">Want a 1-day observability sprint?</h4>
+          <p class="mt-1 text-slate-700 text-sm">We’ll instrument, dashboard, and align KPIs with your AI features.</p>
+          <div class="mt-4 flex flex-wrap gap-3">
+            <a href="https://calendly.com/" target="_blank"
+               class="px-5 py-2 rounded-xl text-white font-semibold bg-gradient-to-r from-sky-600 to-emerald-600 shadow hover:opacity-90">
+               Book a call
+            </a>
+            <a href="https://www.linkedin.com/in/divya-kshatri/" target="_blank"
+               class="px-5 py-2 rounded-xl font-semibold ring-2 ring-teal-300 bg-white hover:bg-white/80">
+               DM on LinkedIn
+            </a>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <!-- Footer -->
-  <footer class="max-w-6xl mx-auto px-4 pb-10 text-sm text-slate-600">
-    <div class="flex items-center justify-between gap-3 flex-wrap">
-      <p>© <span id="year"></span> Divya Kshatri</p>
-      <a href="#blogs" class="px-3 py-1.5 rounded-lg bg-white/80 ring-1 ring-slate-200 hover:ring-teal-300">Back to blogs</a>
-    </div>
-  </footer>
-
-  <!-- JS -->
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+    const CONTENT_PATH = 'content.json';
 
-    // Load JSON from external file (place content.json in same folder or in /public)
-    async function loadContent() {
-      const res = await fetch('Content.json', { cache: 'no-store' });
-      if (!res.ok) throw new Error('Failed to load content.json');
-      return await res.json();
+    // Format date nicely
+    const fmtDate = (iso) => new Date(iso + 'T00:00:00')
+      .toLocaleDateString(undefined, { month:'short', day:'numeric', year:'numeric' });
+
+    // Pills (topics + tags)
+    const pill = (label, color='sky') =>
+      `<span class="px-3 py-1 rounded-full border border-${color}-400 text-${color}-700 text-sm font-medium bg-${color}-50">${label}</span>`;
+
+    async function loadBlog() {
+      const res = await fetch(CONTENT_PATH, { cache: 'no-store' });
+      const data = await res.json();
+
+      const entry = data.blogs[0]; // since you only have 1 blog now
+
+      // Inject into DOM
+      document.title = entry.title;
+      document.getElementById('post-title').textContent = entry.title;
+      document.getElementById('post-date').textContent = fmtDate(entry.date);
+      document.getElementById('hero-img').src = entry.heroImage;
+
+      const pills = [];
+      (entry.topics || []).forEach(t => pills.push(pill(t, 'sky')));
+      (entry.tags || []).forEach(t => pills.push(`<span class="px-3 py-1 rounded-full border border-slate-300 text-slate-700 text-sm bg-white">${t}</span>`));
+      document.getElementById('pill-wrap').innerHTML = pills.join('');
+
+      document.getElementById('post-body').innerHTML = entry.details;
     }
 
-    // Helpers
-    const fmtDate = iso => new Date(iso + 'T00:00:00').toLocaleDateString(undefined, { month:'short', day:'numeric', year:'numeric' });
-    const tagPills = tags => (tags || []).map(t => `<span class="px-2 py-0.5 rounded-full bg-slate-100 text-slate-700 text-xs">${t}</span>`).join('');
-
-    function buildFeaturedCard(d) {
-      const el = document.createElement('article');
-      el.className = 'group relative rounded-3xl overflow-hidden ring-1 ring-slate-200 shadow bg-white';
-      el.innerHTML = `
-        <img src="${d.heroImage}" alt="${d.alt || d.title}" class="w-full h-64 md:h-80 object-cover">
-        <div class="p-6 md:p-8">
-          <div class="flex items-center gap-2 text-xs text-teal-700 font-semibold">
-            <span class="px-2 py-0.5 rounded-full bg-teal-100">${d.category || ''}</span>
-            <time datetime="${d.date}" class="text-slate-500 font-normal">${fmtDate(d.date)}</time>
-          </div>
-          <h3 class="mt-3 text-2xl font-extrabold group-hover:underline underline-offset-4 decoration-teal-400">${d.title}</h3>
-          <p class="mt-2 text-slate-700">${d.subtitle || d.excerpt || ''}</p>
-          <div class="mt-3 flex flex-wrap gap-2">${tagPills(d.tags)}</div>
-          <a href="${d.url || '#'}" class="mt-4 inline-block text-teal-700 font-semibold hover:text-teal-800">Read article →</a>
-        </div>`;
-      return el;
-    }
-
-    function buildSecondaryCard(d) {
-      const el = document.createElement('article');
-      el.className = 'group rounded-2xl overflow-hidden ring-1 ring-slate-200 shadow bg-white';
-      el.innerHTML = `
-        <img src="${d.heroImage}" alt="${d.alt || d.title}" class="w-full h-44 object-cover">
-        <div class="p-5">
-          <div class="flex items-center gap-2 text-xs text-slate-700 font-semibold">
-            <span class="px-2 py-0.5 rounded-full bg-slate-100">${d.category || ''}</span>
-            <time datetime="${d.date}" class="text-slate-500 font-normal">${fmtDate(d.date)}</time>
-          </div>
-          <h3 class="mt-2 font-bold group-hover:underline underline-offset-4 decoration-teal-400">${d.title}</h3>
-          <p class="mt-1 text-sm text-slate-700">${d.subtitle || d.excerpt || ''}</p>
-          <div class="mt-3 flex flex-wrap gap-2">${tagPills(d.tags)}</div>
-          <a href="${d.url || '#'}" class="mt-3 inline-block text-teal-700 font-semibold hover:text-teal-800">Read →</a>
-        </div>`;
-      return el;
-    }
-
-    function buildLeanCard(d) {
-      const el = document.createElement('article');
-      el.className = 'group rounded-2xl overflow-hidden ring-1 ring-slate-200 shadow bg-white card-hover';
-      el.innerHTML = `
-        <img src="${d.heroImage}" alt="${d.alt || d.title}" class="w-full h-40 object-cover">
-        <div class="p-5">
-          <div class="flex items-center gap-2 text-xs text-slate-500">
-            <time datetime="${d.date}">${fmtDate(d.date)}</time>
-          </div>
-          <h3 class="mt-2 font-bold group-hover:underline underline-offset-4 decoration-teal-400">${d.title}</h3>
-          <p class="mt-1 text-sm text-slate-700">${d.subtitle || d.excerpt || ''}</p>
-          <div class="mt-3 flex flex-wrap gap-2">${tagPills(d.tags)}</div>
-          <a href="${d.url || '#'}" class="mt-3 inline-block text-teal-700 font-semibold hover:text-teal-800">Read →</a>
-        </div>`;
-      return el;
-    }
-
-    function buildVideoCard(v) {
-      const el = document.createElement('article');
-      el.className = 'group relative rounded-2xl overflow-hidden bg-white ring-1 ring-slate-200 shadow card-hover';
-      const catClr = v.category === 'AI' ? 'text-emerald-700' : v.category === 'Leadership' ? 'text-fuchsia-700' : 'text-sky-700';
-      const catBg  = v.category === 'AI' ? 'bg-emerald-100' : v.category === 'Leadership' ? 'bg-fuchsia-100' : 'bg-sky-100';
-      el.innerHTML = `
-        <a href="${v.url}" target="_blank" rel="noreferrer" class="block relative">
-          <img src="${v.thumbnail}" alt="${v.title}" class="w-full h-48 object-cover">
-          <span class="absolute bottom-2 right-2 px-2 py-0.5 text-xs font-semibold rounded bg-black/70 text-white">${v.duration || ''}</span>
-          <span class="absolute inset-0 grid place-items-center">
-            <span class="w-12 h-12 rounded-full bg-black/40 backdrop-blur grid place-items-center group-hover:scale-105 transition">
-              <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-              <span class="sr-only">Play video</span>
-            </span>
-          </span>
-        </a>
-        <div class="p-5">
-          <div class="flex items-center gap-2 text-xs ${catClr} font-semibold">
-            <span class="px-2 py-0.5 rounded-full ${catBg}">${v.category}</span>
-            <time datetime="${v.date}" class="text-slate-500 font-normal">${fmtDate(v.date)}</time>
-          </div>
-          <h3 class="mt-2 font-bold group-hover:underline underline-offset-4 decoration-emerald-400">${v.title}</h3>
-          <p class="mt-1 text-sm text-slate-700">${v.subtitle || ''}</p>
-          <div class="mt-3 flex flex-wrap gap-2">${tagPills(v.tags)}</div>
-        </div>`;
-      return el;
-    }
-
-    // Render functions
-    function renderBlogs(list, featuredRow, grid) {
-      featuredRow.innerHTML = '';
-      grid.innerHTML = '';
-      if (list.length) {
-        featuredRow.appendChild(buildFeaturedCard(list[0]));
-        const rightWrap = document.createElement('div');
-        rightWrap.className = 'grid sm:grid-cols-2 gap-6';
-        list.slice(1,3).forEach(item => rightWrap.appendChild(buildSecondaryCard(item)));
-        featuredRow.appendChild(rightWrap);
-      }
-      list.slice(3).forEach(item => grid.appendChild(buildLeanCard(item)));
-    }
-
-    function renderVideos(list, grid) {
-      grid.innerHTML = '';
-      list.forEach(v => grid.appendChild(buildVideoCard(v)));
-    }
-
-    // Bootstrap
-    (async function init() {
-      try {
-        const data = await loadContent();
-
-        // Blogs
-        const blogs = [...data.blogs].sort((a,b) => new Date(b.date) - new Date(a.date));
-        const featuredRow = document.getElementById('blog-featured-row');
-        const blogGrid = document.getElementById('blog-grid');
-        renderBlogs(blogs, featuredRow, blogGrid);
-
-        // Filters
-        const catSel = document.getElementById('blog-category');
-        const sortSel = document.getElementById('blog-sort');
-        function rerenderBlogs() {
-          const cat = catSel.value;
-          const sort = sortSel.value;
-          let items = [...blogs];
-          if (cat) items = items.filter(i => i.category === cat);
-          if (sort === 'oldest') items.sort((a,b)=> new Date(a.date) - new Date(b.date));
-          if (sort === 'newest') items.sort((a,b)=> new Date(b.date) - new Date(a.date));
-          renderBlogs(items, featuredRow, blogGrid);
-        }
-        catSel.addEventListener('change', rerenderBlogs);
-        sortSel.addEventListener('change', rerenderBlogs);
-
-        // Videos
-        const videos = [...data.videos].sort((a,b) => new Date(b.date) - new Date(a.date));
-        const videoGrid = document.getElementById('video-grid');
-        renderVideos(videos, videoGrid);
-
-        // Video filter pills
-        const pillsWrap = document.getElementById('video-filter-pills');
-        pillsWrap.addEventListener('click', (e) => {
-          const btn = e.target.closest('button[data-filter]');
-          if (!btn) return;
-          const filter = btn.getAttribute('data-filter') || '';
-          Array.from(pillsWrap.querySelectorAll('button')).forEach(b => b.classList.remove('ring-teal-400','bg-teal-50'));
-          btn.classList.add('ring-teal-400','bg-teal-50');
-          if (!filter) return renderVideos(videos, videoGrid);
-          renderVideos(videos.filter(v => v.category === filter || (v.topics || []).includes(filter)), videoGrid);
-        });
-
-      } catch (err) {
-        console.error(err);
-      }
-    })();
+    loadBlog().catch(err => {
+      console.error(err);
+      document.getElementById('post-title').textContent = 'Error loading blog';
+      document.getElementById('post-body').innerHTML = '<p>Could not load blog content.</p>';
+    });
   </script>
 </body>
 </html>
