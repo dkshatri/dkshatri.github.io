@@ -2,14 +2,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Coaching Corner • Divya Kshatri</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Coaching • Blogs & Videos</title>
 
   <!-- Tailwind CDN -->
-<script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- Inter font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -21,13 +19,7 @@
     .card-hover:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(2,132,199,.08); }
   </style>
 </head>
-<body class="bg-gradient-to-br from-sky-50 via-teal-50 to-emerald-50 text-gray-900">
-  <header class="sticky top-0 z-50 backdrop-blur bg-white/80 shadow-sm ring-1 ring-white/60">
-    <div class="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between">
-      <a href="/" class="text-xl font-extrabold bg-gradient-to-r from-sky-600 via-teal-600 to-emerald-600 bg-clip-text text-transparent">← Back to portfolio</a>
-      <h1 class="text-lg font-bold">Coaching Corner</h1>
 <body class="bg-gradient-to-br from-sky-50 via-teal-50 to-emerald-50 text-slate-900">
-
   <!-- Header -->
   <header class="sticky top-0 z-40 bg-white/80 backdrop-blur shadow-sm">
     <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
@@ -39,13 +31,9 @@
         <a href="#videos" class="hover:text-emerald-600">Videos</a>
         <a href="#cta"    class="hover:text-teal-600">Work with me</a>
       </nav>
-</div>
-</header>
+    </div>
+  </header>
 
-  <main class="max-w-5xl mx-auto px-4 py-10">
-    <h2 class="text-3xl font-extrabold bg-gradient-to-r from-sky-700 via-teal-700 to-emerald-700 bg-clip-text text-transparent">
-      Video Tutorials & Blog Posts
-    </h2>
   <!-- Hero -->
   <section class="max-w-6xl mx-auto px-4 pt-10 pb-8">
     <div class="grid md:grid-cols-[1.2fr_.8fr] gap-10 items-center">
@@ -54,7 +42,7 @@
           Practical coaching for product leaders and teams
         </h1>
         <p class="mt-4 text-lg text-slate-700">
-          No fluff. Actionable frameworks, real world examples, and short videos to help you move faster with confidence.
+          No fluff. Actionable frameworks, real-world examples, and short videos to help you move faster with confidence.
         </p>
         <div class="mt-6 flex flex-wrap gap-3">
           <a href="#blogs" class="px-5 py-2 rounded-xl text-white font-semibold bg-gradient-to-r from-sky-600 to-emerald-600 shadow hover:opacity-90">
@@ -152,19 +140,13 @@
               </a>
             </div>
           </div>
-          <div class="grid sm:grid-cols-2 gap-4">
-            <div class="p-5 rounded-2xl bg-gradient-to-br from-sky-50 to-teal-50 ring-1 ring-sky-200">
-              <h3 class="font-semibold">LinkedIn</h3>
-              <p class="mt-1 text-sm">
-                <a class="underline decoration-teal-600 underline-offset-4" target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/divya-kshatri/">
-                  linkedin.com/in/divya-kshatri
-                </a>
-              </p>
-            </div>
-            <div class="p-5 rounded-2xl bg-gradient-to-br from-emerald-50 to-sky-50 ring-1 ring-emerald-200">
-              <h3 class="font-semibold">Phone</h3>
-              <p class="mt-1 text-sm">+1 402 800 8691</p>
-            </div>
+          <div class="p-5 rounded-2xl bg-gradient-to-br from-sky-50 to-teal-50 ring-1 ring-sky-200">
+            <h3 class="font-semibold">LinkedIn</h3>
+            <p class="mt-1 text-sm">
+              <a class="underline decoration-teal-600 underline-offset-4" target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/divya-kshatri/">
+                linkedin.com/in/divya-kshatri
+              </a>
+            </p>
           </div>
         </div>
       </div>
@@ -183,78 +165,108 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Load JSON from external file (place content.json in same folder or in /public)
+    // ---- Data loader ----
     async function loadContent() {
       const res = await fetch('content.json', { cache: 'no-store' });
       if (!res.ok) throw new Error('Failed to load content.json');
       return await res.json();
     }
 
-    // Helpers
+    // ---- Helpers ----
     const fmtDate = iso => new Date(iso + 'T00:00:00').toLocaleDateString(undefined, { month:'short', day:'numeric', year:'numeric' });
     const tagPills = tags => (tags || []).map(t => `<span class="px-2 py-0.5 rounded-full bg-slate-100 text-slate-700 text-xs">${t}</span>`).join('');
+    const slugify = s => (s || '')
+      .toLowerCase()
+      .replace(/[^\w\s-]/g,'')
+      .trim()
+      .replace(/\s+/g,'-')
+      .replace(/-+/g,'-');
 
+    // ensure each blog has a slug (use existing if present)
+    function withSlug(blog) {
+      if (blog.slug) return blog;
+      const base = blog.slug || blog.name || blog.title || 'post';
+      return { ...blog, slug: slugify(base) };
+    }
+
+    // ---- Card builders (blogs) ----
     function buildFeaturedCard(d) {
+      const href = `blog-detail.html?slug=${encodeURIComponent(d.slug)}`;
       const el = document.createElement('article');
       el.className = 'group relative rounded-3xl overflow-hidden ring-1 ring-slate-200 shadow bg-white';
       el.innerHTML = `
-        <img src="${d.heroImage}" alt="${d.alt || d.title}" class="w-full h-64 md:h-80 object-cover">
+        <a href="${href}" class="block">
+          <img src="${d.heroImage || ''}" alt="${d.alt || d.title}" class="w-full h-64 md:h-80 object-cover">
+        </a>
         <div class="p-6 md:p-8">
           <div class="flex items-center gap-2 text-xs text-teal-700 font-semibold">
             <span class="px-2 py-0.5 rounded-full bg-teal-100">${d.category || ''}</span>
             <time datetime="${d.date}" class="text-slate-500 font-normal">${fmtDate(d.date)}</time>
           </div>
-          <h3 class="mt-3 text-2xl font-extrabold group-hover:underline underline-offset-4 decoration-teal-400">${d.title}</h3>
+          <h3 class="mt-3 text-2xl font-extrabold">
+            <a href="${href}" class="group-hover:underline underline-offset-4 decoration-teal-400">${d.title}</a>
+          </h3>
           <p class="mt-2 text-slate-700">${d.subtitle || d.excerpt || ''}</p>
           <div class="mt-3 flex flex-wrap gap-2">${tagPills(d.tags)}</div>
-          <a href="${d.url || '#'}" class="mt-4 inline-block text-teal-700 font-semibold hover:text-teal-800">Read article →</a>
+          <a href="${href}" class="mt-4 inline-block text-teal-700 font-semibold hover:text-teal-800">Read article →</a>
         </div>`;
       return el;
     }
 
     function buildSecondaryCard(d) {
+      const href = `blog-detail.html?slug=${encodeURIComponent(d.slug)}`;
       const el = document.createElement('article');
       el.className = 'group rounded-2xl overflow-hidden ring-1 ring-slate-200 shadow bg-white';
       el.innerHTML = `
-        <img src="${d.heroImage}" alt="${d.alt || d.title}" class="w-full h-44 object-cover">
+        <a href="${href}" class="block">
+          <img src="${d.heroImage || ''}" alt="${d.alt || d.title}" class="w-full h-44 object-cover">
+        </a>
         <div class="p-5">
           <div class="flex items-center gap-2 text-xs text-slate-700 font-semibold">
             <span class="px-2 py-0.5 rounded-full bg-slate-100">${d.category || ''}</span>
             <time datetime="${d.date}" class="text-slate-500 font-normal">${fmtDate(d.date)}</time>
           </div>
-          <h3 class="mt-2 font-bold group-hover:underline underline-offset-4 decoration-teal-400">${d.title}</h3>
+          <h3 class="mt-2 font-bold">
+            <a href="${href}" class="group-hover:underline underline-offset-4 decoration-teal-400">${d.title}</a>
+          </h3>
           <p class="mt-1 text-sm text-slate-700">${d.subtitle || d.excerpt || ''}</p>
           <div class="mt-3 flex flex-wrap gap-2">${tagPills(d.tags)}</div>
-          <a href="${d.url || '#'}" class="mt-3 inline-block text-teal-700 font-semibold hover:text-teal-800">Read →</a>
+          <a href="${href}" class="mt-3 inline-block text-teal-700 font-semibold hover:text-teal-800">Read →</a>
         </div>`;
       return el;
     }
 
     function buildLeanCard(d) {
+      const href = `blog-detail.html?slug=${encodeURIComponent(d.slug)}`;
       const el = document.createElement('article');
       el.className = 'group rounded-2xl overflow-hidden ring-1 ring-slate-200 shadow bg-white card-hover';
       el.innerHTML = `
-        <img src="${d.heroImage}" alt="${d.alt || d.title}" class="w-full h-40 object-cover">
+        <a href="${href}" class="block">
+          <img src="${d.heroImage || ''}" alt="${d.alt || d.title}" class="w-full h-40 object-cover">
+        </a>
         <div class="p-5">
           <div class="flex items-center gap-2 text-xs text-slate-500">
             <time datetime="${d.date}">${fmtDate(d.date)}</time>
           </div>
-          <h3 class="mt-2 font-bold group-hover:underline underline-offset-4 decoration-teal-400">${d.title}</h3>
+          <h3 class="mt-2 font-bold">
+            <a href="${href}" class="group-hover:underline underline-offset-4 decoration-teal-400">${d.title}</a>
+          </h3>
           <p class="mt-1 text-sm text-slate-700">${d.subtitle || d.excerpt || ''}</p>
           <div class="mt-3 flex flex-wrap gap-2">${tagPills(d.tags)}</div>
-          <a href="${d.url || '#'}" class="mt-3 inline-block text-teal-700 font-semibold hover:text-teal-800">Read →</a>
+          <a href="${href}" class="mt-3 inline-block text-teal-700 font-semibold hover:text-teal-800">Read →</a>
         </div>`;
       return el;
     }
 
+    // ---- Video cards ----
     function buildVideoCard(v) {
       const el = document.createElement('article');
       el.className = 'group relative rounded-2xl overflow-hidden bg-white ring-1 ring-slate-200 shadow card-hover';
       const catClr = v.category === 'AI' ? 'text-emerald-700' : v.category === 'Leadership' ? 'text-fuchsia-700' : 'text-sky-700';
       const catBg  = v.category === 'AI' ? 'bg-emerald-100' : v.category === 'Leadership' ? 'bg-fuchsia-100' : 'bg-sky-100';
       el.innerHTML = `
-        <a href="${v.url}" target="_blank" rel="noreferrer" class="block relative">
-          <img src="${v.thumbnail}" alt="${v.title}" class="w-full h-48 object-cover">
+        <a href="${v.url || '#'}" target="_blank" rel="noreferrer" class="block relative">
+          <img src="${v.thumbnail || ''}" alt="${v.title}" class="w-full h-48 object-cover">
           <span class="absolute bottom-2 right-2 px-2 py-0.5 text-xs font-semibold rounded bg-black/70 text-white">${v.duration || ''}</span>
           <span class="absolute inset-0 grid place-items-center">
             <span class="w-12 h-12 rounded-full bg-black/40 backdrop-blur grid place-items-center group-hover:scale-105 transition">
@@ -265,7 +277,7 @@
         </a>
         <div class="p-5">
           <div class="flex items-center gap-2 text-xs ${catClr} font-semibold">
-            <span class="px-2 py-0.5 rounded-full ${catBg}">${v.category}</span>
+            <span class="px-2 py-0.5 rounded-full ${catBg}">${v.category || ''}</span>
             <time datetime="${v.date}" class="text-slate-500 font-normal">${fmtDate(v.date)}</time>
           </div>
           <h3 class="mt-2 font-bold group-hover:underline underline-offset-4 decoration-emerald-400">${v.title}</h3>
@@ -275,7 +287,7 @@
       return el;
     }
 
-    // Render functions
+    // ---- Renderers ----
     function renderBlogs(list, featuredRow, grid) {
       featuredRow.innerHTML = '';
       grid.innerHTML = '';
@@ -294,13 +306,13 @@
       list.forEach(v => grid.appendChild(buildVideoCard(v)));
     }
 
-    // Bootstrap
+    // ---- Bootstrap ----
     (async function init() {
       try {
         const data = await loadContent();
 
-        // Blogs
-        const blogs = [...data.blogs].sort((a,b) => new Date(b.date) - new Date(a.date));
+        // Blogs: ensure slugs exist for linking
+        const blogs = (data.blogs || []).map(withSlug).sort((a,b) => new Date(b.date) - new Date(a.date));
         const featuredRow = document.getElementById('blog-featured-row');
         const blogGrid = document.getElementById('blog-grid');
         renderBlogs(blogs, featuredRow, blogGrid);
@@ -320,16 +332,11 @@
         catSel.addEventListener('change', rerenderBlogs);
         sortSel.addEventListener('change', rerenderBlogs);
 
-    <!-- Videos -->
-    <section class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-       <h4 class="text-xl font-bold">Coming soon</h4>
         // Videos
-        const videos = [...data.videos].sort((a,b) => new Date(b.date) - new Date(a.date));
+        const videos = (data.videos || []).sort((a,b) => new Date(b.date) - new Date(a.date));
         const videoGrid = document.getElementById('video-grid');
         renderVideos(videos, videoGrid);
 
-      <!-- Duplicate more article blocks as needed -->
-    </section>
         // Video filter pills
         const pillsWrap = document.getElementById('video-filter-pills');
         pillsWrap.addEventListener('click', (e) => {
@@ -342,8 +349,6 @@
           renderVideos(videos.filter(v => v.category === filter || (v.topics || []).includes(filter)), videoGrid);
         });
 
-  
-  </main>
       } catch (err) {
         console.error(err);
       }
