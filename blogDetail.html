@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blog • Detail</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: Inter, ui-sans-serif, system-ui, -apple-system; }
+    .prose p { margin-top: 1rem; line-height: 1.75; }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-sky-50 via-teal-50 to-emerald-50 text-slate-900">
+
+  <main class="max-w-3xl mx-auto px-4 py-10">
+    <!-- Hero -->
+    <div class="rounded-3xl overflow-hidden ring-1 ring-slate-200 shadow">
+      <img id="hero-img" class="w-full h-64 object-cover" alt="Hero image">
+    </div>
+
+    <!-- Title -->
+    <h1 id="post-title" class="mt-6 text-4xl font-extrabold bg-gradient-to-r from-sky-700 via-teal-700 to-emerald-700 bg-clip-text text-transparent">
+      Loading…
+    </h1>
+
+    <!-- Meta -->
+    <div class="mt-3 flex items-center justify-between">
+      <div id="pill-wrap" class="flex flex-wrap gap-2"></div>
+      <time id="post-date" class="text-sm text-slate-500"></time>
+    </div>
+
+    <!-- Body -->
+    <article id="post-body" class="prose prose-slate mt-6"></article>
+
+    <!-- CTA -->
+    <section class="mt-10">
+      <div class="rounded-3xl p-[2px] bg-gradient-to-r from-sky-600 via-teal-600 to-emerald-600 shadow-xl">
+        <div class="rounded-3xl bg-white p-6">
+          <h4 class="text-xl font-extrabold">Want a 1-day observability sprint?</h4>
+          <p class="mt-1 text-slate-700 text-sm">We’ll instrument, dashboard, and align KPIs with your AI features.</p>
+          <div class="mt-4 flex flex-wrap gap-3">
+            <a href="https://calendly.com/" target="_blank"
+               class="px-5 py-2 rounded-xl text-white font-semibold bg-gradient-to-r from-sky-600 to-emerald-600 shadow hover:opacity-90">
+               Book a call
+            </a>
+            <a href="https://www.linkedin.com/in/divya-kshatri/" target="_blank"
+               class="px-5 py-2 rounded-xl font-semibold ring-2 ring-teal-300 bg-white hover:bg-white/80">
+               DM on LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const CONTENT_PATH = 'content.json';
+
+    // Format date nicely
+    const fmtDate = (iso) => new Date(iso + 'T00:00:00')
+      .toLocaleDateString(undefined, { month:'short', day:'numeric', year:'numeric' });
+
+    // Pills (topics + tags)
+    const pill = (label, color='sky') =>
+      `<span class="px-3 py-1 rounded-full border border-${color}-400 text-${color}-700 text-sm font-medium bg-${color}-50">${label}</span>`;
+
+    async function loadBlog() {
+      const res = await fetch(CONTENT_PATH, { cache: 'no-store' });
+      const data = await res.json();
+
+      const entry = data.blogs[0]; // since you only have 1 blog now
+
+      // Inject into DOM
+      document.title = entry.title;
+      document.getElementById('post-title').textContent = entry.title;
+      document.getElementById('post-date').textContent = fmtDate(entry.date);
+      document.getElementById('hero-img').src = entry.heroImage;
+
+      const pills = [];
+      (entry.topics || []).forEach(t => pills.push(pill(t, 'sky')));
+      (entry.tags || []).forEach(t => pills.push(`<span class="px-3 py-1 rounded-full border border-slate-300 text-slate-700 text-sm bg-white">${t}</span>`));
+      document.getElementById('pill-wrap').innerHTML = pills.join('');
+
+      document.getElementById('post-body').innerHTML = entry.details;
+    }
+
+    loadBlog().catch(err => {
+      console.error(err);
+      document.getElementById('post-title').textContent = 'Error loading blog';
+      document.getElementById('post-body').innerHTML = '<p>Could not load blog content.</p>';
+    });
+  </script>
+</body>
+</html>
