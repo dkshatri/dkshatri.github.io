@@ -1,0 +1,58 @@
+{
+  "blogs": [
+    {
+      "name": "3-Screen PRD",
+      "title": "The 3-Screen PRD: Align faster with one-page clarity",
+      "subtitle": "A lean PRD shape that speeds discovery and delivery",
+      "slug": "three-screen-prd",
+      "topics": ["Product Strategy", "Execution"],
+      "tags": ["prd", "alignment", "frameworks"],
+      "date": "2025-03-02",
+      "heroImage": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1400&auto=format&fit=crop",
+      "alt": "Laptop with dashboard",
+      "category": "Product Strategy",
+      "excerpt": "A crisp PRD structure I use to keep discovery lean, decisions explicit, and delivery aligned.",
+      "url": "/three-screen-prd"
+    },
+    {
+      "name": "ML Goals",
+      "title": "Set ML goals your stakeholders will trust",
+      "subtitle": "Pick metrics that matter and build confidence",
+      "slug": "ml-goal-setting",
+      "topics": ["AI & Data", "Leadership"],
+      "tags": ["ml", "metrics", "stakeholders"],
+      "date": "2025-02-14",
+      "heroImage": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop",
+      "alt": "Code editor",
+      "category": "AI & Data",
+      "excerpt": "Metrics that matter, tradeoffs to call out, and dashboards that stick.",
+      "url": "/ml-goal-setting"
+    }
+  ],
+  "videos": [
+    {
+      "name": "One pager PRD",
+      "title": "One pager PRD walkthrough real example",
+      "subtitle": "How to adapt the template to your context",
+      "topics": ["PM Skills"],
+      "tags": ["prd", "walkthrough", "template"],
+      "date": "2025-02-10",
+      "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "thumbnail": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop",
+      "duration": "5:12",
+      "category": "PM Skills"
+    },
+    {
+      "name": "ML Metrics Framing",
+      "title": "Framing ML metrics non technical leaders understand",
+      "subtitle": "Explainability beats raw accuracy in exec rooms",
+      "topics": ["AI"],
+      "tags": ["ml", "metrics", "communication"],
+      "date": "2024-12-12",
+      "url": "https://www.youtube.com/watch?v=VIDEO_ID_2",
+      "thumbnail": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop",
+      "duration": "4:01",
+      "category": "AI"
+    }
+  ]
+}
