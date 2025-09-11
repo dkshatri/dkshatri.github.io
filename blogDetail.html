@@ -1,94 +1,229 @@
+<!-- blog-detail.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Blog • Detail</title>
+
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Inter -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
   <style>
     body { font-family: Inter, ui-sans-serif, system-ui, -apple-system; }
-    .prose p { margin-top: 1rem; line-height: 1.75; }
+    html { scroll-behavior:smooth; }
+    .prose h2 { margin-top: 2rem; }
+    .prose h3 { margin-top: 1.5rem; }
+    .prose p  { margin-top: 1rem; line-height: 1.75; }
+    .prose ul, .prose ol { margin-top: 1rem; padding-left: 1.25rem; }
   </style>
 </head>
 <body class="bg-gradient-to-br from-sky-50 via-teal-50 to-emerald-50 text-slate-900">
 
-  <main class="max-w-3xl mx-auto px-4 py-10">
-    <!-- Hero -->
+  <!-- Header -->
+  <header class="sticky top-0 z-40 bg-white/80 backdrop-blur shadow-sm">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <a href="coaching.html#blogs" class="text-sm font-semibold ring-1 ring-slate-200 px-3 py-1.5 rounded-lg bg-white hover:bg-slate-50">
+        ← Back to blogs
+      </a>
+      <a href="coaching.html" class="text-xl font-extrabold bg-gradient-to-r from-sky-600 via-teal-600 to-emerald-600 bg-clip-text text-transparent">
+        Coaching by Divya
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm font-semibold">
+        <a href="coaching.html#blogs"  class="hover:text-sky-600">Blogs</a>
+        <a href="coaching.html#videos" class="hover:text-emerald-600">Videos</a>
+        <a href="coaching.html#cta"    class="hover:text-teal-600">Work with me</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <header id="hero" class="max-w-4xl mx-auto px-4 pt-8">
     <div class="rounded-3xl overflow-hidden ring-1 ring-slate-200 shadow">
-      <img id="hero-img" class="w-full h-64 object-cover" alt="Hero image">
+      <img id="hero-img"
+           src="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=1600&auto=format&fit=crop"
+           alt="Hero"
+           class="w-full h-[320px] md:h-[420px] object-cover">
+    </div>
+  </header>
+
+  <!-- CONTENT -->
+  <main class="max-w-3xl mx-auto px-4 py-8">
+    <!-- Title + meta -->
+    <div class="prose prose-slate">
+      <h1 id="post-title" class="text-4xl font-extrabold leading-tight bg-gradient-to-r from-sky-700 via-teal-700 to-emerald-700 bg-clip-text text-transparent">
+        Loading…
+      </h1>
     </div>
 
-    <!-- Title -->
-    <h1 id="post-title" class="mt-6 text-4xl font-extrabold bg-gradient-to-r from-sky-700 via-teal-700 to-emerald-700 bg-clip-text text-transparent">
-      Loading…
-    </h1>
-
-    <!-- Meta -->
-    <div class="mt-3 flex items-center justify-between">
+    <div class="mt-3 flex items-center justify-between flex-wrap gap-3">
       <div id="pill-wrap" class="flex flex-wrap gap-2"></div>
       <time id="post-date" class="text-sm text-slate-500"></time>
     </div>
 
-    <!-- Body -->
-    <article id="post-body" class="prose prose-slate mt-6"></article>
+    <!-- subtle divider -->
+    <div class="h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent my-6"></div>
 
-    <!-- CTA -->
-    <section class="mt-10">
+    <!-- Body (HTML from details) -->
+    <article id="post-body" class="prose prose-slate min-h-40">
+      <p class="text-slate-500">Loading article…</p>
+    </article>
+
+    <!-- End CTA -->
+    <section class="not-prose mt-10">
       <div class="rounded-3xl p-[2px] bg-gradient-to-r from-sky-600 via-teal-600 to-emerald-600 shadow-xl">
         <div class="rounded-3xl bg-white p-6">
-          <h4 class="text-xl font-extrabold">Want a 1-day observability sprint?</h4>
-          <p class="mt-1 text-slate-700 text-sm">We’ll instrument, dashboard, and align KPIs with your AI features.</p>
-          <div class="mt-4 flex flex-wrap gap-3">
-            <a href="https://calendly.com/" target="_blank"
-               class="px-5 py-2 rounded-xl text-white font-semibold bg-gradient-to-r from-sky-600 to-emerald-600 shadow hover:opacity-90">
-               Book a call
-            </a>
-            <a href="https://www.linkedin.com/in/divya-kshatri/" target="_blank"
-               class="px-5 py-2 rounded-xl font-semibold ring-2 ring-teal-300 bg-white hover:bg-white/80">
-               DM on LinkedIn
-            </a>
+          <div class="grid md:grid-cols-[1.2fr_.8fr] gap-6 items-center">
+            <div>
+              <h4 class="text-xl font-extrabold">Want a 1-day observability sprint?</h4>
+              <p class="mt-1 text-slate-700 text-sm">We’ll instrument, dashboard, and align KPIs with your AI features.</p>
+              <div class="mt-4 flex flex-wrap gap-3">
+                <a href="https://calendly.com/" target="_blank" rel="noreferrer"
+                   class="px-5 py-2 rounded-xl text-white font-semibold bg-gradient-to-r from-sky-600 to-emerald-600 shadow hover:opacity-90">
+                   Book a call
+                </a>
+                <a href="https://www.linkedin.com/in/divya-kshatri/" target="_blank" rel="noreferrer"
+                   class="px-5 py-2 rounded-xl font-semibold ring-2 ring-teal-300 bg-white hover:bg-white/80">
+                   DM on LinkedIn
+                </a>
+              </div>
+            </div>
+            <img
+              src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1200&auto=format&fit=crop"
+              alt="Team collaborating with sticky notes"
+              class="w-full h-40 md:h-48 object-cover rounded-2xl ring-1 ring-slate-200">
           </div>
         </div>
       </div>
     </section>
+
+    <!-- Back link -->
+    <div class="mt-10">
+      <a href="coaching.html#blogs" class="px-3 py-1.5 rounded-lg bg-white/80 ring-1 ring-slate-200 hover:ring-teal-300 text-sm font-semibold">
+        ← Back to blogs
+      </a>
+    </div>
   </main>
 
   <script>
-    const CONTENT_PATH = 'content.json';
+    // ---- Config ----
+    // Uses a robust relative path so it works whether you're at / or a subpath
+    const CONTENT_PATH = new URL('Content.json', location.href).toString();
 
-    // Format date nicely
-    const fmtDate = (iso) => new Date(iso + 'T00:00:00')
-      .toLocaleDateString(undefined, { month:'short', day:'numeric', year:'numeric' });
+    // ---- Helpers ----
+    const getParam = (k) => new URLSearchParams(location.search).get(k);
 
-    // Pills (topics + tags)
-    const pill = (label, color='sky') =>
-      `<span class="px-3 py-1 rounded-full border border-${color}-400 text-${color}-700 text-sm font-medium bg-${color}-50">${label}</span>`;
+    const fmtDate = (iso) => {
+      if (!iso) return '';
+      try { return new Date(iso + 'T00:00:00').toLocaleDateString(undefined, { month:'short', day:'numeric', year:'numeric' }); }
+      catch { return ''; }
+    };
 
-    async function loadBlog() {
-      const res = await fetch(CONTENT_PATH, { cache: 'no-store' });
-      const data = await res.json();
+    const slugify = (s) => (s || '')
+      .toLowerCase()
+      .replace(/[^\w\s-]/g,'')
+      .trim()
+      .replace(/\s+/g,'-')
+      .replace(/-+/g,'-');
 
-      const entry = data.blogs[0]; // since you only have 1 blog now
+    const withSlug = (b) => b.slug ? b : { ...b, slug: slugify(b.name || b.title || 'post') };
 
-      // Inject into DOM
-      document.title = entry.title;
-      document.getElementById('post-title').textContent = entry.title;
-      document.getElementById('post-date').textContent = fmtDate(entry.date);
-      document.getElementById('hero-img').src = entry.heroImage;
+    // Topic color mapping → bordered pills
+    const topicColor = (topic) => {
+      const map = {
+        'AI':                { b:'border-emerald-400', t:'text-emerald-700', bg:'bg-emerald-50' },
+        'AI & Data':         { b:'border-emerald-400', t:'text-emerald-700', bg:'bg-emerald-50' },
+        'Leadership':        { b:'border-fuchsia-400', t:'text-fuchsia-700', bg:'bg-fuchsia-50' },
+        'PM Skills':         { b:'border-sky-400',     t:'text-sky-700',     bg:'bg-sky-50' },
+        'Product Strategy':  { b:'border-teal-400',    t:'text-teal-700',    bg:'bg-teal-50' },
+        'Mobile':            { b:'border-indigo-400',  t:'text-indigo-700',  bg:'bg-indigo-50' }
+      };
+      return map[topic] || { b:'border-slate-300', t:'text-slate-700', bg:'bg-slate-50' };
+    };
 
-      const pills = [];
-      (entry.topics || []).forEach(t => pills.push(pill(t, 'sky')));
-      (entry.tags || []).forEach(t => pills.push(`<span class="px-3 py-1 rounded-full border border-slate-300 text-slate-700 text-sm bg-white">${t}</span>`));
-      document.getElementById('pill-wrap').innerHTML = pills.join('');
+    const topicPill = (label) => {
+      const c = topicColor(label);
+      return `<span class="px-3 py-1 rounded-full border ${c.b} ${c.t} text-sm font-medium ${c.bg}">${label}</span>`;
+    };
 
-      document.getElementById('post-body').innerHTML = entry.details;
+    const tagPill = (label) =>
+      `<span class="px-3 py-1 rounded-full border border-slate-300 text-slate-700 text-sm font-medium bg-white">${label}</span>`;
+
+    function pickEntry(data) {
+      const slugQ  = (getParam('slug')  || '').toLowerCase();
+      const nameQ  = getParam('name');
+      const titleQ = getParam('title');
+
+      const blogs = (data.blogs || []).map(withSlug);
+      if (!blogs.length) return null;
+
+      if (slugQ) {
+        const m = blogs.find(b => (b.slug || '').toLowerCase() === slugQ);
+        if (m) return m;
+      }
+      if (nameQ) {
+        const m = blogs.find(b => b.name === nameQ);
+        if (m) return m;
+      }
+      if (titleQ) {
+        const m = blogs.find(b => b.title === titleQ);
+        if (m) return m;
+      }
+      return blogs[0]; // fallback to first blog
     }
 
-    loadBlog().catch(err => {
+    async function loadJSON(path) {
+      const res = await fetch(path, { cache: 'no-store' });
+      if (!res.ok) throw new Error(`Failed to load ${path} (${res.status})`);
+      const txt = await res.text();
+      try { return JSON.parse(txt); }
+      catch (e) {
+        console.error('JSON parse error. Raw content:', txt);
+        throw new Error('Content.json is not valid JSON. Check quotes/commas.');
+      }
+    }
+
+    async function main() {
+      // Loader state
+      const body = document.getElementById('post-body');
+      body.innerHTML = '<p class="text-slate-500">Loading article…</p>';
+
+      const data = await loadJSON(CONTENT_PATH);
+      const entry = pickEntry(data);
+
+      if (!entry) {
+        document.getElementById('post-title').textContent = 'Not found';
+        body.innerHTML = '<p>We couldn’t find this article. Check your link or <code>Content.json</code>.</p>';
+        return;
+      }
+
+      // Title + date
+      document.title = entry.title || 'Blog • Detail';
+      document.getElementById('post-title').textContent = entry.title || entry.name || 'Untitled';
+      document.getElementById('post-date').textContent = fmtDate(entry.date);
+
+      // Hero image with fallback to thumbnail
+      const hero = document.getElementById('hero-img');
+      hero.src = entry.heroImage || entry.thumbnail || hero.src;
+      hero.alt = entry.alt || entry.title || 'Hero';
+
+      // Pills: topics first, then tags
+      const pills = [];
+      (entry.topics || []).forEach(t => pills.push(topicPill(t)));
+      (entry.tags   || []).forEach(t => pills.push(tagPill(t)));
+      document.getElementById('pill-wrap').innerHTML = pills.join('');
+
+      // Inject the HTML fragment from details
+      body.innerHTML = entry.details || '<p class="text-slate-600">No details provided yet.</p>';
+    }
+
+    main().catch(err => {
       console.error(err);
-      document.getElementById('post-title').textContent = 'Error loading blog';
-      document.getElementById('post-body').innerHTML = '<p>Could not load blog content.</p>';
+      document.getElementById('post-title').textContent = 'Error loading article';
+      document.getElementById('post-body').innerHTML =
+        '<p>There was an issue loading this page. Make sure <code>blog-detail.html</code> and <code>Content.json</code> are in the same folder, and you are serving over HTTP (not file://).</p>';
     });
   </script>
 </body>
