@@ -71,6 +71,7 @@
           <option value="AI & Data">AI & Data</option>
           <option value="Mobile">Mobile</option>
           <option value="Leadership">Leadership</option>
+          <option value="Observability">Observability</option>
         </select>
         <select id="blog-sort" class="px-3 py-2 rounded-xl ring-1 ring-slate-300 bg-white/90 focus:outline-none">
           <option value="newest">Newest first</option>
@@ -84,15 +85,6 @@
 
     <!-- Remaining posts grid (JS injects) -->
     <div id="blog-grid" class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
-
-    <!-- Simple pagination placeholders
-    <div class="mt-8 flex items-center justify-center gap-2">
-      <a href="#" class="px-3 py-1.5 rounded-lg bg-white ring-1 ring-slate-200 hover:bg-slate-50">Previous</a>
-      <button class="px-3 py-1.5 rounded-lg bg-teal-600 text-white">1</button>
-      <button class="px-3 py-1.5 rounded-lg bg-white ring-1 ring-slate-200 hover:bg-slate-50">2</button>
-      <button class="px-3 py-1.5 rounded-lg bg-white ring-1 ring-slate-200 hover:bg-slate-50">3</button>
-      <a href="#" class="px-3 py-1.5 rounded-lg bg-white ring-1 ring-slate-200 hover:bg-slate-50">Next</a>
-    </div>  -->
   </section>
 
   <!-- Videos -->
@@ -111,12 +103,7 @@
     </div>
 
     <div id="video-grid" class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
-<!--
-    <div class="mt-8 flex justify-center">
-      <a href="#" class="px-4 py-2 rounded-xl bg-white ring-1 ring-slate-200 hover:bg-slate-50 font-semibold">Browse all videos</a>
-    </div>
   </section>
-    -->
 
   <!-- CTA -->
   <section id="cta" class="max-w-6xl mx-auto px-4 py-14">
@@ -168,14 +155,21 @@
 
     // ---- Data loader ----
     async function loadContent() {
+      // Use the exact filename you have in your project
       const res = await fetch('Content.json', { cache: 'no-store' });
       if (!res.ok) throw new Error('Failed to load Content.json');
       return await res.json();
     }
 
     // ---- Helpers ----
-    const fmtDate = iso => new Date(iso + 'T00:00:00').toLocaleDateString(undefined, { month:'short', day:'numeric', year:'numeric' });
-    const tagPills = tags => (tags || []).map(t => `<span class="px-2 py-0.5 rounded-full bg-slate-100 text-slate-700 text-xs">${t}</span>`).join('');
+    const fmtDate = iso => {
+      if (!iso) return '';
+      return new Date(iso + 'T00:00:00').toLocaleDateString(undefined, { month:'short', day:'numeric', year:'numeric' });
+    };
+    const tagPills = tags => (tags || []).map(t =>
+      `<span class="px-2 py-0.5 rounded-full bg-slate-100 text-slate-700 text-xs">${t}</span>`
+    ).join('');
+
     const slugify = s => (s || '')
       .toLowerCase()
       .replace(/[^\w\s-]/g,'')
@@ -183,105 +177,143 @@
       .replace(/\s+/g,'-')
       .replace(/-+/g,'-');
 
-    // ensure each blog has a slug (use existing if present)
     function withSlug(blog) {
       if (blog.slug) return blog;
-      const base = blog.slug || blog.name || blog.title || 'post';
+      const base = blog.name || blog.title || 'post';
       return { ...blog, slug: slugify(base) };
     }
 
+    // ---- Click gating ----
+    const canClick = (item) => item && item.isClickable === true;
+    const blogHref  = (b) => `blogDetail.html?slug=${encodeURIComponent(b.slug)}`;
+    const videoHref = (v) => v.url || '#';
+    function wrapMaybeLink(href, innerHTML, clickable) {
+      if (clickable) return `<a href="${href}" class="block relative">${innerHTML}</a>`;
+      return `<div class="block relative pointer-events-none">${innerHTML}
+        <span class="absolute top-2 right-2 text-[11px] px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 ring-1 ring-amber-200">
+          Coming soon
+        </span>
+      </div>`;
+    }
+    const mutedIf = (clickable) => clickable ? '' : 'opacity-60 grayscale';
+
     // ---- Card builders (blogs) ----
     function buildFeaturedCard(d) {
-      const href = `blogDetail.html?slug=${encodeURIComponent(d.slug)}`;
+      const clickable = canClick(d);
       const el = document.createElement('article');
-      el.className = 'group relative rounded-3xl overflow-hidden ring-1 ring-slate-200 shadow bg-white';
-      el.innerHTML = `
-        <a href="${href}" class="block">
-          <img src="${d.heroImage || ''}" alt="${d.alt || d.title}" class="w-full h-64 md:h-80 object-cover">
-        </a>
+      el.className = `group relative rounded-3xl overflow-hidden ring-1 ring-slate-200 shadow bg-white ${mutedIf(clickable)}`;
+
+      const imgSrc = d.heroImage || d.thumbnail || 'https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=1600&auto=format&fit=crop';
+      const img = `<img src="${imgSrc}" alt="${d.alt || d.title || 'Featured'}" class="w-full h-64 md:h-80 object-cover">`;
+
+      const body = `
         <div class="p-6 md:p-8">
           <div class="flex items-center gap-2 text-xs text-teal-700 font-semibold">
             <span class="px-2 py-0.5 rounded-full bg-teal-100">${d.category || ''}</span>
             <time datetime="${d.date}" class="text-slate-500 font-normal">${fmtDate(d.date)}</time>
           </div>
           <h3 class="mt-3 text-2xl font-extrabold">
-            <a href="${href}" class="group-hover:underline underline-offset-4 decoration-teal-400">${d.title}</a>
+            ${ clickable
+              ? `<a href="${blogHref(d)}" class="group-hover:underline underline-offset-4 decoration-teal-400">${d.title}</a>`
+              : `<span class="cursor-not-allowed">${d.title}</span>` }
           </h3>
           <p class="mt-2 text-slate-700">${d.subtitle || d.excerpt || ''}</p>
           <div class="mt-3 flex flex-wrap gap-2">${tagPills(d.tags)}</div>
-          <a href="${href}" class="mt-4 inline-block text-teal-700 font-semibold hover:text-teal-800">Read article →</a>
+          ${ clickable
+            ? `<a href="${blogHref(d)}" class="mt-4 inline-block text-teal-700 font-semibold hover:text-teal-800">Read article →</a>`
+            : `<span class="mt-4 inline-block text-slate-500 font-semibold cursor-not-allowed">Read article →</span>` }
         </div>`;
+
+      el.innerHTML = wrapMaybeLink(blogHref(d), img, clickable) + body;
       return el;
     }
 
     function buildSecondaryCard(d) {
-      const href = `blogDetail.html?slug=${encodeURIComponent(d.slug)}`;
+      const clickable = canClick(d);
       const el = document.createElement('article');
-      el.className = 'group rounded-2xl overflow-hidden ring-1 ring-slate-200 shadow bg-white';
+      el.className = `group rounded-2xl overflow-hidden ring-1 ring-slate-200 shadow bg-white ${mutedIf(clickable)}`;
+
+      const imgSrc = d.heroImage || d.thumbnail || 'https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=1200&auto=format&fit=crop';
+      const img = `<img src="${imgSrc}" alt="${d.alt || d.title || 'Blog image'}" class="w-full h-44 object-cover">`;
+
       el.innerHTML = `
-        <a href="${href}" class="block">
-          <img src="${d.heroImage || ''}" alt="${d.alt || d.title}" class="w-full h-44 object-cover">
-        </a>
+        ${wrapMaybeLink(blogHref(d), img, clickable)}
         <div class="p-5">
           <div class="flex items-center gap-2 text-xs text-slate-700 font-semibold">
             <span class="px-2 py-0.5 rounded-full bg-slate-100">${d.category || ''}</span>
             <time datetime="${d.date}" class="text-slate-500 font-normal">${fmtDate(d.date)}</time>
           </div>
           <h3 class="mt-2 font-bold">
-            <a href="${href}" class="group-hover:underline underline-offset-4 decoration-teal-400">${d.title}</a>
+            ${ clickable
+              ? `<a href="${blogHref(d)}" class="group-hover:underline underline-offset-4 decoration-teal-400">${d.title}</a>`
+              : `<span class="cursor-not-allowed">${d.title}</span>` }
           </h3>
           <p class="mt-1 text-sm text-slate-700">${d.subtitle || d.excerpt || ''}</p>
           <div class="mt-3 flex flex-wrap gap-2">${tagPills(d.tags)}</div>
-          <a href="${href}" class="mt-3 inline-block text-teal-700 font-semibold hover:text-teal-800">Read →</a>
+          ${ clickable
+            ? `<a href="${blogHref(d)}" class="mt-3 inline-block text-teal-700 font-semibold hover:text-teal-800">Read →</a>`
+            : `<span class="mt-3 inline-block text-slate-500 font-semibold cursor-not-allowed">Read →</span>` }
         </div>`;
       return el;
     }
 
     function buildLeanCard(d) {
-      const href = `blogDetail.html?slug=${encodeURIComponent(d.slug)}`;
+      const clickable = canClick(d);
       const el = document.createElement('article');
-      el.className = 'group rounded-2xl overflow-hidden ring-1 ring-slate-200 shadow bg-white card-hover';
+      el.className = `group rounded-2xl overflow-hidden ring-1 ring-slate-200 shadow bg-white card-hover ${mutedIf(clickable)}`;
+
+      const imgSrc = d.heroImage || d.thumbnail || 'https://images.unsplash.com/photo-1518773553398-650c184e0bb3?q=80&w=1200&auto=format&fit=crop';
+      const img = `<img src="${imgSrc}" alt="${d.alt || d.title || 'Thumbnail'}" class="w-full h-40 object-cover">`;
+
       el.innerHTML = `
-        <a href="${href}" class="block">
-          <img src="${d.heroImage || ''}" alt="${d.alt || d.title}" class="w-full h-40 object-cover">
-        </a>
+        ${wrapMaybeLink(blogHref(d), img, clickable)}
         <div class="p-5">
           <div class="flex items-center gap-2 text-xs text-slate-500">
             <time datetime="${d.date}">${fmtDate(d.date)}</time>
           </div>
           <h3 class="mt-2 font-bold">
-            <a href="${href}" class="group-hover:underline underline-offset-4 decoration-teal-400">${d.title}</a>
+            ${ clickable
+              ? `<a href="${blogHref(d)}" class="group-hover:underline underline-offset-4 decoration-teal-400">${d.title}</a>`
+              : `<span class="cursor-not-allowed">${d.title}</span>` }
           </h3>
           <p class="mt-1 text-sm text-slate-700">${d.subtitle || d.excerpt || ''}</p>
           <div class="mt-3 flex flex-wrap gap-2">${tagPills(d.tags)}</div>
-          <a href="${href}" class="mt-3 inline-block text-teal-700 font-semibold hover:text-teal-800">Read →</a>
+          ${ clickable
+            ? `<a href="${blogHref(d)}" class="mt-3 inline-block text-teal-700 font-semibold hover:text-teal-800">Read →</a>`
+            : `<span class="mt-3 inline-block text-slate-500 font-semibold cursor-not-allowed">Read →</span>` }
         </div>`;
       return el;
     }
 
     // ---- Video cards ----
     function buildVideoCard(v) {
+      const clickable = canClick(v);
       const el = document.createElement('article');
-      el.className = 'group relative rounded-2xl overflow-hidden bg-white ring-1 ring-slate-200 shadow card-hover';
-      const catClr = v.category === 'AI' ? 'text-emerald-700' : v.category === 'Leadership' ? 'text-fuchsia-700' : 'text-sky-700';
-      const catBg  = v.category === 'AI' ? 'bg-emerald-100' : v.category === 'Leadership' ? 'bg-fuchsia-100' : 'bg-sky-100';
-      el.innerHTML = `
-        <a href="${v.url || '#'}" target="_blank" rel="noreferrer" class="block relative">
-          <img src="${v.thumbnail || ''}" alt="${v.title}" class="w-full h-48 object-cover">
-          <span class="absolute bottom-2 right-2 px-2 py-0.5 text-xs font-semibold rounded bg-black/70 text-white">${v.duration || ''}</span>
-          <span class="absolute inset-0 grid place-items-center">
-            <span class="w-12 h-12 rounded-full bg-black/40 backdrop-blur grid place-items-center group-hover:scale-105 transition">
-              <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-              <span class="sr-only">Play video</span>
-            </span>
+      el.className = `group relative rounded-2xl overflow-hidden bg-white ring-1 ring-slate-200 shadow card-hover ${mutedIf(clickable)}`;
+
+      const thumbSrc = v.thumbnail || 'https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=1200&auto=format&fit=crop';
+      const thumb = `
+        <img src="${thumbSrc}" alt="${v.title || 'Video'}" class="w-full h-48 object-cover">
+        <span class="absolute bottom-2 right-2 px-2 py-0.5 text-xs font-semibold rounded bg-black/70 text-white">${v.duration || ''}</span>
+        <span class="absolute inset-0 grid place-items-center">
+          <span class="w-12 h-12 rounded-full ${clickable ? 'bg-black/40' : 'bg-slate-300'} backdrop-blur grid place-items-center">
+            <svg class="w-6 h-6 ${clickable ? 'text-white' : 'text-slate-500'}" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            <span class="sr-only">Play video</span>
           </span>
-        </a>
+        </span>`;
+
+      el.innerHTML = `
+        ${wrapMaybeLink(videoHref(v), thumb, clickable)}
         <div class="p-5">
-          <div class="flex items-center gap-2 text-xs ${catClr} font-semibold">
-            <span class="px-2 py-0.5 rounded-full ${catBg}">${v.category || ''}</span>
+          <div class="flex items-center gap-2 text-xs ${v.category === 'AI' ? 'text-emerald-700' : v.category === 'Leadership' ? 'text-fuchsia-700' : 'text-sky-700'} font-semibold">
+            <span class="px-2 py-0.5 rounded-full ${v.category === 'AI' ? 'bg-emerald-100' : v.category === 'Leadership' ? 'bg-fuchsia-100' : 'bg-sky-100'}">${v.category || ''}</span>
             <time datetime="${v.date}" class="text-slate-500 font-normal">${fmtDate(v.date)}</time>
           </div>
-          <h3 class="mt-2 font-bold group-hover:underline underline-offset-4 decoration-emerald-400">${v.title}</h3>
+          <h3 class="mt-2 font-bold ${clickable ? 'group-hover:underline underline-offset-4 decoration-emerald-400' : ''}">
+            ${ clickable
+              ? `<a href="${videoHref(v)}" target="_blank" rel="noreferrer">${v.title}</a>`
+              : `<span class="cursor-not-allowed">${v.title}</span>` }
+          </h3>
           <p class="mt-1 text-sm text-slate-700">${v.subtitle || ''}</p>
           <div class="mt-3 flex flex-wrap gap-2">${tagPills(v.tags)}</div>
         </div>`;
