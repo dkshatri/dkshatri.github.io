@@ -22,8 +22,8 @@
       "topics": ["AI", "Product Management", "Observability"],
       "tags": ["GTM", "Product positioning", "Growth strategy", "Product management"],
       "date": "2025-09-10",
-      "heroImage": "https://images.pexels.com/photos/3843282/pexels-photo-3843282.jpeg",
-      "thumbnail": "",
+      "heroImage": "https://i.postimg.cc/W4G3j30b/Observability1.png",
+      "thumbnail": "https://i.postimg.cc/k4755myN/Observability2.png",
       "category": "Observability",
       "isClickable": false,
       "details": ""
@@ -38,7 +38,7 @@
       "tags": ["agentic ai", "ai collaboration", "future of work", "ai product management"],
       "date": "2025-09-10",
       "url": "https://youtu.be/1DKMPE-j2F4",
-      "thumbnail": "https://images.unsplash.com/photo-1518773553398-650c184e0bb3?q=80&w=1200&auto=format&fit=crop",
+      "thumbnail": "https://i.postimg.cc/ZqtR13BM/Agentic-Ai-1.png",
       "duration": "2:15",
       "isClickable": true,
       "category": "AI & Tech"
