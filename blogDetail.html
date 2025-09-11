@@ -40,14 +40,13 @@
   </header>
 
   <!-- HERO -->
-  <header id="hero" class="max-w-4xl mx-auto px-4 pt-8">
-    <div class="rounded-3xl overflow-hidden ring-1 ring-slate-200 shadow">
-      <img id="hero-img"
-           src="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=1600&auto=format&fit=crop"
-           alt="Hero"
-           class="w-full h-[320px] md:h-[420px] object-cover">
-    </div>
-  </header>
+<header id="hero" class="max-w-4xl mx-auto px-4 pt-8">
+  <div class="rounded-3xl overflow-hidden ring-1 ring-slate-200 shadow">
+    <img id="hero-img"
+         alt="Hero"
+         class="w-full h-[320px] md:h-[420px] object-cover">
+  </div>
+</header>
 
   <!-- CONTENT -->
   <main class="max-w-3xl mx-auto px-4 py-8">
@@ -208,15 +207,29 @@
       document.getElementById('post-date').textContent = fmtDate(entry.date);
 
       // Hero image with fallback to thumbnail
+      // Hero image (prefer heroImage → thumbnail → themed fallback)
       const hero = document.getElementById('hero-img');
-      hero.src = entry.heroImage || entry.thumbnail || hero.src;
-      hero.alt = entry.alt || entry.title || 'Hero';
+      const heroWrap = document.getElementById('hero');
 
-      // Pills: topics first, then tags
-      const pills = [];
-      (entry.topics || []).forEach(t => pills.push(topicPill(t)));
-      (entry.tags   || []).forEach(t => pills.push(tagPill(t)));
-      document.getElementById('pill-wrap').innerHTML = pills.join('');
+    // Pick hero image → thumbnail → else nothing
+      const heroUrl = (entry.heroImage && entry.heroImage.trim()) ||
+                (entry.thumbnail && entry.thumbnail.trim()) ||
+                null;
+
+      if (heroUrl) {
+        hero.src = heroUrl;
+        hero.alt = entry.alt || entry.title || 'Hero';
+      } else {
+      // Hide the whole hero section if no image
+        heroWrap.style.display = "none";
+    }
+
+    // Pills: topics first, then tags
+    const pills = [];
+    (entry.topics || []).forEach(t => pills.push(topicPill(t)));
+    (entry.tags   || []).forEach(t => pills.push(tagPill(t)));
+    document.getElementById('pill-wrap').innerHTML = pills.join('');
+
 
       // Inject the HTML fragment from details
       body.innerHTML = entry.details || '<p class="text-slate-600">No details provided yet.</p>';
