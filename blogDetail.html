@@ -76,8 +76,8 @@
         <div class="rounded-3xl bg-white p-6">
           <div class="grid md:grid-cols-[1.2fr_.8fr] gap-6 items-center">
             <div>
-              <h4 class="text-xl font-extrabold">Want a 1-day observability sprint?</h4>
-              <p class="mt-1 text-slate-700 text-sm">I’ll instrument, dashboard, and align KPIs with your AI features.</p>
+                <h4 id="cta-heading" class="text-xl font-extrabold"></h4>
+                          <p id="cta-detail" class="mt-1 text-slate-700 text-sm"></p>
               <div class="mt-4 flex flex-wrap gap-3">
                 <a href="https://calendly.com/" target="_blank" rel="noreferrer"
                    class="px-5 py-2 rounded-xl text-white font-semibold bg-gradient-to-r from-sky-600 to-emerald-600 shadow hover:opacity-90">
@@ -140,7 +140,7 @@
         'Mobile':            { b:'border-indigo-400',  t:'text-indigo-700',  bg:'bg-indigo-50' },
         'Product Management': { b:'border-sky-400', t:'text-sky-700', bg:'bg-sky-50' },
         'Observability':      { b:'border-amber-400', t:'text-amber-700', bg:'bg-amber-50' },
-
+        'GTM': { t:"text-pink-700",    bg:"bg-pink-50",    b:"border-pink-400" }
       };
       return map[topic] || { b:'border-slate-300', t:'text-slate-700', bg:'bg-slate-50' };
     };
@@ -210,7 +210,8 @@
       // Hero image (prefer heroImage → thumbnail → themed fallback)
       const hero = document.getElementById('hero-img');
       const heroWrap = document.getElementById('hero');
-
+      document.getElementById("cta-heading").textContent = entry["CTA-heading"] || "";
+      document.getElementById("cta-detail").textContent = entry["CTA-detail"]
     // Pick hero image → thumbnail → else nothing
       const heroUrl = (entry.heroImage && entry.heroImage.trim()) ||
                 (entry.thumbnail && entry.thumbnail.trim()) ||
