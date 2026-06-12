@@ -1073,23 +1073,80 @@
                 <div class="border border-rose-100 rounded-2xl">
                   <div class="p-6">
                     <h4 class="text-2xl font-semibold text-slate-900">Honest trade-offs</h4>
-                    <div class="mt-4 space-y-3">
-                      <details class="border border-slate-200 rounded-xl p-4">
-                        <summary class="font-medium cursor-pointer">Layer 1, Latency vs. intelligence</summary>
-                        <p class="mt-3 text-slate-700 text-sm">Adding a lookup per rate response risks adding latency for high-volume brands. Mitigation: confidence scores are pre-computed nightly at the carrier-service-zone-dayofweek grain and served from a low-latency lookup table. Added overhead stays under 5ms at p99. Trade-off: scores reflect yesterday's outcomes, not today's, acceptable for a pattern-based signal that changes slowly.</p>
-                      </details>
-                      <details class="border border-slate-200 rounded-xl p-4">
-                        <summary class="font-medium cursor-pointer">Layer 2, Signal quality vs. coverage</summary>
-                        <p class="mt-3 text-slate-700 text-sm">Network signals are only as good as the telemetry feeding them. Mitigation: launch as opt-in beta with explicit <code class="bg-gray-100 px-1 rounded">data_coverage</code> metadata per response ("high / medium / low / unavailable"). Low-coverage signals are surfaced but clearly flagged. Builds trust incrementally rather than overpromising on day one.</p>
-                      </details>
-                      <details class="border border-slate-200 rounded-xl p-4">
-                        <summary class="font-medium cursor-pointer">Layer 3, Recommendation quality vs. brand autonomy</summary>
-                        <p class="mt-3 text-slate-700 text-sm">A wrong recommended_carrier damages Stord's credibility as an intelligence layer, shipping a weak recommendation is worse than shipping none. Mitigation: Layer 3 doesn't launch until Layer 1 confidence scores have one full peak season of validated track record. The recommended field is advisory, not prescriptive, brands configure their own SLA weights, preserving autonomy while giving Stord the feedback loop to improve.</p>
-                      </details>
-                      <details class="border border-slate-200 rounded-xl p-4">
-                        <summary class="font-medium cursor-pointer">Cross-cutting, Standalone Parcel vs. fulfillment customer parity</summary>
-                        <p class="mt-3 text-slate-700 text-sm">Building Standalone Parcel intelligence first before fulfillment customers have the same signals creates internal tension. Mitigation: the intelligence layer is built once and shared, confidence scores and network signals feed both the Standalone Parcel API and the OMS routing logic from the same underlying data service. Not two separate features; one data service with two API surfaces.</p>
-                      </details>
+                    <p class="mt-1 text-sm text-slate-500">Every layer has a real execution risk. Naming them is not a hedge, it's how you sequence the work correctly and avoid building the wrong thing at the wrong time.</p>
+                    <div class="mt-5 space-y-4">
+
+                      <!-- Layer 1 -->
+                      <div class="rounded-2xl overflow-hidden ring-1 ring-sky-200">
+                        <div class="bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500 px-5 py-3 flex items-center justify-between">
+                          <p class="font-bold text-white text-sm">LAYER 1 · Latency vs. intelligence</p>
+                          <span class="text-xs font-semibold px-2 py-1 rounded-full bg-white/20 text-white">Q3 2026</span>
+                        </div>
+                        <div class="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-sky-100">
+                          <div class="p-5 bg-gradient-to-br from-sky-50 to-white">
+                            <p class="text-xs font-bold text-sky-700 uppercase tracking-wide mb-2">Risk</p>
+                            <p class="text-sm text-slate-700">Adding a confidence score lookup to every rate response introduces compute on a path that high-volume brands expect to be fast. A brand generating 50,000 rate requests per day cannot absorb a 200ms penalty per call.</p>
+                          </div>
+                          <div class="p-5 bg-gradient-to-br from-teal-50 to-white">
+                            <p class="text-xs font-bold text-teal-700 uppercase tracking-wide mb-2">Mitigation</p>
+                            <p class="text-sm text-slate-700">Confidence scores are pre-computed nightly at the carrier-service-zone-day-of-week grain and served from a low-latency lookup table. The API reads a score, it does not generate one. Added overhead stays under <strong>5ms at p99</strong>. The trade-off is freshness: scores reflect yesterday's outcomes, not today's. Acceptable for a signal that is pattern-based and changes slowly.</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Layer 2 -->
+                      <div class="rounded-2xl overflow-hidden ring-1 ring-teal-200">
+                        <div class="bg-gradient-to-r from-teal-500 via-emerald-500 to-sky-500 px-5 py-3 flex items-center justify-between">
+                          <p class="font-bold text-white text-sm">LAYER 2 · Signal quality vs. coverage</p>
+                          <span class="text-xs font-semibold px-2 py-1 rounded-full bg-white/20 text-white">Q4 2026</span>
+                        </div>
+                        <div class="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-teal-100">
+                          <div class="p-5 bg-gradient-to-br from-teal-50 to-white">
+                            <p class="text-xs font-bold text-teal-700 uppercase tracking-wide mb-2">Risk</p>
+                            <p class="text-sm text-slate-700">Network condition signals are only as good as the telemetry feeding them. Stord has strong visibility into its own fulfillment network, but carrier performance data outside it (especially for bring-your-own-carrier scenarios) may be sparse or delayed. Publishing a <code class="bg-white px-1 rounded text-xs">deviation_risk</code> field that is wrong erodes trust faster than not publishing it at all.</p>
+                          </div>
+                          <div class="p-5 bg-gradient-to-br from-emerald-50 to-white">
+                            <p class="text-xs font-bold text-emerald-700 uppercase tracking-wide mb-2">Mitigation</p>
+                            <p class="text-sm text-slate-700">Launch Layer 2 as an <strong>opt-in beta field</strong> with explicit coverage metadata in the response. Each <code class="bg-white px-1 rounded text-xs">network_signal</code> object includes a <code class="bg-white px-1 rounded text-xs">data_coverage</code> field (<span class="font-medium">high / medium / low / unavailable</span>) so brands know how much to weight it. Low-coverage signals are surfaced, not suppressed, but clearly flagged. Coverage expands as telemetry improves across the carrier portfolio.</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Layer 3 -->
+                      <div class="rounded-2xl overflow-hidden ring-1 ring-emerald-200">
+                        <div class="bg-gradient-to-r from-emerald-500 via-sky-500 to-teal-500 px-5 py-3 flex items-center justify-between">
+                          <p class="font-bold text-white text-sm">LAYER 3 · Recommendation quality vs. brand autonomy</p>
+                          <span class="text-xs font-semibold px-2 py-1 rounded-full bg-white/20 text-white">Q1 2027</span>
+                        </div>
+                        <div class="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-emerald-100">
+                          <div class="p-5 bg-gradient-to-br from-emerald-50 to-white">
+                            <p class="text-xs font-bold text-emerald-700 uppercase tracking-wide mb-2">Risk</p>
+                            <p class="text-sm text-slate-700">A <code class="bg-white px-1 rounded text-xs">recommended_carrier</code> field that gets it wrong does not just cause a bad shipment. It damages Stord's credibility as an intelligence layer and gives brands a reason to ignore all future signals. <strong>Shipping a weak recommendation is worse than shipping no recommendation.</strong></p>
+                          </div>
+                          <div class="p-5 bg-gradient-to-br from-sky-50 to-white">
+                            <p class="text-xs font-bold text-sky-700 uppercase tracking-wide mb-2">Mitigation</p>
+                            <p class="text-sm text-slate-700">Layer 3 does not launch until Layer 1 confidence scores have been in production for <strong>at least one full peak season</strong> with a validated score-to-outcome correlation track record. The <code class="bg-white px-1 rounded text-xs">recommended</code> field is advisory, not prescriptive. Brands configure their own SLA parameters (cost weight, confidence threshold, delivery promise target) so the recommendation reflects their priorities, preserving brand autonomy while giving Stord the feedback loop to improve over time.</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Cross-cutting -->
+                      <div class="rounded-2xl overflow-hidden ring-1 ring-gray-200">
+                        <div class="bg-gradient-to-r from-sky-600 via-teal-600 to-emerald-600 px-5 py-3">
+                          <p class="font-bold text-white text-sm">CROSS-CUTTING · Standalone Parcel vs. fulfillment customer parity</p>
+                        </div>
+                        <div class="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-gray-100">
+                          <div class="p-5 bg-gradient-to-br from-gray-50 to-white">
+                            <p class="text-xs font-bold text-gray-600 uppercase tracking-wide mb-2">Risk</p>
+                            <p class="text-sm text-slate-700">Building intelligence features for Standalone Parcel customers before fulfillment customers have the same signals creates internal tension. Fulfillment customers already in the Stord ecosystem may reasonably ask why a parcel-only API customer gets better routing intelligence than they do through the OMS.</p>
+                          </div>
+                          <div class="p-5 bg-gradient-to-br from-teal-50 to-white">
+                            <p class="text-xs font-bold text-teal-700 uppercase tracking-wide mb-2">Mitigation</p>
+                            <p class="text-sm text-slate-700">The intelligence layer is <strong>built once and shared.</strong> Confidence scores and network signals feed both the Standalone Parcel API and the OMS routing logic from the same underlying data service. Standalone Parcel is the external surface that makes the capability visible and commercially differentiated. Fulfillment customers benefit from the same signals through the existing product surface. This is not two separate features, one data service with two API surfaces.</p>
+                          </div>
+                        </div>
+                      </div>
+
                     </div>
                   </div>
                 </div>
