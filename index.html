@@ -1,5 +1,3 @@
-
-Index · HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -128,7 +126,7 @@ Index · HTML
       </nav>
     </div>
   </header>
- 
+
   <!-- Intro -->
   <section id="home" class="container mx-auto px-4 pt-12 md:pt-16">
     <div class="grid gap-8 md:[grid-template-columns:minmax(0,1fr)_auto] items-center">
@@ -154,7 +152,7 @@ Index · HTML
       </div>
     </div>
   </section>
- 
+
   <!-- PM Responsibilities Slideshow -->
   <section id="responsibilities" class="container mx-auto px-4 py-12">
     <h2 class="text-2xl md:text-3xl font-bold text-center bg-gradient-to-r from-sky-700 via-teal-700 to-emerald-700 bg-clip-text text-transparent mb-6">
@@ -178,7 +176,67 @@ Index · HTML
     </div>
     <div class="flex justify-center mt-4 space-x-2" id="dots"></div>
   </section>
- 
+
+  <!-- Dual Role -->
+  <section id="dual-role" class="container mx-auto px-4 py-14">
+    <div class="text-center mb-10">
+      <span class="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest bg-gradient-to-r from-sky-100 to-emerald-100 text-teal-700 ring-1 ring-teal-200 mb-4">One Person. Two Crafts.</span>
+      <h2 class="text-3xl md:text-4xl font-extrabold bg-gradient-to-r from-sky-700 via-teal-700 to-emerald-700 bg-clip-text text-transparent">Dual Role Champ</h2>
+      <p class="mt-3 text-gray-600 max-w-xl mx-auto text-base">Most people pick a lane. I didn't.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+      <!-- iOS Dev card -->
+      <div class="rounded-3xl bg-white/95 shadow-xl ring-1 ring-gray-200 overflow-hidden">
+        <div class="gbar bg-gradient-to-r from-sky-500 to-teal-500"></div>
+        <div class="p-7">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-sky-500 to-teal-500 flex items-center justify-center text-white text-xl shadow-md">📱</div>
+            <h3 class="text-xl font-extrabold text-gray-900">iOS Developer</h3>
+          </div>
+          <ul class="space-y-3 text-sm text-gray-700">
+            <li class="flex gap-3"><span class="text-sky-500 font-bold mt-0.5">→</span><span>Writes the code, not just the spec. When I say "this will slow the app down," I already know why.</span></li>
+            <li class="flex gap-3"><span class="text-sky-500 font-bold mt-0.5">→</span><span>Reviews PRs with real context — architecture decisions, memory cost, what breaks at scale.</span></li>
+            <li class="flex gap-3"><span class="text-sky-500 font-bold mt-0.5">→</span><span>Knows the difference between a quick fix and a ticking time bomb. Ships accordingly.</span></li>
+            <li class="flex gap-3"><span class="text-sky-500 font-bold mt-0.5">→</span><span>Speaks fluent Swift and SwiftUI — so no translation layer between idea and implementation.</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Product Leader card -->
+      <div class="rounded-3xl bg-white/95 shadow-xl ring-1 ring-gray-200 overflow-hidden">
+        <div class="gbar bg-gradient-to-r from-teal-500 to-emerald-500"></div>
+        <div class="p-7">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-teal-500 to-emerald-500 flex items-center justify-center text-white text-xl shadow-md">🧭</div>
+            <h3 class="text-xl font-extrabold text-gray-900">Product Leader</h3>
+          </div>
+          <ul class="space-y-3 text-sm text-gray-700">
+            <li class="flex gap-3"><span class="text-emerald-500 font-bold mt-0.5">→</span><span>Defines the problem before a single line is written. The roadmap starts with user reality, not feature lists.</span></li>
+            <li class="flex gap-3"><span class="text-emerald-500 font-bold mt-0.5">→</span><span>Owns the metrics, the narrative, and the "why this, why now" for every stakeholder in the room.</span></li>
+            <li class="flex gap-3"><span class="text-emerald-500 font-bold mt-0.5">→</span><span>Makes the call when engineering and product disagree — and can argue both sides credibly.</span></li>
+            <li class="flex gap-3"><span class="text-emerald-500 font-bold mt-0.5">→</span><span>Bridges user needs to technical reality without losing either one along the way.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Closing statement -->
+    <div class="mt-10 max-w-4xl mx-auto">
+      <div class="rounded-3xl bg-gradient-to-r from-sky-600 via-teal-600 to-emerald-600 p-px shadow-xl">
+        <div class="rounded-[calc(1.5rem-1px)] bg-white/95 px-8 py-7 text-center">
+          <p class="text-xl md:text-2xl font-extrabold text-gray-900 leading-snug">
+            Wearing both hats is not a liability.
+          </p>
+          <p class="mt-1 text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-sky-600 via-teal-600 to-emerald-600 bg-clip-text text-transparent">
+            It is the point.
+          </p>
+          <p class="mt-4 text-sm text-gray-500 max-w-lg mx-auto">When the person writing the product brief can also read the diff, fewer things fall through the cracks. Faster decisions. Tighter builds. Outcomes that show up on a dashboard.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Nutshell -->
   <section id="nutshell" class="container mx-auto px-4 py-14">
     <div class="flex items-end justify-between">
@@ -197,13 +255,13 @@ Index · HTML
       <article class="rounded-2xl bg-white/95 shadow ring-1 ring-gray-200 overflow-hidden"><div class="gbar bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500"></div><div class="p-5"><h3 class="font-semibold">Languages</h3><p class="mt-2 text-sm text-gray-700">English, Telugu, Hindi</p></div></article>
     </div>
   </section>
- 
+
   <!-- Work: Experience -->
   <section id="work" class="container mx-auto px-4 py-14">
     <div class="flex items-end justify-between">
       <h2 class="text-3xl font-extrabold">Experience</h2>
     </div>
- 
+
     <!-- Metric Header (Animated) -->
     <div id="work-metrics" class="mt-6 grid grid-cols-2 sm:grid-cols-5 gap-2">
       <div class="rounded-xl p-3 ring-1 ring-gray-200 bg-white/90 text-center">
@@ -237,7 +295,7 @@ Index · HTML
         <p class="mt-1 text-[10px] md:text-xs text-gray-600">Increase in engagement</p>
       </div>
     </div>
- 
+
     <!-- Tabs -->
     <div class="mt-12 flex flex-col items-center" role="tablist" aria-label="Work tabs">
       <div class="flex gap-8 relative">
@@ -248,13 +306,13 @@ Index · HTML
       </div>
       <div id="tab-indicator" class="mt-2 h-1 w-full max-w-5xl rounded-full bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500 shadow-md transition-all duration-300"></div>
     </div>
- 
+
     <!-- Panels -->
     <div class="mt-8">
       <!-- Projects -->
       <div id="panel-projects" role="tabpanel" aria-labelledby="tab-projects">
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <!-- New: Claude Code projects -->
+          <!-- New: Personal projects -->
           <article class="flex flex-col min-h-[420px] rounded-3xl bg-white/95 shadow-xl ring-1 ring-gray-200 overflow-hidden hover:-translate-y-0.5 transition">
             <div class="gbar bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500"></div>
             <div class="relative">
@@ -269,12 +327,12 @@ Index · HTML
                 <span class="chip bg-sky-500">Swift</span><span class="chip bg-teal-500">iOS</span><span class="chip bg-emerald-500">safety</span><span class="chip bg-slate-500">Personal project</span>
               </div>
               <div class="mt-3 flex flex-wrap gap-3">
-                <a href="https://github.com/dkshatri/RoadtripSafety-iOS" target="_blank" rel="noopener" class="text-xs font-semibold text-sky-600 hover:underline flex items-center gap-1">iOS repo →</a>
-                <a href="https://github.com/dkshatri/Roadtrip-safety-engine" target="_blank" rel="noopener" class="text-xs font-semibold text-teal-600 hover:underline flex items-center gap-1">Engine repo →</a>
+                <a href="https://github.com/dkshatri/RoadtripSafety-iOS" target="_blank" rel="noopener" class="text-xs font-semibold text-sky-600 hover:underline">iOS repo →</a>
+                <a href="https://github.com/dkshatri/Roadtrip-safety-engine" target="_blank" rel="noopener" class="text-xs font-semibold text-teal-600 hover:underline">Engine repo →</a>
               </div>
             </div>
           </article>
- 
+
           <article class="flex flex-col min-h-[420px] rounded-3xl bg-white/95 shadow-xl ring-1 ring-gray-200 overflow-hidden hover:-translate-y-0.5 transition">
             <div class="gbar bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500"></div>
             <div class="relative">
@@ -289,14 +347,14 @@ Index · HTML
                 <span class="chip bg-sky-500">AI</span><span class="chip bg-teal-500">SwiftUI</span><span class="chip bg-emerald-500">voice</span><span class="chip bg-slate-500">Personal project</span>
               </div>
               <div class="mt-3 flex flex-wrap gap-3">
-                <a href="https://claude.ai/design/p/5fb487e2-2efd-4dd5-979a-d747304bde8b?file=RoadtripSafety+Preview.dc.html&via=share" target="_blank" rel="noopener" class="text-xs font-semibold text-emerald-600 hover:underline flex items-center gap-1">Design preview →</a>
+                <a href="https://claude.ai/design/p/5fb487e2-2efd-4dd5-979a-d747304bde8b?file=RoadtripSafety+Preview.dc.html&via=share" target="_blank" rel="noopener" class="text-xs font-semibold text-emerald-600 hover:underline">Design preview →</a>
               </div>
               <div class="mt-2">
                 <span class="text-[10px] font-semibold text-gray-400 uppercase tracking-wide">🚧 Architecture in progress</span>
               </div>
             </div>
           </article>
- 
+
           <!-- (10) Project cards — unchanged content -->
           <article class="flex flex-col min-h-[420px] rounded-3xl bg-white/95 shadow-xl ring-1 ring-gray-200 overflow-hidden hover:-translate-y-0.5 transition"><div class="gbar bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500"></div><img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1600&auto=format&fit=crop" class="aspect-square w-full object-cover" alt="Machine translation tool" /><div class="flex flex-col p-4 flex-grow"><h3 class="font-semibold text-md">Machine translation tool</h3><p class="mt-2 text-xs text-gray-700">Translation memory and terms with automation. Hundreds of PDFs in many languages with strong quality checks and lower cost.</p><p class="mt-2 text-xs font-semibold text-emerald-700">80% cost reduction · 60% faster turnaround</p><div class="mt-auto pt-3 flex flex-wrap gap-2"><span class="chip bg-sky-500">AWS</span><span class="chip bg-teal-500">automation</span><span class="chip bg-emerald-500">translation</span></div></div></article>
           <article class="flex flex-col min-h-[420px] rounded-3xl bg-white/95 shadow-xl ring-1 ring-gray-200 overflow-hidden hover:-translate-y-0.5 transition"><div class="gbar bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500"></div><img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=1600&auto=format&fit=crop" class="aspect-square w-full object-cover" alt="Mobile AI Chatbot" /><div class="flex flex-col p-4 flex-grow"><h3 class="font-semibold text-md">Interactive AI Chatbot (Mobile)</h3><p class="mt-2 text-xs text-gray-700">Conversational assistant that answers questions, recommends next actions, and surfaces insights in real time.</p><p class="mt-2 text-xs font-semibold text-emerald-700">+45% self-service adoption · 4.7★ satisfaction</p><div class="mt-auto pt-3 flex flex-wrap gap-2"><span class="chip bg-sky-500">AI</span><span class="chip bg-teal-500">Chatbot</span><span class="chip bg-emerald-500">Mobile</span></div></div></article>
@@ -310,7 +368,7 @@ Index · HTML
           <article class="flex flex-col min-h-[420px] rounded-3xl bg-white/95 shadow-xl ring-1 ring-gray-200 overflow-hidden hover:-translate-y-0.5 transition"><div class="gbar bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500"></div><img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1600&auto=format&fit=crop" class="aspect-square w-full object-cover" alt="Daleelo" /><div class="flex flex-col p-4 flex-grow"><h3 class="font-semibold text-md">Daleelo</h3><p class="mt-2 text-xs text-gray-700">Local search and discovery app with maps, places, and deals built at Mobiware.</p><div class="mt-auto pt-3 flex flex-wrap gap-2"><span class="chip bg-sky-500">maps</span><span class="chip bg-teal-500">local</span><span class="chip bg-emerald-500">mobile</span></div></div></article>
         </div>
       </div>
- 
+
       
     <!-- Case studies -->
     <div id="panel-casestudies" role="tabpanel" aria-labelledby="tab-casestudy" class="hidden">
@@ -322,7 +380,7 @@ Index · HTML
   <!-- Left: Title + (Role + Timeline) -->
   <div class="min-w-0 flex-1">
     <h3 class="text-xl md:text-2xl font-bold truncate">Machine Translations</h3>
- 
+
     <!-- Role + Timeline in a row -->
     <div class="mt-1 flex flex-wrap items-center gap-3">
       <p class="text-xs md:text-sm text-gray-600">
@@ -332,13 +390,13 @@ Index · HTML
       <span class="chip bg-sky-500">Timeline: 12 months</span>
     </div>
   </div>
- 
+
   <!-- Right: plus button vertically centered -->
   <div class="ml-2 self-stretch flex items-center">
     <span class="accordion-plus inline-flex items-center justify-center w-9 h-9 rounded-full ring-1 ring-gray-200 bg-white text-gray-600">+</span>
   </div>
 </div>
- 
+
             </summary>
             <div class="gbar bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500"></div>
             <div class="p-6 md:p-8">
@@ -373,9 +431,9 @@ Index · HTML
                   </div>
                 </div>
               </div>
- 
+
               <hr class="my-8 border-gray-200" />
- 
+
               <section class="py-2">
                 <div class="border border-emerald-100 rounded-2xl">
                   <div class="p-6">
@@ -389,7 +447,7 @@ Index · HTML
                   </div>
                 </div>
               </section>
- 
+
               <section class="py-2">
                 <div class="border border-sky-100 rounded-2xl">
                   <div class="p-6">
@@ -403,7 +461,7 @@ Index · HTML
                   </div>
                 </div>
               </section>
- 
+
               <section class="py-2">
                 <div class="border border-teal-200 rounded-2xl">
                   <div class="p-6">
@@ -425,7 +483,7 @@ Index · HTML
                   </div>
                 </div>
               </section>
- 
+
               <section id="solution" class="py-2">
                 <div class="grid gap-8 lg:grid-cols-3">
                   <div class="lg:col-span-2 border border-sky-100 rounded-2xl">
@@ -479,7 +537,7 @@ Index · HTML
                   </div>
                 </div>
               </section>
- 
+
               <section class="py-2">
                 <div class="border border-emerald-200 rounded-2xl">
                   <div class="p-6">
@@ -493,7 +551,7 @@ Index · HTML
                   </div>
                 </div>
               </section>
- 
+
               <section class="py-2">
                 <div class="border border-rose-100 rounded-2xl">
                   <div class="p-6">
@@ -522,7 +580,7 @@ Index · HTML
                   </div>
                 </div>
               </section>
- 
+
               <section id="outcomes" class="py-2">
                 <div class="border border-slate-200 rounded-2xl">
                   <div class="p-6 lg:p-8">
@@ -548,7 +606,7 @@ Index · HTML
                   </div>
                 </div>
               </section>
- 
+
               <section class="py-2">
                 <div class="border border-indigo-200 rounded-2xl">
                   <div class="p-6">
@@ -563,11 +621,11 @@ Index · HTML
               </section>
             </div>
           </details>
- 
- 
- 
+
+
+
  <!-- Gallup Access mobile app -->
- 
+
 <!-- Gallup Access Mobile App Redesign – Summit Release -->
 <details id="cs-access-redesign" class="group rounded-3xl bg-white/95 shadow-xl ring-1 ring-gray-200 overflow-hidden">
   <summary class="cursor-pointer select-none">
@@ -586,9 +644,9 @@ Index · HTML
       </div>
     </div>
   </summary>
- 
+
   <div class="gbar bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500"></div>
- 
+
   <div class="p-6 md:p-8">
     <!-- Overview -->
     <div class="grid gap-8 lg:grid-cols-12 items-start">
@@ -618,9 +676,9 @@ Index · HTML
         </div>
       </div>
     </div>
- 
+
     <hr class="my-8 border-gray-200" />
- 
+
     <!-- Problem -->
     <section class="py-2">
       <div class="border border-emerald-100 rounded-2xl">
@@ -635,7 +693,7 @@ Index · HTML
         </div>
       </div>
     </section>
- 
+
     <!-- Goals -->
     <section class="py-2">
       <div class="border border-sky-100 rounded-2xl">
@@ -650,7 +708,7 @@ Index · HTML
         </div>
       </div>
     </section>
- 
+
     <!-- Approach -->
     <section class="py-2">
       <div class="border border-teal-200 rounded-2xl">
@@ -673,7 +731,7 @@ Index · HTML
         </div>
       </div>
     </section>
- 
+
     <!-- Solutions vs Impacts (two cards with subcards) -->
     <section class="py-2">
       <div class="grid gap-6 md:grid-cols-2">
@@ -716,7 +774,7 @@ Index · HTML
             </div>
           </div>
         </div>
- 
+
         <!-- Impacts card -->
         <div class="rounded-2xl ring-1 ring-slate-200 bg-white p-6">
           <h4 class="text-xl font-semibold text-slate-900">Impacts</h4>
@@ -757,9 +815,9 @@ Index · HTML
         </div>
       </div>
     </section>
- 
- 
- 
+
+
+
     <!-- Technical Challenges -->
     <section class="py-2">
       <div class="border border-rose-100 rounded-2xl">
@@ -773,7 +831,7 @@ Index · HTML
         </div>
       </div>
     </section>
- 
+
     <!-- Outcomes -->
     <section id="summit-outcomes" class="py-2">
       <div class="border border-slate-200 rounded-2xl">
@@ -796,12 +854,12 @@ Index · HTML
         </div>
       </div>
     </section>
- 
+
   </div>
 </details>
- 
- 
- 
+
+
+
           <!-- Machine Translations Mobile Integration -->
           <details id="cs-mt-mobile" class="group rounded-3xl bg-white/95 shadow-xl ring-1 ring-gray-200 overflow-hidden">
             <summary class="cursor-pointer select-none">
@@ -809,7 +867,7 @@ Index · HTML
   <!-- Left: Title + (Role + Timeline) -->
   <div class="min-w-0 flex-1">
     <h3 class="text-xl md:text-2xl font-bold truncate">Machine Translations Mobile Integration</h3>
- 
+
     <!-- Role + Timeline in a row -->
     <div class="mt-1 flex flex-wrap items-center gap-3">
       <p class="text-xs md:text-sm text-gray-600">
@@ -819,13 +877,13 @@ Index · HTML
       <span class="chip bg-sky-500">Timeline: 4 months</span>
     </div>
   </div>
- 
+
   <!-- Right: plus button vertically centered -->
   <div class="ml-2 self-stretch flex items-center">
     <span class="accordion-plus inline-flex items-center justify-center w-9 h-9 rounded-full ring-1 ring-gray-200 bg-white text-gray-600">+</span>
   </div>
 </div>
- 
+
             </summary>
             <div class="gbar bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500"></div>
             <div class="p-6 md:p-8">
@@ -859,9 +917,9 @@ Index · HTML
                   </div>
                 </div>
               </div>
- 
+
               <hr class="my-8 border-gray-200" />
- 
+
               <section class="py-2">
                 <div class="border border-emerald-100 rounded-2xl">
                   <div class="p-6">
@@ -874,7 +932,7 @@ Index · HTML
                   </div>
                 </div>
               </section>
- 
+
               <section class="py-2">
                 <div class="border border-sky-100 rounded-2xl">
                   <div class="p-6">
@@ -887,7 +945,7 @@ Index · HTML
                   </div>
                 </div>
               </section>
- 
+
               <section class="py-2">
                 <div class="border border-teal-200 rounded-2xl">
                   <div class="p-6">
@@ -909,7 +967,7 @@ Index · HTML
                   </div>
                 </div>
               </section>
- 
+
               <section id="solution" class="py-2">
                 <div class="grid gap-8 lg:grid-cols-3">
                   <div class="lg:col-span-2 border border-sky-100 rounded-2xl">
@@ -952,7 +1010,7 @@ Index · HTML
                   </div>
                 </div>
               </section>
- 
+
               <section id="outcomes" class="py-2">
                 <div class="border border-slate-200 rounded-2xl">
                   <div class="p-6 lg:p-8">
@@ -967,7 +1025,7 @@ Index · HTML
               </section>
             </div>
           </details>
- 
+
           <!-- Stord, Standalone Parcel Intelligence Layer -->
           <details id="cs-stord" class="group rounded-3xl bg-white/95 shadow-xl ring-1 ring-gray-200 overflow-hidden">
             <summary class="cursor-pointer select-none">
@@ -985,7 +1043,7 @@ Index · HTML
               </div>
             </summary>
             <div class="gbar bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500"></div>
- 
+
             <div class="p-6 md:p-8">
               <!-- Overview -->
               <div class="grid gap-8 lg:grid-cols-12 items-start">
@@ -1013,9 +1071,9 @@ Index · HTML
                   </div>
                 </div>
               </div>
- 
+
               <hr class="my-8 border-gray-200" />
- 
+
               <!-- Problem -->
               <section class="py-2">
                 <div class="border border-emerald-100 rounded-2xl">
@@ -1049,7 +1107,7 @@ Index · HTML
                   </div>
                 </div>
               </section>
- 
+
               <!-- Goals -->
               <section class="py-2">
                 <div class="border border-sky-100 rounded-2xl">
@@ -1064,7 +1122,7 @@ Index · HTML
                   </div>
                 </div>
               </section>
- 
+
               <!-- Approach / Layers -->
               <section class="py-2">
                 <div class="border border-teal-200 rounded-2xl">
@@ -1116,7 +1174,7 @@ Index · HTML
                   </div>
                 </div>
               </section>
- 
+
               <!-- Trade-offs -->
               <section class="py-2">
                 <div class="border border-rose-100 rounded-2xl">
@@ -1124,7 +1182,7 @@ Index · HTML
                     <h4 class="text-2xl font-semibold text-slate-900">Honest trade-offs</h4>
                     <p class="mt-1 text-sm text-slate-500">Every layer has a real execution risk. Naming them is not a hedge, it's how you sequence the work correctly and avoid building the wrong thing at the wrong time.</p>
                     <div class="mt-5 space-y-4">
- 
+
                       <!-- Layer 1 -->
                       <div class="rounded-2xl overflow-hidden ring-1 ring-sky-200">
                         <div class="bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500 px-5 py-3 flex items-center justify-between">
@@ -1142,7 +1200,7 @@ Index · HTML
                           </div>
                         </div>
                       </div>
- 
+
                       <!-- Layer 2 -->
                       <div class="rounded-2xl overflow-hidden ring-1 ring-teal-200">
                         <div class="bg-gradient-to-r from-teal-500 via-emerald-500 to-sky-500 px-5 py-3 flex items-center justify-between">
@@ -1160,7 +1218,7 @@ Index · HTML
                           </div>
                         </div>
                       </div>
- 
+
                       <!-- Layer 3 -->
                       <div class="rounded-2xl overflow-hidden ring-1 ring-emerald-200">
                         <div class="bg-gradient-to-r from-emerald-500 via-sky-500 to-teal-500 px-5 py-3 flex items-center justify-between">
@@ -1178,7 +1236,7 @@ Index · HTML
                           </div>
                         </div>
                       </div>
- 
+
                       <!-- Cross-cutting -->
                       <div class="rounded-2xl overflow-hidden ring-1 ring-gray-200">
                         <div class="bg-gradient-to-r from-sky-600 via-teal-600 to-emerald-600 px-5 py-3">
@@ -1195,12 +1253,12 @@ Index · HTML
                           </div>
                         </div>
                       </div>
- 
+
                     </div>
                   </div>
                 </div>
               </section>
- 
+
               <!-- Outcomes -->
               <section class="py-2">
                 <div class="border border-slate-200 rounded-2xl">
@@ -1230,7 +1288,7 @@ Index · HTML
                   </div>
                 </div>
               </section>
- 
+
               <!-- 90-day plan -->
               <section class="py-2">
                 <div class="border border-indigo-200 rounded-2xl">
@@ -1253,10 +1311,10 @@ Index · HTML
                   </div>
                 </div>
               </section>
- 
+
             </div>
           </details>
- 
+
           <!-- MS Teams Access App -->
           <details id="cs-teams" class="group rounded-3xl bg-white/95 shadow-xl ring-1 ring-gray-200 overflow-hidden">
             <summary class="cursor-pointer select-none">
@@ -1264,7 +1322,7 @@ Index · HTML
   <!-- Left: Title + (Role + Timeline) -->
   <div class="min-w-0 flex-1">
     <h3 class="text-xl md:text-2xl font-bold truncate">MS Teams Access App</h3>
- 
+
     <!-- Role + Timeline in a row -->
     <div class="mt-1 flex flex-wrap items-center gap-3">
       <p class="text-xs md:text-sm text-gray-600">
@@ -1274,16 +1332,16 @@ Index · HTML
       <span class="chip bg-sky-500">Timeline: 8 months</span>
     </div>
   </div>
- 
+
   <!-- Right: plus button vertically centered -->
   <div class="ml-2 self-stretch flex items-center">
     <span class="accordion-plus inline-flex items-center justify-center w-9 h-9 rounded-full ring-1 ring-gray-200 bg-white text-gray-600">+</span>
   </div>
 </div>
- 
+
             </summary>
             <div class="gbar bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500"></div>
- 
+
             <div class="p-6 md:p-8">
               <div class="grid gap-8 lg:grid-cols-12 items-start">
                 <div class="lg:col-span-7">
@@ -1301,7 +1359,7 @@ Index · HTML
                     <a href="#teams-solution" class="px-4 py-2 rounded-xl font-semibold ring-2 ring-teal-300 bg-white/70 hover:bg-white">Explore solution</a>
                   </div>
                 </div>
- 
+
                 <div class="lg:col-span-5">
                   <div class="border border-sky-100 shadow-md p-6 rounded-2xl">
                     <div class="aspect-[16/10] w-full rounded-xl bg-gradient-to-br from-sky-200/70 via-teal-200/70 to-emerald-200/70 flex items-center justify-center">
@@ -1315,9 +1373,9 @@ Index · HTML
                   </div>
                 </div>
               </div>
- 
+
               <hr class="my-8 border-gray-200" />
- 
+
               <section class="py-2">
                 <div class="border border-emerald-100 rounded-2xl">
                   <div class="p-6">
@@ -1329,7 +1387,7 @@ Index · HTML
                   </div>
                 </div>
               </section>
- 
+
               <section class="py-2">
                 <div class="border border-sky-100 rounded-2xl">
                   <div class="p-6">
@@ -1342,7 +1400,7 @@ Index · HTML
                   </div>
                 </div>
               </section>
- 
+
               <section class="py-2">
                 <div class="border border-teal-200 rounded-2xl">
                   <div class="p-6">
@@ -1364,7 +1422,7 @@ Index · HTML
                   </div>
                 </div>
               </section>
- 
+
               <section id="teams-solution" class="py-2">
                 <div class="grid gap-8 lg:grid-cols-3">
                   <div class="lg:col-span-2 border border-sky-100 rounded-2xl">
@@ -1405,7 +1463,7 @@ Index · HTML
                       </div>
                     </div>
                   </div>
- 
+
                   <div class="border border-slate-100 rounded-2xl">
                     <div class="p-6">
                       <h5 class="text-xl font-semibold text-slate-900">Technical challenges</h5>
@@ -1417,7 +1475,7 @@ Index · HTML
                   </div>
                 </div>
               </section>
- 
+
               <section id="teams-outcomes" class="py-2">
                 <div class="border border-slate-200 rounded-2xl">
                   <div class="p-6 lg:p-8">
@@ -1430,7 +1488,7 @@ Index · HTML
                   </div>
                 </div>
               </section>
- 
+
             </div>
           </details>
         </div>
@@ -1443,10 +1501,10 @@ Index · HTML
       My Winning Hand
     </h2>
     <div class="h-1 w-40 mx-auto rounded-full bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500 mb-6"></div>
- 
+
     <div class="hand-stage relative">
       <div id="hand-cards" class="hand"></div>
- 
+
       <div class="next-card-float">
         <button class="next-card" type="button" aria-label="Next role: Director of Product">
           <div class="next-inner">
@@ -1467,7 +1525,7 @@ Index · HTML
       </div>
     </div>
   </section>
- 
+
   <!-- Certifications -->
   <section id="certifications" class="container mx-auto px-4 py-14">
     <div class="flex items-end justify-between">
@@ -1480,7 +1538,7 @@ Index · HTML
       <article class="rounded-2xl bg-white/95 shadow-lg ring-1 ring-emerald-200 p-6 hover:-translate-y-0.5 transition"><div class="flex items-center gap-3"><div class="w-10 h-10 flex items-center justify-center rounded-xl bg-gradient-to-r from-emerald-500 to-emerald-700 text-white text-xl shadow">🤖</div><div><h3 class="font-semibold text-lg">Certified AI for Product Management</h3><p class="text-sm text-gray-600">Pendo</p></div></div></article>
     </div>
   </section>
- 
+
   <!-- Contact -->
   <section id="contact" class="container mx-auto px-4 pb-16">
     <div class="rounded-3xl bg-gradient-to-r from-sky-600 via-teal-600 to-emerald-600 p-[2px] shadow-xl">
@@ -1494,7 +1552,7 @@ Index · HTML
       </div>
     </div>
   </section>
- 
+
   <!-- Footer -->
   <footer class="mx-auto container px-4 pb-10 text-sm text-gray-600">
     <div class="flex justify-between items-center flex-wrap gap-4">
@@ -1502,13 +1560,13 @@ Index · HTML
       <a href="#home" class="px-3 py-1.5 rounded-lg bg-white/80 ring-1 ring-gray-200 hover:ring-teal-300">Top</a>
     </div>
   </footer>
- 
+
   <script>
   document.addEventListener('DOMContentLoaded', () => {
     /* ===== Footer year ===== */
     const yearEl = document.getElementById('year');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
- 
+
     /* ===== Responsibilities Slider (auto + dots) ===== */
     (function () {
       const slider = document.getElementById('slider');
@@ -1517,7 +1575,7 @@ Index · HTML
       const totalSlides = slides.length;
       const dotsContainer = document.getElementById('dots');
       let currentIndex = 0, autoScroll;
- 
+
       for (let i = 0; i < totalSlides; i++) {
         const dot = document.createElement('button');
         dot.type = 'button';
@@ -1527,7 +1585,7 @@ Index · HTML
         dotsContainer.appendChild(dot);
       }
       const dots = dotsContainer.children;
- 
+
       function updateSlide(index) {
         slider.style.transform = `translateX(-${index * 100}%)`;
         for (let i = 0; i < dots.length; i++) {
@@ -1544,21 +1602,21 @@ Index · HTML
         }, 4000);
       }
       function stopAutoScroll() { if (autoScroll) clearInterval(autoScroll); }
- 
+
       slider.parentElement.addEventListener('mouseenter', stopAutoScroll);
       slider.parentElement.addEventListener('mouseleave', startAutoScroll);
- 
+
       updateSlide(0);
       startAutoScroll();
     })();
- 
+
     /* ===== Metrics CountUp (on first view) ===== */
     (function () {
       const els = Array.from(document.querySelectorAll('.countup'));
       if (!els.length) return;
       const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       const DURATION = reduce ? 0 : 1200;
- 
+
       const animate = (el) => {
         const targetAttr = el.getAttribute('data-target');
         if (!targetAttr) return;
@@ -1566,7 +1624,7 @@ Index · HTML
         const target = parseFloat(targetAttr);
         const start = performance.now();
         const from = 0;
- 
+
         const tick = (now) => {
           const p = Math.min(1, (now - start) / DURATION);
           const value = from + (target - from) * p;
@@ -1579,7 +1637,7 @@ Index · HTML
           requestAnimationFrame(tick);
         }
       };
- 
+
       const seen = new WeakSet();
       const io = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
@@ -1589,10 +1647,10 @@ Index · HTML
           }
         });
       }, { threshold: 0.35, rootMargin: '0px 0px -10% 0px' });
- 
+
       els.forEach((el) => io.observe(el));
     })();
- 
+
     /* ===== Work Tabs (Projects / Case Studies) with simple routing ===== */
     (function () {
       const tabProjects    = document.getElementById('tab-projects');
@@ -1600,54 +1658,54 @@ Index · HTML
       const panelProjects  = document.getElementById('panel-projects');
       const panelCase      = document.getElementById('panel-casestudies');
       const workSection    = document.getElementById('work');
- 
+
       if (!tabProjects || !tabCase || !panelProjects || !panelCase) return;
- 
+
       function setProjectsSelected(isProjects, {updateHash = true} = {}) {
         tabProjects.setAttribute('aria-selected', String(isProjects));
         tabCase.setAttribute('aria-selected', String(!isProjects));
- 
+
         tabProjects.classList.toggle('bg-teal-600', isProjects);
         tabProjects.classList.toggle('text-white', isProjects);
         tabProjects.classList.toggle('ring-teal-600', isProjects);
         tabProjects.classList.toggle('ring-2', !isProjects);
         tabProjects.classList.toggle('bg-white', !isProjects);
         tabProjects.classList.toggle('text-teal-700', !isProjects);
- 
+
         tabCase.classList.toggle('bg-teal-600', !isProjects);
         tabCase.classList.toggle('text-white', !isProjects);
         tabCase.classList.toggle('ring-teal-600', !isProjects);
         tabCase.classList.toggle('ring-2', isProjects);
         tabCase.classList.toggle('bg-white', isProjects);
         tabCase.classList.toggle('text-teal-700', isProjects);
- 
+
         panelProjects.classList.toggle('hidden', !isProjects);
         panelCase.classList.toggle('hidden', isProjects);
- 
+
         if (updateHash) {
           const next = isProjects ? '#work/projects' : '#work/case';
           if (location.hash !== next) history.pushState(null, '', next);
         }
       }
- 
+
       tabProjects.addEventListener('click', () => { setProjectsSelected(true);  tabProjects.focus(); });
       tabCase.addEventListener('click',     () => { setProjectsSelected(false); tabCase.focus(); });
- 
+
       // Init from hash
       const h = (location.hash || '').toLowerCase();
       if (h.includes('#work/case')) setProjectsSelected(false, {updateHash:false});
       else                          setProjectsSelected(true,  {updateHash:false});
- 
+
       // Back/Forward
       window.addEventListener('hashchange', () => {
         const hh = (location.hash || '').toLowerCase();
         if (hh.includes('#work/case'))            setProjectsSelected(false, {updateHash:false});
         else if (hh.includes('#work/projects'))   setProjectsSelected(true,  {updateHash:false});
       });
- 
+
       // Ensure "See projects" links switch the tab
       document.querySelectorAll('a[href="#work"]').forEach(a => a.setAttribute('href', '#work/projects'));
- 
+
       // Top nav Case Studies opens the Case tab & scrolls
       const navCase = document.getElementById('nav-casestudies');
       function goToWorkAndSetTab(isCase){
@@ -1656,7 +1714,7 @@ Index · HTML
       }
       navCase?.addEventListener('click', (e) => { e.preventDefault(); goToWorkAndSetTab(true); });
     })();
- 
+
     /* ===== Roles hand (single mount, no duplicates) ===== */
     (function () {
       const HAND_ROLES = [
@@ -1666,14 +1724,14 @@ Index · HTML
         { title:"TPM", years:"2019–2025", desc:"Shuffled squads, counted cards on capacity, and kept releases on the table—no busts." },
         { title:"Product Manager", years:"2020–2025", desc:"Stacked the deck with crisp roadmaps, dealt AI features, and banked measurable wins." }
       ];
- 
+
       const root = document.getElementById('hand-cards');
       if (!root || root.dataset.mounted === "1") return;
       root.dataset.mounted = "1";
- 
+
       const n = HAND_ROLES.length;
       const maxAngle = 24, spreadX = 64, lift = 10, baseZ = 10;
- 
+
       HAND_ROLES.forEach((r,i)=>{
         const t = (i-(n-1)/2) / ((n-1)/2||1);
         const card = document.createElement('article');
@@ -1693,13 +1751,13 @@ Index · HTML
         root.appendChild(card);
       });
     })();
- 
+
     /* ===== Next card: click-to-flip ===== */
     (function(){
       const btn=document.querySelector('.next-card');
       btn?.addEventListener('click',()=>btn.classList.toggle('is-flipped'));
     })();
- 
+
     /* ===== Mobile nav hamburger ===== */
     (function(){
       const menuBtn = document.getElementById('mobile-menu-btn');
@@ -1719,7 +1777,176 @@ Index · HTML
     })();
   });
   </script>
+
+  <!-- ===== AI Chat Widget ===== -->
+  <style>
+    #chat-widget { position:fixed; bottom:24px; right:24px; z-index:9999; font-family:Inter,system-ui,sans-serif; }
+    #chat-toggle {
+      width:56px; height:56px; border-radius:9999px; border:none; cursor:pointer;
+      background:linear-gradient(135deg,#0ea5e9,#14b8a6,#10b981);
+      box-shadow:0 8px 24px rgba(14,165,233,.35);
+      display:flex; align-items:center; justify-content:center;
+      transition:transform .2s ease, box-shadow .2s ease;
+    }
+    #chat-toggle:hover { transform:scale(1.08); box-shadow:0 12px 28px rgba(14,165,233,.45); }
+    #chat-toggle svg { width:26px; height:26px; color:#fff; }
+    #chat-panel {
+      display:none; flex-direction:column;
+      position:absolute; bottom:68px; right:0;
+      width:340px; max-height:520px;
+      background:#fff; border-radius:20px;
+      box-shadow:0 20px 60px rgba(0,0,0,.15), 0 0 0 1px rgba(0,0,0,.05);
+      overflow:hidden;
+    }
+    #chat-panel.open { display:flex; }
+    #chat-header {
+      padding:14px 16px; display:flex; align-items:center; justify-content:space-between;
+      background:linear-gradient(135deg,#0ea5e9,#14b8a6,#10b981);
+      color:#fff;
+    }
+    #chat-header-info { display:flex; align-items:center; gap:10px; }
+    #chat-avatar {
+      width:36px; height:36px; border-radius:9999px; background:rgba(255,255,255,.25);
+      display:flex; align-items:center; justify-content:center; font-size:18px;
+    }
+    #chat-header h4 { margin:0; font-size:14px; font-weight:700; }
+    #chat-header p { margin:0; font-size:11px; opacity:.85; }
+    #chat-close { background:none; border:none; cursor:pointer; color:#fff; opacity:.8; padding:4px; }
+    #chat-close:hover { opacity:1; }
+    #chat-messages {
+      flex:1; overflow-y:auto; padding:14px; display:flex; flex-direction:column; gap:10px;
+      background:#f8fafc;
+    }
+    .msg { max-width:82%; padding:9px 12px; border-radius:14px; font-size:13px; line-height:1.45; }
+    .msg.bot { background:#fff; color:#1e293b; border-radius:14px 14px 14px 4px;
+      box-shadow:0 1px 4px rgba(0,0,0,.08); align-self:flex-start; }
+    .msg.user { background:linear-gradient(135deg,#0ea5e9,#10b981); color:#fff;
+      border-radius:14px 14px 4px 14px; align-self:flex-end; }
+    .msg.typing { color:#94a3b8; font-style:italic; }
+    #chat-footer { padding:10px; border-top:1px solid #e2e8f0; background:#fff; display:flex; gap:8px; }
+    #chat-input {
+      flex:1; border:1.5px solid #e2e8f0; border-radius:10px; padding:8px 12px;
+      font-size:13px; outline:none; font-family:inherit; resize:none;
+      transition:border-color .15s;
+    }
+    #chat-input:focus { border-color:#14b8a6; }
+    #chat-send {
+      padding:8px 14px; border-radius:10px; border:none; cursor:pointer;
+      background:linear-gradient(135deg,#0ea5e9,#10b981); color:#fff;
+      font-size:13px; font-weight:600; transition:opacity .15s;
+    }
+    #chat-send:hover { opacity:.9; }
+    #chat-send:disabled { opacity:.5; cursor:not-allowed; }
+  </style>
+
+  <div id="chat-widget">
+    <div id="chat-panel" role="dialog" aria-label="Chat with Divya's assistant">
+      <div id="chat-header">
+        <div id="chat-header-info">
+          <div id="chat-avatar">✨</div>
+          <div>
+            <h4>Ask about Divya</h4>
+            <p>Usually replies instantly</p>
+          </div>
+        </div>
+        <button id="chat-close" aria-label="Close chat">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div id="chat-messages"></div>
+      <div id="chat-footer">
+        <textarea id="chat-input" rows="1" placeholder="Ask about experience, projects…"></textarea>
+        <button id="chat-send">Send</button>
+      </div>
+    </div>
+    <button id="chat-toggle" aria-label="Open chat">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+      </svg>
+    </button>
+  </div>
+
+  <script>
+  (function() {
+    const BACKEND = 'https://your-project.vercel.app'; // ← update after Vercel deploy
+    const panel = document.getElementById('chat-panel');
+    const toggle = document.getElementById('chat-toggle');
+    const closeBtn = document.getElementById('chat-close');
+    const messagesEl = document.getElementById('chat-messages');
+    const input = document.getElementById('chat-input');
+    const sendBtn = document.getElementById('chat-send');
+    let messages = [];
+    let conversationSent = false;
+
+    function addMsg(role, text) {
+      const el = document.createElement('div');
+      el.className = 'msg ' + role;
+      el.textContent = text;
+      messagesEl.appendChild(el);
+      messagesEl.scrollTop = messagesEl.scrollHeight;
+      return el;
+    }
+
+    function openChat() {
+      panel.classList.add('open');
+      toggle.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>';
+      if (messages.length === 0) {
+        addMsg('bot', "Hi! I'm Divya's portfolio assistant. Ask me about her experience, projects, skills, or how to get in touch.");
+      }
+      input.focus();
+    }
+
+    function closeChat() {
+      panel.classList.remove('open');
+      toggle.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>';
+      if (messages.length > 1 && !conversationSent) sendTranscript();
+    }
+
+    async function sendTranscript() {
+      conversationSent = true;
+      try {
+        await fetch(BACKEND + '/api/end-conversation', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ messages })
+        });
+      } catch(e) { /* silent */ }
+    }
+
+    async function sendMessage() {
+      const text = input.value.trim();
+      if (!text) return;
+      input.value = '';
+      sendBtn.disabled = true;
+      addMsg('user', text);
+      messages.push({ role: 'user', content: text });
+
+      const typing = addMsg('bot typing', 'Thinking…');
+      try {
+        const res = await fetch(BACKEND + '/api/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ messages })
+        });
+        const data = await res.json();
+        typing.remove();
+        addMsg('bot', data.reply);
+        messages.push({ role: 'assistant', content: data.reply });
+      } catch(e) {
+        typing.remove();
+        addMsg('bot', 'Something went wrong. Please try again or email divya.kshatri@gmail.com directly.');
+      }
+      sendBtn.disabled = false;
+      input.focus();
+    }
+
+    toggle.addEventListener('click', () => panel.classList.contains('open') ? closeChat() : openChat());
+    closeBtn.addEventListener('click', closeChat);
+    sendBtn.addEventListener('click', sendMessage);
+    input.addEventListener('keydown', e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); } });
+    input.addEventListener('input', () => { input.style.height = 'auto'; input.style.height = Math.min(input.scrollHeight, 80) + 'px'; });
+  })();
+  </script>
 </body>
 </html>
- 
- 
+
