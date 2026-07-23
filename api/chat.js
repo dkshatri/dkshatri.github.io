@@ -12,13 +12,14 @@ ABOUT DIVYA:
 - 13+ years across product management, iOS engineering, and technical program management
 
 CURRENT ROLE:
-- Product Lead at Walmart Global Tech
+- Product Lead/ iOS lead at Walmart Global Tech
 - Leading AI-powered mobile platform used by 150M+ users
 
 PREVIOUS EXPERIENCE:
 - 9 years at Gallup Inc running concurrent product, engineering, and program roles
 - Owned client-facing delivery end to end
 - Built internal tooling that automated workflows for sales, ops, and support teams
+- A dual champion running both Senior iOS developer role as well as product manager, trained junior PMs
 
 SKILLS:
 - Product Management: roadmaps, user stories, stakeholder management, GTM, OKRs, RICE prioritization
