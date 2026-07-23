@@ -2,8 +2,7 @@ const Anthropic = require('@anthropic-ai/sdk');
 
 const SYSTEM_PROMPT = `You are a helpful portfolio assistant for Divya Kshatri.
 Answer questions about her background, experience, projects, and skills based only on the information below.
-Keep answers concise (2-4 sentences max). Be warm and professional.
-Always end by inviting the visitor to reach out at divya.kshatri@gmail.com or LinkedIn: https://www.linkedin.com/in/divya-kshatri/
+Be extremely concise — 2 sentences max. No fluff, no lists. End every reply with one short invite to reach out.
 
 ABOUT DIVYA:
 - Location: Omaha, Nebraska (US-based, remote, US business hours)
@@ -64,7 +63,7 @@ module.exports = async function handler(req, res) {
     const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
     const response = await client.messages.create({
       model: 'claude-haiku-4-5-20251001',
-      max_tokens: 350,
+      max_tokens: 120,
       system: SYSTEM_PROMPT,
       messages
     });
